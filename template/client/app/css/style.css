@@ -1,0 +1,26 @@
+*{
+    margin: 0 auto;
+}
+body{
+    background-color:#1976d3;
+
+}
+div.jumbotron{
+    background-color: #d9d9d9;
+    opacity: 0.9;
+    font-family: arial;
+}
+.panel-body{
+    background-color: white;
+    width: 90%;
+    color: black;
+    margin-bottom: 2%;
+    text-align: justify;
+}
+h2{
+    font-family: 'Josefin Slab';
+}
+hr{
+    width: 20%;
+    border-top: 1px solid gray;
+}
