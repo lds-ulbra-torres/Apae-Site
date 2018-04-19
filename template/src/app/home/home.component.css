@@ -1,0 +1,10 @@
+section{
+    text-align: justify;
+    font-family: Cambria;
+}
+div#panel{
+    width: 80%;
+    margin: 0 auto;
+    background-color: white;
+    padding: 1%;
+}
