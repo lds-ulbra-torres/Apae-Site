@@ -1,0 +1,6 @@
+#grad1 {
+    height: 1.5vh;
+    background: #000; /* For browsers that do not support gradients */
+    background: linear-gradient(to right, #ffdc00,  #0ab358, #ffb812, #ffb812, #0ab358, #ffdc00); /* Standard syntax (must be last) */
+}
+
