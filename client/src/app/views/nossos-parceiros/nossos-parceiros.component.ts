@@ -1,3 +1,4 @@
+import { NossosParceirosService } from './../../services/nossos-parceiros.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NossosParceirosComponent implements OnInit {
 
-  constructor() { }
+  categorias: any;
+
+  constructor(private nossosParceirosService: NossosParceirosService) { };
+
+  showConfig() {
+    this.nossosParceirosService.getConfig()
+      .subscribe(categorys => {
+        this.categorias = }
+      );
+  }
 
   ngOnInit() {
   }

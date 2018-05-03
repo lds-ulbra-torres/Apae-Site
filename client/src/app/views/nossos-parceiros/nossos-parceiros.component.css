@@ -1,0 +1,27 @@
+#titleNossosParceiros {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 6vh;
+}
+
+#hrNossosParceiros{
+    max-width: 11%;
+    margin: auto;
+    background-color: #000;
+    height: 0.3vh;
+}
+
+.flexContainer {
+    margin: auto;
+    max-width: 90%;
+    display: flex;
+    flex-flow: row wrap;
+    padding: 50px;
+}
+
+.itemContainer{
+    width: 200px;
+    height: 200px;
+    background-color: green;
+    margin: 20px;
+}
