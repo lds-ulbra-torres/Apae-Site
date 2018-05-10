@@ -4,7 +4,7 @@ import { DoeAmorService } from './../../services/doe-amor.service';
 
 @Component({
   selector: 'app-doe-amor',
-  templateUrl: './doe-amor.component.html', //fazer saída da api no template
+  templateUrl: './doe-amor.component.html', 
   styleUrls: ['./doe-amor.component.css']
 })
 export class DoeAmorComponent implements OnInit {
