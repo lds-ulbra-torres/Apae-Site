@@ -2,6 +2,7 @@ import { routing } from './app.routing';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
@@ -14,6 +15,14 @@ import { AgendaComponent } from './views/agenda/agenda.component';
 import { EventosComponent } from './views/eventos/eventos.component';
 import { FaleConoscoComponent } from './views/fale-conosco/fale-conosco.component';
 import { ColorTopComponent } from './components/color-top/color-top.component';
+import { NossosParceirosService } from './services/nossos-parceiros.service';
+import { ProcurarCategoriaPipe } from './pipes/procurar-categoria.pipe';
+import { ParceirosPorCategoriaComponent } from './views/nossos-parceiros/parceiros-por-categoria/parceiros-por-categoria.component';
+import { ParceiroDetalhesComponent } from './views/nossos-parceiros/parceiro-detalhes/parceiro-detalhes.component';
+import { AdmEventosComponent } from './adm/adm-eventos/adm-eventos.component';
+import { AdmAgendaComponent } from './adm/adm-agenda/adm-agenda.component';
+import { AdmApaeTorresComponent } from './adm/adm-apae-torres/adm-apae-torres.component';
+import { AdmDoeAmorComponent } from './adm/adm-doe-amor/adm-doe-amor.component';
 
 
 @NgModule({
@@ -27,14 +36,22 @@ import { ColorTopComponent } from './components/color-top/color-top.component';
     AgendaComponent,
     EventosComponent,
     FaleConoscoComponent,
-    ColorTopComponent
+    ColorTopComponent,
+    ProcurarCategoriaPipe,
+    ParceirosPorCategoriaComponent,
+    ParceiroDetalhesComponent,
+    AdmEventosComponent,
+    AdmAgendaComponent,
+    AdmApaeTorresComponent,
+    AdmDoeAmorComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     routing
   ],
-  providers: [],
+  providers: [NossosParceirosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

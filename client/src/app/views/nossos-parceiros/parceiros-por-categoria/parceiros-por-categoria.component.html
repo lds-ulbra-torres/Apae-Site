@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-lg-3">
+    <button class="btn" (click)="backCategorys()" id="btnVoltar">
+      <img src="../../../../assets/images/back-arrow.png" alt="" srcset="" > Voltar
+    </button>
+  </div>
+</div>
+
+<div *ngFor="let parceiro of parceiros" class="responsive"  >
+  <div class="partner">
+    <img src="http://apaetorres.org.br/doacoes//{{parceiro.photo_partner}}">
+    <div class="row desc">
+      <div class="col-8 elipsesText">{{parceiro.fantasy_name_partner}}</div>
+      <div class="col-2"><img src="../../../../assets/images/price-tag.png" alt="" srcset=""></div>
+      <div class="col-2">{{parceiro.discount_partner}}%</div>
+    </div>  
+  </div>
+</div>
+
+
+<!--div class="container text-center">
+  <div class="row">
+    <div *ngFor="let parceiro of parceiros" class="col-md-4 col-sm-6 col-11 partner">
+      <img src="http://apaetorres.org.br/doacoes//{{parceiro.photo_partner}}" alt="{{parceiro.fantasy_name_partner}}">
+      <div class="row">
+        <div class="col-9 "><br>{{parceiro.fantasy_name_partner}}</div>
+        <div class="col-3"><br>{{parceiro.discount_partner}}%</div>
+      </div>
+      
+    </div>
+  </div>
+</div-->

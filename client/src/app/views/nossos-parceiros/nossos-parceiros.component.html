@@ -1,12 +1,28 @@
-<h2 id="titleNossosParceiros">
+<!--h2 id="titleNossosParceiros">
   NOSSOS PARCEIROS
 </h2>
-<hr id="hrNossosParceiros">
+<hr id="hrNossosParceiros"-->
 
-<div class="flexContainer" >
-  <div *ngFor="let categoria of categorias" class="itemContainer" >
-    <p>{{categoria}}</p>
+<div class="row justify-content-center">
+  <div class="input-group mb-3 col-5">
+    <input type="text" class="form-control" [(ngModel)]="procuraCategoria" placeholder="Procurar categoria">
     
   </div>
-
 </div>
+<div class="container">
+  <div *ngFor="let categoria of categorias | searcher : procuraCategoria" class="responsive" >
+    <div class="gallery" (click)="consultarParceiros(categoria.id_category)">
+      <img src="http://apaetorres.org.br/doacoes{{categoria.photo_category}}" alt="{{ categoria.name_category }}">
+      <div class="titleCard">{{ categoria.name_category }}</div>
+      <div class="desc">Ver parceiros</div>
+    </div>
+  </div>
+</div>
+
+
+<!--<div class="flexContainer" >
+  <div *ngFor="let categoria of categorias" class="itemContainer">
+    <img src="http://apaetorres.org.br/doacoes{{categoria.photo_category}}" alt="" width="200px" height="200px">
+    <p>{{ categoria.name_category }}</p>
+  </div>
+</div> -->

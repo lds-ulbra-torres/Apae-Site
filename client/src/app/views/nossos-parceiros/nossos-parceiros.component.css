@@ -1,17 +1,109 @@
+.input-group{
+    margin-top: 2vh;
+}
+
 #titleNossosParceiros {
     text-align: center;
     font-weight: bold;
-    margin-top: 6vh;
+    margin-top: 4.5vh;
 }
-
 #hrNossosParceiros{
-    max-width: 11%;
+    width: 11%;
     margin: auto;
     background-color: #000;
     height: 0.3vh;
+    margin-bottom: 1.5vh;
 }
 
-.flexContainer {
+.form-control:focus{
+    border: none !important;
+    box-shadow: 0 8px 17px 2px rgba(0,0,0,0.25);
+}
+/*------------------Responsive cards----------------------*/
+.responsive {
+    padding: 0 6px;
+    float: left;
+    width: 24.99999%;
+}
+
+div.gallery {
+    border: 1px solid #ccc;
+    position: relative;
+    margin-bottom: 1vh;
+}
+
+div.gallery:hover {
+    box-shadow: 0 8px 17px 2px rgba(0,0,0,0.25);
+}
+
+div.gallery img {
+    width: 100%;
+    height: auto;
+}
+
+div.desc {
+    padding: 1vw;
+    text-align: center;
+    font-size: 1.2vw;
+    background-color: #fff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+
+.titleCard {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    text-align: center;
+    font-size: 2vw;
+}
+
+@media only screen and (max-width: 900px) {
+    .responsive {
+        width: 33%;
+        margin: 6px 0;
+    }
+    #hrNossosParceiros{
+        width: 20%;
+    }
+    .titleCard{
+        font-size: 3vw;
+    }
+    div.desc{
+        font-size: 1.9vw;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .responsive {
+        width: 49%;
+    }
+    #hrNossosParceiros{
+        width: 35%;
+    }
+    .titleCard{
+        font-size: 5vw;
+    }
+    div.desc{
+        font-size: 3.2vw;
+    }
+}
+
+#magnifier{
+    width: 40px;
+    height: 40px;
+    background-color: #212121;
+    padding: 0.8vh;
+}
+/*------------------------------------------------------------*/
+
+/*.flexContainer {
     margin: auto;
     max-width: 90%;
     display: flex;
@@ -21,7 +113,7 @@
 
 .itemContainer{
     width: 200px;
-    height: 200px;
+    height: 250px;
     background-color: green;
     margin: 20px;
-}
+}*/

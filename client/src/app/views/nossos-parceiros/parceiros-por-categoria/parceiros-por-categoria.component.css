@@ -1,0 +1,97 @@
+.col-md-4{
+    padding: 0;
+}
+
+.elipsesText{
+    white-space:nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+/*-------------------RESPONSIVE----------------*/
+.responsive {
+    float: left;
+    width: 33%;
+}
+
+div.partner {
+    background: #212121;
+    margin-left: 2%;
+    border: 1px solid #ccc;
+    position: relative;
+    margin-bottom: 1vh;
+}
+
+div.partner:hover {
+    border: 1px solid #000;
+}
+
+div.partner img {
+    width: 100%;
+    height: 10vw;
+}
+
+div.desc {
+    padding: 1.5vh;
+    background-color: #fff;
+    font-size: 1.2vw;
+}
+
+div.desc img{
+    width: 90%;
+    height: 2.2vw;
+}
+
+.row{
+    margin: 0;
+}
+
+.col-8{
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+@media only screen and (max-width: 900px) {
+    .responsive {
+        width: 49%;
+        margin: 6px 0;
+    }
+    div.partner img{
+        height: 14.5vw;
+    }
+    div.desc{
+        font-size: 1.9vw;
+    }
+    div.desc img{
+        height: 3vw;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .responsive {
+        width: 95%;
+    }
+    div.partner img{
+        height: 30vw;
+    }
+    div.desc{
+        font-size: 3.2vw;
+    }
+    div.desc img{
+        height: 6vw;
+    }
+}
+/*--------------------------------------------------*/
+
+#btnVoltar{
+    background-color: #212121;
+    color: #fff;
+    margin: 1vh;
+}
+
+#btnVoltar img{
+    width: 30px;
+    height: auto;
+}
