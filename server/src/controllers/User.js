@@ -1,3 +1,5 @@
+import responseFormat from '../helpers/response-format'
+
 class UsersController {
     
     constructor (userModel) {
@@ -5,6 +7,7 @@ class UsersController {
     }
 
     validate(req, res){
+        
         const email = req.body.email
         const password = req.body.password
         
@@ -16,13 +19,15 @@ class UsersController {
             let result = this.userModel.isPassword(user.password, password)
         
             if(result)
-                res.status(200).send(true)
+                res.status(200).json(responseFormat({},"Login efetuado com sucesso").defaultMsg())
             else
-                res.status(400).send(false)
+                res.status(400).json(responseFormat({},"Email ou Senha inválida").defaultMsg())
         
-        }).catch(error => res.status(412).json({    
-            msg: error.message
-        }))
+        }).catch(error => {
+            
+            res.status(412).json(responseFormat(error).erroMsg())
+        
+        })
     }
 }
 export default UsersController

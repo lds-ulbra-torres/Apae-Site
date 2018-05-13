@@ -1,4 +1,7 @@
 import UsersController from '../controllers/User'
+import multer from 'multer'
+
+const formData = multer().any()
 
 export default app => {
     //Load Model
@@ -7,7 +10,9 @@ export default app => {
     let controller = new UsersController(model)
 
     app.route('/auth')
-    .get((req, res) =>{
+    .post(formData,(req, res) =>{
+
         return controller.validate(req, res)
+    
     })
 }
