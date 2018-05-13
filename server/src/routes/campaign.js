@@ -1,8 +1,9 @@
 import CampaignsController from '../controllers/Campaign'
 import multer from 'multer'
+import path from 'path'
 
 const storage = multer.diskStorage({
-    destination : (req, file, cb) => cb(null, '/Users/progr/Documents/Apae-Site/server/uploads/'),
+    destination : (req, file, cb) => cb(null, path.join(__dirname, '../../uploads')),
     filename : (req, file, cb) => cb(null, `${Date.now()}-${file.originalname}`)    
 })
 const upload = multer({storage})
