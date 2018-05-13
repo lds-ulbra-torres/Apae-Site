@@ -1,0 +1,376 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "API Site APAE"
+  },
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/campaign": {
+      "post": {
+        "tags": [
+          "campaign"
+        ],
+        "summary": "Add a new campaign",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "description",
+            "type": "string",
+            "description": "Campaign description",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "logotipo",
+            "type": "file",
+            "description": "Campaign logo",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "how_works",
+            "type": "string",
+            "description": "How works",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "how_pay",
+            "type": "string",
+            "description": "How pay",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "imagem_promo",
+            "type": "file",
+            "description": "Promotional imagem",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "hashtag",
+            "type": "string",
+            "description": "Hashtag",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "facebook_page",
+            "type": "string",
+            "description": "Facebook page link",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "integer",
+                  "example": 200
+                },
+                "msg": {
+                  "type": "string",
+                  "example": "Campanha criada com sucesso"
+                },
+                "obj": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "All fields are required",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "integer",
+                  "example": 400
+                },
+                "msg": {
+                  "type": "string",
+                  "example": "description notNull Violation"
+                },
+                "obj": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "campaign"
+        ],
+        "summary": "Return campaign active",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "integer",
+                  "example": 200
+                },
+                "msg": {
+                  "type": "string",
+                  "example": "ok"
+                },
+                "obj": {
+                  "type": "object",
+                  "properties": {
+                    "decription": {
+                      "type": "string",
+                      "example": "Description"
+                    },
+                    "logotipo": {
+                      "type": "string",
+                      "example": "Image location"
+                    },
+                    "how_works": {
+                      "type": "string",
+                      "example": "How Works"
+                    },
+                    "how_pay": {
+                      "type": "string",
+                      "example": "How Pay"
+                    },
+                    "imagem_promo": {
+                      "type": "string",
+                      "example": "Image location"
+                    },
+                    "hashtag": {
+                      "type": "string",
+                      "example": "HashTag"
+                    },
+                    "facebook_page": {
+                      "type": "string",
+                      "example": "Facebook page link"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/campaign/{id}": {
+      "put": {
+        "tags": [
+          "campaign"
+        ],
+        "summary": "Update campaign with id passed by parameter",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string",
+            "description": "Campaign id",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "description",
+            "type": "string",
+            "description": "Campaign description"
+          },
+          {
+            "in": "formData",
+            "name": "logotipo",
+            "type": "file",
+            "description": "Campaign logo"
+          },
+          {
+            "in": "formData",
+            "name": "how_works",
+            "type": "string",
+            "description": "How works"
+          },
+          {
+            "in": "formData",
+            "name": "how_pay",
+            "type": "string",
+            "description": "How pay"
+          },
+          {
+            "in": "formData",
+            "name": "imagem_promo",
+            "type": "file",
+            "description": "Promotional imagem"
+          },
+          {
+            "in": "formData",
+            "name": "hashtag",
+            "type": "string",
+            "description": "Hashtag"
+          },
+          {
+            "in": "formData",
+            "name": "facebook_page",
+            "type": "string",
+            "description": "Facebook page link"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "integer",
+                  "example": 200
+                },
+                "msg": {
+                  "type": "string",
+                  "example": "Campanha atualizada com sucesso"
+                },
+                "obj": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "campaign"
+        ],
+        "summary": "Delete the campaign referring to the id passed by parameter",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Reference id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "integer",
+                  "example": 200
+                },
+                "msg": {
+                  "type": "string",
+                  "example": "Camapanha deletada com sucesso"
+                },
+                "obj": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Get user by user name",
+        "description": "",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "email",
+            "type": "string",
+            "description": "User email",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "password",
+            "type": "string",
+            "description": "User password",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "integer",
+                  "example": 200
+                },
+                "msg": {
+                  "type": "string",
+                  "example": "Login efetuado com sucesso"
+                },
+                "obj": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalided",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "integer",
+                  "example": 400
+                },
+                "msg": {
+                  "type": "string",
+                  "example": "Email ou Senha inválida"
+                },
+                "obj": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
