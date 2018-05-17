@@ -19,10 +19,15 @@ import { NossosParceirosService } from './services/nossos-parceiros.service';
 import { ProcurarCategoriaPipe } from './pipes/procurar-categoria.pipe';
 import { ParceirosPorCategoriaComponent } from './views/nossos-parceiros/parceiros-por-categoria/parceiros-por-categoria.component';
 import { ParceiroDetalhesComponent } from './views/nossos-parceiros/parceiro-detalhes/parceiro-detalhes.component';
-import { AdmEventosComponent } from './adm/adm-eventos/adm-eventos.component';
-import { AdmAgendaComponent } from './adm/adm-agenda/adm-agenda.component';
-import { AdmApaeTorresComponent } from './adm/adm-apae-torres/adm-apae-torres.component';
-import { AdmDoeAmorComponent } from './adm/adm-doe-amor/adm-doe-amor.component';
+import { SiteComponent } from './views/site/site.component';
+import { LoginComponent } from './views/login/login.component';
+import { HomeAdministradorComponent } from './views/home-administrador/home-administrador.component';
+import { AdmEventosComponent } from './views/adm/adm-eventos/adm-eventos.component';
+import { AdmApaeTorresComponent } from './views/adm/adm-apae-torres/adm-apae-torres.component';
+import { AdmAgendaComponent } from './views/adm/adm-agenda/adm-agenda.component';
+import { AdmDoeAmorComponent } from './views/adm/adm-doe-amor/adm-doe-amor.component';
+import { AdmComponent } from './views/adm/adm.component';
+import { EventoDetalheComponent } from './views/eventos/evento-detalhe/evento-detalhe.component';
 
 
 @NgModule({
@@ -43,7 +48,12 @@ import { AdmDoeAmorComponent } from './adm/adm-doe-amor/adm-doe-amor.component';
     AdmEventosComponent,
     AdmAgendaComponent,
     AdmApaeTorresComponent,
-    AdmDoeAmorComponent
+    AdmDoeAmorComponent,
+    SiteComponent,
+    LoginComponent,
+    HomeAdministradorComponent,
+    AdmComponent,
+    EventoDetalheComponent
   ],
   imports: [
     BrowserModule,

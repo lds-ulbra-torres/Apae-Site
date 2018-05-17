@@ -1,18 +1,8 @@
 .input-group{
     margin-top: 2vh;
 }
-
-#titleNossosParceiros {
-    text-align: center;
-    font-weight: bold;
-    margin-top: 4.5vh;
-}
-#hrNossosParceiros{
-    width: 11%;
-    margin: auto;
-    background-color: #000;
-    height: 0.3vh;
-    margin-bottom: 1.5vh;
+::placeholder{
+    color: #b6b6b6;
 }
 
 .form-control:focus{

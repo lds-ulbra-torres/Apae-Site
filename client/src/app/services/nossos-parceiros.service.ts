@@ -3,18 +3,16 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class NossosParceirosService {
-  API_URL = 'http://apaetorres.org.br/doacoes/api/category';
-  API_PARCEIROS = 'http://apaetorres.org.br/doacoes/api/partnerByCategory/'
-  //private categorias = null;
+  API_URL = 'http://apaetorres.org.br/doacoes/api/';
 
   constructor(private http: HttpClient) { }
 
   getAll() {
-    return this.http.get(this.API_URL);
+    return this.http.get(this.API_URL + "category");
   }
 
   getPartners(idCategory: number) {
-    return this.http.get(this.API_PARCEIROS + idCategory);
+    return this.http.get(this.API_URL + "partnerByCategory/" + idCategory);
   }
 
 }
