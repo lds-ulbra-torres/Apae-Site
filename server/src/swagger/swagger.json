@@ -86,13 +86,43 @@
                   "example": "Campanha criada com sucesso"
                 },
                 "obj": {
-                  "type": "object"
+                  "type": "object",
+                  "properties": {
+                    "decription": {
+                      "type": "string",
+                      "example": "Description"
+                    },
+                    "logotipo": {
+                      "type": "string",
+                      "example": "/uploads/526389803102-0.jpg"
+                    },
+                    "how_works": {
+                      "type": "string",
+                      "example": "How Works"
+                    },
+                    "how_pay": {
+                      "type": "string",
+                      "example": "How Pay"
+                    },
+                    "imagem_promo": {
+                      "type": "string",
+                      "example": "/uploads/526389803102-0.jpg"
+                    },
+                    "hashtag": {
+                      "type": "string",
+                      "example": "HashTag"
+                    },
+                    "facebook_page": {
+                      "type": "string",
+                      "example": "Facebook page link"
+                    }
+                  }
                 }
               }
             }
           },
           "400": {
-            "description": "All fields are required",
+            "description": "Bad Request",
             "schema": {
               "type": "object",
               "properties": {
@@ -143,7 +173,7 @@
                     },
                     "logotipo": {
                       "type": "string",
-                      "example": "Image location"
+                      "example": "/uploads/526389803102-0.jpg"
                     },
                     "how_works": {
                       "type": "string",
@@ -155,7 +185,7 @@
                     },
                     "imagem_promo": {
                       "type": "string",
-                      "example": "Image location"
+                      "example": "/uploads/526389803102-0.jpg"
                     },
                     "hashtag": {
                       "type": "string",
@@ -251,7 +281,11 @@
                   "example": "Campanha atualizada com sucesso"
                 },
                 "obj": {
-                  "type": "object"
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "example": 1
+                  }
                 }
               }
             }
@@ -301,13 +335,387 @@
         }
       }
     },
+    "/event": {
+      "post": {
+        "tags": [
+          "event"
+        ],
+        "summary": "Add a new event",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "title",
+            "type": "string",
+            "description": "Event name",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "description",
+            "type": "string",
+            "description": "Event description",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "main_photo",
+            "type": "file",
+            "description": "Event main photo",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "photos",
+            "description": "Photos of the event",
+            "type": "array",
+            "items": {
+              "type": "file"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "integer",
+                  "example": 200
+                },
+                "msg": {
+                  "type": "string",
+                  "example": "Evento criado com sucesso"
+                },
+                "obj": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "example": "Event name"
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Event descripton"
+                    },
+                    "main_photo": {
+                      "type": "string",
+                      "example": "Event main photo"
+                    },
+                    "EventPhotos": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer"
+                          },
+                          "url": {
+                            "type": "string",
+                            "example": "/uploads/526389803102-0.jpg"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "integer",
+                  "example": 400
+                },
+                "msg": {
+                  "type": "string",
+                  "example": "description notNull Violation"
+                },
+                "obj": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/events": {
+      "get": {
+        "tags": [
+          "event"
+        ],
+        "summary": "Get all the events",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "integer",
+                  "example": 200
+                },
+                "msg": {
+                  "type": "string",
+                  "example": "Evento criado com sucesso"
+                },
+                "obj": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "example": 0
+                      },
+                      "title": {
+                        "type": "string",
+                        "example": "Event title"
+                      },
+                      "description": {
+                        "type": "string",
+                        "example": "Event descripton"
+                      },
+                      "main_photo": {
+                        "type": "string",
+                        "example": "/uploads/526389803102-1.jpg"
+                      },
+                      "EventPhotos": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "integer"
+                            },
+                            "url": {
+                              "type": "string",
+                              "example": "/uploads/526389803102-0.jpg"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/event/{id}": {
+      "get": {
+        "tags": [
+          "event"
+        ],
+        "summary": "Event by id",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string",
+            "description": "Event id",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "integer",
+                  "example": 200
+                },
+                "msg": {
+                  "type": "string",
+                  "example": "Evento criado com sucesso"
+                },
+                "obj": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "example": 0
+                    },
+                    "title": {
+                      "type": "string",
+                      "example": "Event title"
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Event descripton"
+                    },
+                    "main_photo": {
+                      "type": "string",
+                      "example": "/uploads/526389803102-1.jpg"
+                    },
+                    "EventPhotos": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer"
+                          },
+                          "url": {
+                            "type": "string",
+                            "example": "/uploads/526389803102-0.jpg"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "event"
+        ],
+        "summary": "Update event with id passed by parameter",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string",
+            "description": "Event id",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "title",
+            "type": "string",
+            "description": "Event name"
+          },
+          {
+            "in": "formData",
+            "name": "description",
+            "type": "string",
+            "description": "Event description"
+          },
+          {
+            "in": "formData",
+            "name": "main_photo",
+            "type": "file",
+            "description": "Event main photo"
+          },
+          {
+            "in": "formData",
+            "name": "photos",
+            "description": "Photos to add to the event",
+            "type": "array",
+            "items": {
+              "type": "file"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "photos_deletada",
+            "description": "Photo id array to be deleted",
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "integer",
+                  "example": 200
+                },
+                "msg": {
+                  "type": "string",
+                  "example": "Evento atualizado com sucesso"
+                },
+                "obj": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "example": 1
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "event"
+        ],
+        "summary": "Delete the campaign referring to the id passed by parameter",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string",
+            "description": "Event id",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "integer",
+                  "example": 200
+                },
+                "msg": {
+                  "type": "string",
+                  "example": "Evento deletado com sucesso"
+                },
+                "obj": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/auth": {
       "post": {
         "tags": [
           "user"
         ],
         "summary": "Get user by user name",
-        "description": "",
         "consumes": [
           "multipart/form-data"
         ],
@@ -351,7 +759,7 @@
             }
           },
           "400": {
-            "description": "Invalided",
+            "description": "Bad Request",
             "schema": {
               "type": "object",
               "properties": {

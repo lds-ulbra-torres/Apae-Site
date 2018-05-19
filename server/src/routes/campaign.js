@@ -1,6 +1,7 @@
 import CampaignsController from '../controllers/Campaign'
 import multer from 'multer'
 import path from 'path'
+import cors from 'cors'
 
 const storage = multer.diskStorage({
     destination : (req, file, cb) => cb(null, path.join(__dirname, '../../uploads')),
@@ -14,6 +15,8 @@ export default app => {
     let model = app.datasource.models.Campaigns
     //Load Controller
     let campaignsController = new CampaignsController(model)
+
+    app.use(cors())
     
     app.route('/campaign')
     .get( (req, res) => campaignsController.get(req, res) )

@@ -1,5 +1,7 @@
+import fs from 'fs'
+
 export default (sequelize, DataType) => { 
-  const Product = sequelize.define('Campaigns', {
+  const Campaigns = sequelize.define('Campaigns', {
     description: {
       type: DataType.STRING,
       allowNull: false,
@@ -56,6 +58,27 @@ export default (sequelize, DataType) => {
         notEmpty: true
       }
     },
-  });
-  return Product
+  })
+  Campaigns.logotipoDelete = (id, next)  => {  
+      Campaigns.findOne({where : {id }, attributes: ['logotipo']})
+      .then(response => fs.unlink(response.logotipo, res =>{
+        if(next)
+          next()
+      }))    
+  }
+  Campaigns.imagem_promoDelete = (id, next)  => {  
+    Campaigns.findOne({where : {id }, attributes: ['imagem_promo']})
+    .then(response => fs.unlink(response.imagem_promo, res => {
+      if(next)
+          next()
+    }))    
+  }
+  Campaigns.imagensDelete = (id, next)  => {  
+    Campaigns.logotipoDelete(id, ()=> {
+      Campaigns.imagem_promoDelete(id, () => {
+        next()
+      })
+    })
+  }
+  return Campaigns
 }
