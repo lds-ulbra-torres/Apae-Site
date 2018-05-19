@@ -81,7 +81,7 @@ class CampaignController {
                     fs.unlink(req.files.logotipo[0].path, () => console.log(req.files.logotipo[0].path))
                 if(!isNullOrUndefined(req.files.imagem_promo))
                       fs.unlink(req.files.imagem_promo[0].path, () => console.log(req.files.imagem_promo[0].path))
-                res.status(400).json(responseFormat({},"Campanha inexistente").inexistentMsg())
+                res.status(400).json(responseFormat({},"Esta campanha não está registrada").inexistentMsg())
             }
         })
     }
@@ -105,7 +105,7 @@ class CampaignController {
                     })
                 })
             }else{
-                res.status(400).json(responseFormat({},"Campanha inexistente").inexistentMsg())
+                res.status(400).json(responseFormat({},"Esta campanha não está registrada").inexistentMsg())
             }
         })
     }

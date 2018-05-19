@@ -57,7 +57,11 @@ export default (sequelize, DataType) => {
       validate: {
         notEmpty: true
       }
-    },
+    }
+  },
+  {
+    createdAt: false,
+    updatedAt: false
   })
   Campaigns.logotipoDelete = (id, next)  => {  
       Campaigns.findOne({where : {id }, attributes: ['logotipo']})

@@ -1,5 +1,5 @@
 import responseFormat from '../helpers/response-format' 
-import isNullOrUndefined from 'util'
+import {isNullOrUndefined} from 'util'
 import Sequelize from 'sequelize'
 import fs from 'fs'
 
@@ -94,7 +94,7 @@ class EventController {
                 if(!isNullOrUndefined(req.files.main_photo))
                     fs.unlink(req.files.main_photo[0].path, () => console.log(req.files.main_photo[0].path))
 
-                res.status(400).json(responseFormat({},"Evento inexitente").inexistentMsg())
+                res.status(400).json(responseFormat({},"Este evento não está registrado").inexistentMsg())
             }
         }).catch(error => {
             res.status(400).json(responseFormat(error).erroMsg())
@@ -118,7 +118,7 @@ class EventController {
                     })
                 })
             }else{
-                res.status(400).json(responseFormat({},"Evento inexistente").inexistentMsg())
+                res.status(400).json(responseFormat({},"Este evento não está registrado").inexistentMsg())
             }
         })    
         

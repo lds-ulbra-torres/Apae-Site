@@ -88,7 +88,11 @@
                 "obj": {
                   "type": "object",
                   "properties": {
-                    "decription": {
+                    "id": {
+                      "type": "integer",
+                      "example": 1
+                    },
+                    "description": {
                       "type": "string",
                       "example": "Description"
                     },
@@ -167,7 +171,11 @@
                 "obj": {
                   "type": "object",
                   "properties": {
-                    "decription": {
+                    "id": {
+                      "type": "integer",
+                      "example": 1
+                    },
+                    "description": {
                       "type": "string",
                       "example": "Description"
                     },
@@ -289,6 +297,25 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "integer",
+                  "example": 400
+                },
+                "msg": {
+                  "type": "string",
+                  "example": "Esta campanha não está registrada"
+                },
+                "obj": {
+                  "type": "object"
+                }
+              }
+            }
           }
         }
       },
@@ -327,7 +354,31 @@
                   "example": "Camapanha deletada com sucesso"
                 },
                 "obj": {
-                  "type": "object"
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "example": 1
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "integer",
+                  "example": 400
+                },
+                "msg": {
+                  "type": "string",
+                  "example": "Esta campanha não está registrada"
+                },
+                "obj": {
+                  "type": "integer",
+                  "example": 1
                 }
               }
             }
@@ -396,6 +447,10 @@
                 "obj": {
                   "type": "object",
                   "properties": {
+                    "id": {
+                      "type": "integer",
+                      "example": 1
+                    },
                     "name": {
                       "type": "string",
                       "example": "Event name"
@@ -455,7 +510,7 @@
         "tags": [
           "event"
         ],
-        "summary": "Get all the events",
+        "summary": "Return all the events",
         "consumes": [
           "multipart/form-data"
         ],
@@ -480,7 +535,7 @@
                     "properties": {
                       "id": {
                         "type": "integer",
-                        "example": 0
+                        "example": 1
                       },
                       "title": {
                         "type": "string",
@@ -523,7 +578,7 @@
         "tags": [
           "event"
         ],
-        "summary": "Event by id",
+        "summary": "Return event by id",
         "consumes": [
           "multipart/form-data"
         ],
@@ -555,7 +610,7 @@
                   "properties": {
                     "id": {
                       "type": "integer",
-                      "example": 0
+                      "example": 1
                     },
                     "title": {
                       "type": "string",
@@ -575,7 +630,8 @@
                         "type": "object",
                         "properties": {
                           "id": {
-                            "type": "integer"
+                            "type": "integer",
+                            "example": 1
                           },
                           "url": {
                             "type": "string",
@@ -585,6 +641,25 @@
                       }
                     }
                   }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "integer",
+                  "example": 400
+                },
+                "msg": {
+                  "type": "string",
+                  "example": "Este evento não está registrado"
+                },
+                "obj": {
+                  "type": "object"
                 }
               }
             }
@@ -667,6 +742,25 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "integer",
+                  "example": 400
+                },
+                "msg": {
+                  "type": "string",
+                  "example": "Este evento não está registrado"
+                },
+                "obj": {
+                  "type": "object"
+                }
+              }
+            }
           }
         }
       },
@@ -700,6 +794,389 @@
                 "msg": {
                   "type": "string",
                   "example": "Evento deletado com sucesso"
+                },
+                "obj": {
+                  "type": "integer",
+                  "example": 1
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "integer",
+                  "example": 400
+                },
+                "msg": {
+                  "type": "string",
+                  "example": "Este evento não está registrado"
+                },
+                "obj": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/schedule": {
+      "post": {
+        "tags": [
+          "schedule"
+        ],
+        "summary": "Add a new schedule",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "description",
+            "type": "string",
+            "description": "Campaign description",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "date",
+            "type": "string",
+            "description": "18/11/2019",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "hour",
+            "type": "string",
+            "description": "12:15:01",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "integer",
+                  "example": 200
+                },
+                "msg": {
+                  "type": "string",
+                  "example": "Compromisso criado com sucesso"
+                },
+                "obj": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "example": 1
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Description"
+                    },
+                    "date": {
+                      "type": "string",
+                      "example": "18/11/2019"
+                    },
+                    "hour": {
+                      "type": "string",
+                      "example": "12:15:01"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "integer",
+                  "example": 400
+                },
+                "msg": {
+                  "type": "string",
+                  "example": "description notNull Violation"
+                },
+                "obj": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "schedule"
+        ],
+        "summary": "Return all the schedule",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "integer",
+                  "example": 200
+                },
+                "msg": {
+                  "type": "string",
+                  "example": "ok"
+                },
+                "obj": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "example": 1
+                      },
+                      "description": {
+                        "type": "string",
+                        "example": "Description"
+                      },
+                      "date": {
+                        "type": "string",
+                        "example": "18/11/2019"
+                      },
+                      "hour": {
+                        "type": "string",
+                        "example": "12:15:01"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/schedule/{id}": {
+      "get": {
+        "tags": [
+          "schedule"
+        ],
+        "summary": "Return schedule by id",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "description": "Schedule id",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "integer",
+                  "example": 200
+                },
+                "msg": {
+                  "type": "string",
+                  "example": "ok"
+                },
+                "obj": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "example": 1
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "Description"
+                    },
+                    "date": {
+                      "type": "string",
+                      "example": "18/11/2019"
+                    },
+                    "hour": {
+                      "type": "string",
+                      "example": "12:15:01"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "integer",
+                  "example": 400
+                },
+                "msg": {
+                  "type": "string",
+                  "example": "Este compromisso não está registrado"
+                },
+                "obj": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "schedule"
+        ],
+        "summary": "Update schedule with id passed by parameter",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "description": "Schedule id",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "description",
+            "type": "string",
+            "description": "Schedule description"
+          },
+          {
+            "in": "formData",
+            "name": "date",
+            "type": "string",
+            "description": "Schedule date"
+          },
+          {
+            "in": "formData",
+            "name": "hour",
+            "type": "string",
+            "description": "Schedule hour"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "integer",
+                  "example": 200
+                },
+                "msg": {
+                  "type": "string",
+                  "example": "Compromisso atualizado com sucesso"
+                },
+                "obj": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "example": 1
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "integer",
+                  "example": 400
+                },
+                "msg": {
+                  "type": "string",
+                  "example": "Este compromisso não está registrado"
+                },
+                "obj": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "schedule"
+        ],
+        "summary": "Delete the schedule referring to the id passed by parameter",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "integer",
+            "description": "Schedule id",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "integer",
+                  "example": 200
+                },
+                "msg": {
+                  "type": "string",
+                  "example": "Compromisso deletado com sucesso"
+                },
+                "obj": {
+                  "type": "string",
+                  "example": 1
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "integer",
+                  "example": 400
+                },
+                "msg": {
+                  "type": "string",
+                  "example": "Este compromisso não está registrado"
                 },
                 "obj": {
                   "type": "object"

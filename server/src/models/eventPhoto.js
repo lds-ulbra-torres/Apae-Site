@@ -9,6 +9,10 @@ export default (sequelize, DataType) => {
             notEmpty: true
           }
         }
+      },
+      {
+        createdAt: false,
+        updatedAt: false
       })
     EventPhotos.photosCreate = (id, req) => {
         

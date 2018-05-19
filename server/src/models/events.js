@@ -9,7 +9,7 @@ export default (sequelize, DataType) => {
       }
     },
     description: {
-      type: DataType.STRING,
+      type: DataType.TEXT,
       allowNull: false,
       validate: {
         notEmpty: true
@@ -22,6 +22,10 @@ export default (sequelize, DataType) => {
         notEmpty: true
       }
     }
+  },
+  {
+    createdAt: false,
+    updatedAt: false
   })
   Events.hasMany(sequelize.models.EventPhotos)
   Events.events = () => {
