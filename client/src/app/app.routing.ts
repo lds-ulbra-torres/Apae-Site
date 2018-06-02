@@ -1,3 +1,4 @@
+import { EventoDetalheComponent } from './views/eventos/evento-detalhe/evento-detalhe.component';
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -21,6 +22,7 @@ const APP_ROUTES: Routes = [
         { path: 'apae-torres', component: ApaeTorresComponent },
         { path: 'doe-amor', component: DoeAmorComponent },
         { path: 'eventos', component: EventosComponent },
+        { path: 'eventos/evento-detalhe/:id', component: EventoDetalheComponent },
         { path: 'fale-conosco', component: FaleConoscoComponent },
         { path: 'nossos-parceiros', component: NossosParceirosComponent },
         { path: 'nossos-parceiros/categoria', component: ParceirosPorCategoriaComponent },

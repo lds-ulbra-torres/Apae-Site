@@ -1,3 +1,32 @@
-<p>
-  evento-detalhe works!
-</p>
+<div id="mainPhoto" [style.background-image]="'url('+evento.fotoPrincipal+')'">
+</div>
+<div class="container">
+    <div id="eventDescription">
+        <h2 id="titleEvent">{{evento.titulo}}</h2>
+        <hr id="hrTitleEvent">
+
+        <p class="text-justify">{{evento.descricao}}</p>
+    </div>
+</div>
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li *ngFor="let foto of evento.outrasFotos; index as i" data-target="#carouselExampleIndicators" data-slide-to="i" [ngClass]="{'active': evento.id===0 }" ></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item" *ngFor="let foto of evento.outrasFotos" [ngClass]="{'active': foto.id===0 }">
+      <img class="d-block m-auto" src="{{foto.foto}}" alt="First slide">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <div class="arrowCarousel">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </div>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <div class="arrowCarousel">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </div>
+  </a>
+</div>

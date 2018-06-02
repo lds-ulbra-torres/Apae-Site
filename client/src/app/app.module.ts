@@ -28,6 +28,7 @@ import { AdmAgendaComponent } from './views/adm/adm-agenda/adm-agenda.component'
 import { AdmDoeAmorComponent } from './views/adm/adm-doe-amor/adm-doe-amor.component';
 import { AdmComponent } from './views/adm/adm.component';
 import { EventoDetalheComponent } from './views/eventos/evento-detalhe/evento-detalhe.component';
+import { EventosService } from './services/eventos.service';
 
 
 @NgModule({
@@ -61,7 +62,7 @@ import { EventoDetalheComponent } from './views/eventos/evento-detalhe/evento-de
     FormsModule,
     routing
   ],
-  providers: [NossosParceirosService],
+  providers: [NossosParceirosService, EventosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

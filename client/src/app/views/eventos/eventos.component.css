@@ -1,0 +1,35 @@
+.arrowCarousel{
+    background-color: #000;
+    width: 6.5vw;
+    height: 10.5vw;
+    padding-top: 2.75vw;
+}
+
+.textEllipsis{
+    white-space:nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 50ch;
+    margin: auto;
+}
+
+.carousel{
+    margin-bottom: 1vw;
+    margin-top: 1vw;
+}
+
+.carousel-control-prev-icon{
+    background-image: url("../../../assets/images/back.png");
+    width: 5vw;
+    height: 5vw;
+}
+
+.carousel-control-next-icon{
+    background-image: url("../../../assets/images/right-arrow.png");
+    width: 5vw;
+    height: 5vw;
+}
+
+img{
+    max-height: 38vw;
+}

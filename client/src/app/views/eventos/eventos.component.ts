@@ -1,4 +1,7 @@
+import { IEvents } from './../../../domain/interfaces/IEvents';
 import { Component, OnInit } from '@angular/core';
+
+import { EventosService } from './../../services/eventos.service';
 
 @Component({
   selector: 'app-eventos',
@@ -7,7 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventosComponent implements OnInit {
 
-  constructor() { }
+  eventos: IEvents[];
+  first: boolean;
+
+  constructor(_eventosService: EventosService) {
+    this.eventos = _eventosService.getAll()  
+  }
 
   ngOnInit() {
   }
