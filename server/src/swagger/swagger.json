@@ -1187,6 +1187,113 @@
         }
       }
     },
+    "/about": {
+      "get": {
+        "tags": [
+          "about"
+        ],
+        "summary": "Return the about",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "integer",
+                  "example": 200
+                },
+                "msg": {
+                  "type": "string",
+                  "example": "Sobre a APAE"
+                },
+                "obj": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "example": 1
+                      },
+                      "description": {
+                        "type": "string",
+                        "example": "About descripton"
+                      },
+                      "how_work": {
+                        "type": "string",
+                        "example": "How it Works title"
+                      },
+                      "main_photo": {
+                        "type": "string",
+                        "example": "/uploads/526389803102-1.jpg"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "about"
+        ],
+        "summary": "Update about",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "description",
+            "type": "string",
+            "description": "About description"
+          },
+          {
+            "in": "formData",
+            "name": "how_work",
+            "type": "string",
+            "description": "About how works"
+          },
+          {
+            "in": "formData",
+            "name": "main_photo",
+            "type": "file",
+            "description": "About main photo"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "integer",
+                  "example": 200
+                },
+                "msg": {
+                  "type": "string",
+                  "example": "Sobre atualizado com sucesso"
+                },
+                "obj": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "example": 1
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/auth": {
       "post": {
         "tags": [
