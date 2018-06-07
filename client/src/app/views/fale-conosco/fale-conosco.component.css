@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+.container{
+    background-color: #ffffff;
+
+}
+@media only screen and (min-width: 600px) and (max-width: 767px) and (orientation: portrait){
+    .container{
+        height: 100vh;
+    }
+}
+@media(min-width: 768px) and (orientation: portrait){
+    .container{
+        height: 100vh;
+    }
+}
+@media only screen and (min-width: 992px) and (max-width: 1199.98px){
+    .container{
+        height: 100vh;
+    }
+}
+@media only screen and (min-width: 1200px) and (orientation: landscape){
+    .container{
+        height: 100vh;
+    }
+}
+h2{
+    text-align: center;
+    padding-top: 4.5vh;
+    color: #60ac5a;
+}
+hr{
+    width: 15%;
+    margin: auto;
+    border: solid 0.1vh  #60ac5a;
+    
+}
+
+img{
+    width: 9%;
+    height: auto;
+}
+button{
+    background-color: #60ac5a;
+    color: white;
+    
+}
+div.row{
+    font-family: 'Montserrat', sans-serif;
+}
+textarea{
+    resize: none;
+}
+.ng-invalid.ng-touched:not(form){
+    border: 1px solid red;
+}
+.warning{
+    color: red;
+    font-size: 9pt;
+}
+.input{
+    margin-bottom:0;
+}

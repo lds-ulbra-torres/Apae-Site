@@ -2,7 +2,7 @@ div.container{
     background-color: #ffffff;
     text-align: justify;
 }
-@media (max-width: 768px){
+@media only screen and (max-width: 768px){
     [class*="col-"] {
         width: 100%;
     }
@@ -13,12 +13,12 @@ div.container{
     }
     
 }**/
-@media (min-width: 992px) and (max-width: 1199.98px){
+@media only screen and (min-width: 992px) and (max-width: 1199.98px){
     .container{
         height: 100vh;
     }
 }
-@media (min-width: 1200px) and (orientation: landscape){
+@media only screen and (min-width: 1200px) and (orientation: landscape){
     .container{
         height: 100vh;
     }
@@ -47,4 +47,15 @@ i{
     float: right;
     color:  #cc0000;
 }
+.btn-lg{
+    background-color: #cc0000;
+    color: white;
+    
+}
+textarea{
+    resize: none;
+    width: 100%;
+    
+}
+
 

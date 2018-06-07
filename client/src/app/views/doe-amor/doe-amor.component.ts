@@ -9,7 +9,12 @@ import { DoeAmorService } from './../../services/doe-amor.service';
 })
 export class DoeAmorComponent implements OnInit {
 
-  campanha: Array<any>; 
+  campanha: any; 
+
+  enviarMensagem: boolean = false;
+  serAssociado: boolean = false;
+
+
 
   constructor(private doeAmorService: DoeAmorService) { }
 
@@ -18,8 +23,25 @@ export class DoeAmorComponent implements OnInit {
   }
 
   getData(){
-    this.doeAmorService.getData().subscribe(dados => this.campanha = dados);
+    this.doeAmorService.getData().subscribe((dados) => {
+      this.campanha = dados;
+    });
   }
 
+  onEnviarMensagem(){
+    this.enviarMensagem = !this.enviarMensagem;
+  }
+
+  onBackM(){
+    this.enviarMensagem = !this.enviarMensagem;
+  }
+
+  onSerAssociado(){
+    this.serAssociado = !this.serAssociado;
+  }
+
+  onBackA(){
+    this.serAssociado = !this.serAssociado;
+  }
 }
 

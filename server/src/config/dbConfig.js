@@ -1,6 +1,6 @@
 export default {
     username:'root',
-    database:'apae_doacoes',
+    database:'apae_dev',
     password:'', 
     params:{
       dialect: 'mysql',

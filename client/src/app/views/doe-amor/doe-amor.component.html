@@ -1,48 +1,88 @@
-<div class="container-fluid" style="background-color: #ffffff">
+<div class="container-fluid" *ngIf="campanha" style="background-color: #ffffff">
   <div class="container">
+    <div class="row py-5" >
 
-    <div class="row pt-5">
-
-      <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
-        
-          <img class="img-fluid pb-3" src="../../../assets/logo.png">
-        
-            <img id="fblogo" class="offset-lg-2 pb-3" src="../../../assets/facebook-logotipo.png"><span> /#doeamor2018</span>
-      </div>
-      <div class="col-md-9 col-lg-9 col-sm-12 col-xs-12">
-        <p>A APAE de Torres, com o objetivo de ampliar seu quadro de associados, está lançando a Campanha de Sócios #DOEAMOR, a fim de angariar recursos para custear as despesas e realizar projetos da APAE em prol da clientela portadora de deficiência intelectual e múltipla.</p>
-        
-        <button type="button" data-toggle="collapse" class="btn-block py-2" data-target="#comofunciona">Como funciona<i class="fa fa-caret-down"></i></button>
-        <div id="comofunciona" class="collapse">
-          <p class="pt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt metus vel felis interdum porttitor. Integer interdum lobortis ex vel rhoncus. Donec pharetra metus sit amet tincidunt porttitor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam quam turpis, vulputate at nisi non, elementum aliquet est. Integer rutrum id ipsum nec mattis. Fusce maximus nibh sed vestibulum iaculis. Integer rutrum ullamcorper leo vel accumsan. In non purus fermentum, sollicitudin ante quis, pharetra metus. Duis vestibulum cursus massa, non ultricies nibh lobortis nec. Suspendisse mauris urna, congue eget nunc vitae, posuere rutrum dolor.</p>
+        <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
+            <img class="img-fluid pb-3" src="../../../assets/logo.png">
+            <p><a href="{{campanha.facebook_page}}"><img id="fblogo" class="offset-lg-2 pb-3" src="../../../assets/facebook-logotipo.png"></a><span> / {{campanha.hashtag}}</span></p>
+            <img class="img-fluid rounded-circle py-3" src="../../../assets/imagemprincipal.jpg">
         </div>
 
-        <button type="button" data-toggle="collapse" class="btn-block py-2" data-target="#socio">Como se tornar um sócio<i class="fa fa-caret-down"></i></button>
-        <div id="socio" class="collapse">
-          <p class="pt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt metus vel felis interdum porttitor. Integer interdum lobortis ex vel rhoncus. Donec pharetra metus sit amet tincidunt porttitor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam quam turpis, vulputate at nisi non, elementum aliquet est. Integer rutrum id ipsum nec mattis. Fusce maximus nibh sed vestibulum iaculis. Integer rutrum ullamcorper leo vel accumsan. In non purus fermentum, sollicitudin ante quis, pharetra metus. Duis vestibulum cursus massa, non ultricies nibh lobortis nec. Suspendisse mauris urna, congue eget nunc vitae, posuere rutrum dolor.</p>
+
+        <div class="col-md-9 col-lg-9 col-sm-12 col-xs-12" *ngIf="!enviarMensagem && !serAssociado" >
+          <p>{{campanha.description}}</p>
+          <button type="button" data-toggle="collapse" class="btn-block py-2" data-target="#comofunciona">Como funciona<i class="fa fa-caret-down"></i></button>
+          <div id="comofunciona" class="collapse">
+            <p class="pt-3">{{campanha.how_works}}</p>
+          </div>
+
+          <button type="button" data-toggle="collapse" class="btn-block py-2" data-target="#socio">Como se tornar um sócio<i class="fa fa-caret-down"></i></button>
+          <div id="socio" class="collapse">
+            <p class="pt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt metus vel felis interdum porttitor. Integer interdum lobortis ex vel rhoncus. Donec pharetra metus sit amet tincidunt porttitor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam quam turpis, vulputate at nisi non, elementum aliquet est. Integer rutrum id ipsum nec mattis. Fusce maximus nibh sed vestibulum iaculis. Integer rutrum ullamcorper leo vel accumsan. In non purus fermentum, sollicitudin ante quis, pharetra metus. Duis vestibulum cursus massa, non ultricies nibh lobortis nec. Suspendisse mauris urna, congue eget nunc vitae, posuere rutrum dolor.</p>
+          </div>
+          
+          <button type="button" data-toggle="collapse" class="btn-block py-2" data-target="#comopagar">Como pagar<i class="fa fa-caret-down"></i></button>
+          <div id="comopagar" class="collapse">
+            <p class="pt-3">{{campanha.how_pay}}</p>
+          </div>
+
+          <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 offset-lg-4 offset-md-3 mb-3 mt-5">
+              <button type="button" class="btn mt-1 shadow-sm main" (click)="onEnviarMensagem()">Envie uma mensagem</button><br>
+              <button type="button" class="btn mt-1 shadow-sm main" (click)="onSerAssociado()" >Quero ser um associado</button>
+          </div>
         </div>
-        
-        <button type="button" data-toggle="collapse" class="btn-block py-2" data-target="#comopagar">Como pagar<i class="fa fa-caret-down"></i></button>
-        <div id="comopagar" class="collapse">
-          <p class="pt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt metus vel felis interdum porttitor. Integer interdum lobortis ex vel rhoncus. Donec pharetra metus sit amet tincidunt porttitor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam quam turpis, vulputate at nisi non, elementum aliquet est. Integer rutrum id ipsum nec mattis. Fusce maximus nibh sed vestibulum iaculis. Integer rutrum ullamcorper leo vel accumsan. In non purus fermentum, sollicitudin ante quis, pharetra metus. Duis vestibulum cursus massa, non ultricies nibh lobortis nec. Suspendisse mauris urna, congue eget nunc vitae, posuere rutrum dolor.</p>
+
+
+        <div class="col-md-9 col-lg-9 col-sm-12 col-xs-12" *ngIf="enviarMensagem">
+          <form method="post">
+            <div class="form-group">
+              <p><label for="nome"><input size="100" type="text" id="nome" placeholder="Nome" name="nome" class="form-control shadow-sm" required></label></p>
+            </div>
+            <div class="form-group">
+                <p><label for="email"><input size="100" type="email" id="email" placeholder="Email" name="email" class="form-control shadow-sm" required></label></p>
+            </div>
+            <div class="form-group">
+                <p><label for="telefone"><input size="100" type="tel" id="telefone" placeholder="Telefone" name="telefone" class="form-control shadow-sm" required></label></p>
+            </div>
+            <div class="form-group">
+                <p><label for="mensagem"><textarea cols="103" id="mensagem" rows="5" placeholder="Mensagem" name="mensagem" class="form-control shadow-sm" required></textarea></label></p>
+            </div>
+            <div class="offset-lg-4 offset-md-4">
+              <button type="submit" class="btn btn-lg shadow-sm">Enviar <span class="fa fa-send-o"></span></button>
+              <button type="button" class="btn btn-lg shadow-sm" (click)="onBackM()">Voltar</button>
+            </div>
+          </form>
         </div>
+
+
+        <div class="col-md-9 col-lg-9 col-sm-12 col-xs-12" *ngIf="serAssociado">
+          <form method="post">
+            <div class="form-group">
+              <p><label for="nome"><input size="100" type="text" id="nome" placeholder="Nome" name="nome" class="form-control shadow-sm" required></label></p>
+            </div>
+            <div class="form-group">
+                <p><label for="email"><input size="100" type="email" id="email" placeholder="Email" name="email" class="form-control shadow-sm" required></label></p>
+            </div>
+            <div class="form-group">
+                <p><label for="cel"><input size="100" type="tel" id="cel" placeholder="Telefone Celular" name="cel" class="form-control shadow-sm"></label></p>
+            </div>
+            <div class="form-group">
+                <p><label for="home"><input size="100" type="tel" id="home" placeholder="Telefone Residencial" name="home" class="form-control shadow-sm"></label></p>
+            </div>
+            <div class="form-group">
+                <p><label for="comercial"><input size="100" type="tel" id="comercial" placeholder="Telefone Comercial" name="comercial" class="form-control shadow-sm"></label></p>
+            </div>
+            <div class="offset-lg-4 offset-md-4">
+              <button type="submit" class="btn btn-lg shadow-sm">Enviar <span class="fa fa-send-o"></span></button>
+              <button type="button" class="btn btn-lg shadow-sm" (click)="onBackA()" >Voltar</button>
+            </div>
+          </form>
+        </div>
+      
+      <div class="container" *ngIf="!campanha">
+        <p>Carregando...</p>
       </div>
 
     </div>
-
-    <div class="row pb-3">
-
-      <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
-        <img class="img-fluid rounded-circle pt-3" src="../../../assets/imagemprincipal.jpg">
-      </div>
-      <div class="col-md-9 col-lg-9 col-sm-12 col-xs-12 my-3">
-        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 offset-lg-4 offset-md-3">
-            <button type="button" class="btn mt-1 shadow-sm main">Envie uma mensagem</button><br>
-            <button type="button" class="btn mt-1 shadow-sm main">Quero ser um associado</button>
-        </div>
-      </div>
-
-    </div>
-
   </div>
 </div>

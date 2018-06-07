@@ -5,12 +5,12 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class DoeAmorService {
 
-  campanhaURL = '';
+  campanhaURL = 'http://localhost:3000/campaign';
 
   constructor(private http: HttpClient) { }
 
   getData() {
-    return this.http.get<any[]>(`${this.campanhaURL}`);
+    return this.http.get<any>(`${this.campanhaURL}`);
   }
 
 }
