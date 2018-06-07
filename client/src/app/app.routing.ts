@@ -1,4 +1,3 @@
-import { EventoDetalheComponent } from './views/eventos/evento-detalhe/evento-detalhe.component';
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -10,11 +9,15 @@ import { DoeAmorComponent } from './views/doe-amor/doe-amor.component';
 import { ApaeTorresComponent } from './views/apae-torres/apae-torres.component';
 import { HomeComponent } from './views/home/home.component';
 import { ParceirosPorCategoriaComponent } from './views/nossos-parceiros/parceiros-por-categoria/parceiros-por-categoria.component';
-import { ParceiroDetalhesComponent } from './views/nossos-parceiros/parceiro-detalhes/parceiro-detalhes.component';
 import { SiteComponent } from './views/site/site.component';
 import { LoginComponent } from './views/login/login.component';
 import { HomeAdministradorComponent } from './views/home-administrador/home-administrador.component';
 import { AdmComponent } from './views/adm/adm.component';
+import { EventoDetalheComponent } from './views/eventos/evento-detalhe/evento-detalhe.component';
+import { AdmEventosComponent } from './views/adm/adm-eventos/adm-eventos.component';
+import { AdmAgendaComponent } from './views/adm/adm-agenda/adm-agenda.component';
+import { AdmDoeAmorComponent } from './views/adm/adm-doe-amor/adm-doe-amor.component';
+import { AdmApaeTorresComponent } from './views/adm/adm-apae-torres/adm-apae-torres.component';
 
 const APP_ROUTES: Routes = [
     { path: '', component: SiteComponent ,children:[
@@ -27,13 +30,17 @@ const APP_ROUTES: Routes = [
         { path: 'nossos-parceiros', component: NossosParceirosComponent },
         { path: 'nossos-parceiros/categoria', component: ParceirosPorCategoriaComponent },
         { path: 'nossos-parceiros/categoria/:id', component: ParceirosPorCategoriaComponent },
-        { path: 'nossos-parceiros/categoria-:id/parceiro-:id', component: ParceiroDetalhesComponent },
         { path: '', component: HomeComponent}
     ] },
     { path: 'admin', component: AdmComponent,children:[
         { path: '', redirectTo:'login' ,pathMatch:'full'},
         { path: 'login', component: LoginComponent },
-        { path: 'dashboard', component: HomeAdministradorComponent }
+        { path: 'dashboard', component: HomeAdministradorComponent, children:[
+            { path: 'adm-apae-torres', component: AdmApaeTorresComponent },
+            { path: 'adm-doe-amor', component: AdmDoeAmorComponent },
+            { path: 'adm-agenda', component: AdmAgendaComponent },
+            { path: 'adm-eventos', component: AdmEventosComponent }
+        ] }
     ] },
     
     

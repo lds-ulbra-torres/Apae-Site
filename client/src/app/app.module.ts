@@ -18,7 +18,6 @@ import { ColorTopComponent } from './components/color-top/color-top.component';
 import { NossosParceirosService } from './services/nossos-parceiros.service';
 import { ProcurarCategoriaPipe } from './pipes/procurar-categoria.pipe';
 import { ParceirosPorCategoriaComponent } from './views/nossos-parceiros/parceiros-por-categoria/parceiros-por-categoria.component';
-import { ParceiroDetalhesComponent } from './views/nossos-parceiros/parceiro-detalhes/parceiro-detalhes.component';
 import { SiteComponent } from './views/site/site.component';
 import { LoginComponent } from './views/login/login.component';
 import { HomeAdministradorComponent } from './views/home-administrador/home-administrador.component';
@@ -45,7 +44,6 @@ import { EventosService } from './services/eventos.service';
     ColorTopComponent,
     ProcurarCategoriaPipe,
     ParceirosPorCategoriaComponent,
-    ParceiroDetalhesComponent,
     AdmEventosComponent,
     AdmAgendaComponent,
     AdmApaeTorresComponent,

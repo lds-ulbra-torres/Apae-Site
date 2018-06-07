@@ -1,3 +1,20 @@
-<p>
-  home-administrador works!
-</p>
+
+<div id="divTopAdm"></div>
+    <div class="row">
+        <div class="col-2" id="divControlDashbord">
+            <div id="divIcone">
+                Icone
+            </div>
+            <div id="divMenu">
+                <ul id="ulMenu">
+                    <li><a id="aMenu" routerLink="/admin/dashboard/adm-apae-torres">Apae Torres</a></li>
+                    <li><a id="aMenu" routerLink="/admin/dashboard/adm-doe-amor">Doe Amor</a></li>
+                    <li><a id="aMenu" routerLink="/admin/dashboard/adm-agenda">Agenda</a></li>
+                    <li><a id="aMenu" routerLink="/admin/dashboard/adm-eventos">Eventos</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-10">
+            <router-outlet></router-outlet>
+        </div>
+    </div>

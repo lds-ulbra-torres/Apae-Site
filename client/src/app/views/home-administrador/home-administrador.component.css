@@ -1,0 +1,49 @@
+#divTopAdm{
+    height: 7vh;
+    background-color: #eb5757;
+    width: 100%;
+}
+
+#divControlDashbord{
+    background-color: #3c4a4b;
+    color: #000;
+    height: 93vh;
+}
+
+.row{
+    margin: 0;
+}
+
+#divMenu{
+    margin-top: 6vh;
+}
+
+#divIcone{
+    margin: auto;
+    margin-top: 6vh;
+    max-width: 60%;
+    text-align: center;
+    background-color: white;
+}
+
+#ulMenu{
+    margin-top: 6vh;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #3c4a4b;
+}
+
+#aMenu{
+    display: block;
+    color: #fff;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+#aMenu:hover{
+    
+    background-color: #d1d1d1;
+    color: #212121;
+}
