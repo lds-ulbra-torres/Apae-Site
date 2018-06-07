@@ -30,6 +30,13 @@ export default (sequelize, DataType) => {
         notEmpty: true
       }
     },
+    how_associated: {
+      type: DataType.TEXT,
+      allowNull: false,
+      validate: {
+        notEmpty: true
+      }
+    },
     imagem_promo: {
       type: DataType.STRING,
       allowNull: false,

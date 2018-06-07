@@ -51,6 +51,13 @@
           },
           {
             "in": "formData",
+            "name": "how_associated",
+            "type": "string",
+            "description": "How pay",
+            "required": true
+          },
+          {
+            "in": "formData",
             "name": "imagem_promo",
             "type": "file",
             "description": "Promotional imagem",
@@ -107,6 +114,10 @@
                     "how_pay": {
                       "type": "string",
                       "example": "How Pay"
+                    },
+                    "how_associated": {
+                      "type": "string",
+                      "example": "How to become a partner"
                     },
                     "imagem_promo": {
                       "type": "string",
@@ -191,6 +202,10 @@
                       "type": "string",
                       "example": "How Pay"
                     },
+                    "how_associated": {
+                      "type": "string",
+                      "example": "How to become a partner"
+                    },
                     "imagem_promo": {
                       "type": "string",
                       "example": "/uploads/526389803102-0.jpg"
@@ -254,6 +269,13 @@
             "name": "how_pay",
             "type": "string",
             "description": "How pay"
+          },
+          {
+            "in": "formData",
+            "name": "how_associated",
+            "type": "string",
+            "description": "How pay",
+            "required": true
           },
           {
             "in": "formData",
