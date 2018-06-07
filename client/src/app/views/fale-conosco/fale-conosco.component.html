@@ -1,3 +1,45 @@
-<h1>
-  fale-conosco works!
-</h1>
+<div class="container-fluid" style="background-color: #ffffff">
+  <div class="container">
+      <h2>FALE CONOSCO</h2>
+      <hr>
+    <div class="row py-4">
+      <div class="col-lg-6 col-md-6 col-sm-12  col-xs-12">
+        <p class="py-3"><img src="../../../assets/telefone-icon.png"> (51) 3664-2533</p>
+        <p class="py-3"><img src="../../../assets/placeholder.png"> Av. do Riacho, 207, Torres-RS, CEP 95560-000 <button type="button" class="btn btn-sm shadow-sm">Ver no mapa</button></p>
+        <p class="py-3"><img src="../../../assets/closed-envelope-circle.png"> administrativo@apaetorres.org</p>
+      </div>
+
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)" method="post">
+          <div class="form-group">
+            <p class="input"><label for="nome"><input size="60" type="text" id="nome" placeholder="Nome" name="nome" class="form-control shadow-sm" required ngModel #nome="ngModel"></label></p>
+            <div *ngIf="!nome.valid && nome.touched" class="warning">
+              <span>Nome é obrigatório</span>
+            </div> 
+          </div>
+          <div class="form-group">
+              <p class="input"><label for="email"><input size="60" type="email" id="email" placeholder="Email" name="email" class="form-control shadow-sm" required email ngModel #email="ngModel"></label></p>
+              <div *ngIf="!email.valid && email.touched" class="warning">
+                <span>Email inválido</span>
+              </div>
+          </div>
+          <div class="form-group">
+              <p class="input"><label for="telefone"><input size="60" type="tel" id="telefone" placeholder="Telefone" name="telefone" class="form-control shadow-sm" required ngModel #phone="ngModel"></label></p>
+              <div *ngIf="!phone.valid && phone.touched" class="warning">
+                <span>Telefone inválido</span>
+              </div>
+          </div>
+          <div class="form-group">
+              <p class="input"><label for="mensagem"><textarea cols="62" id="mensagem" rows="3" placeholder="Mensagem" name="mensagem" class="form-control shadow-sm" required ngModel #message="ngModel"></textarea></label></p>
+              <div *ngIf="!message.valid && message.touched" class="warning">
+                <span>Mensagem obrigatória</span>
+              </div>
+          </div>
+          <button type="submit" class="btn btn-lg shadow-sm offset-4" [disabled]="!f.valid && f.touched">Enviar <span class="fa fa-send-o"></span></button>
+        </form>  
+      </div>
+
+    </div>
+
+  </div>
+</div>

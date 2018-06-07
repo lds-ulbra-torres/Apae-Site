@@ -11,6 +11,10 @@ app.config = dbConfig
 app.datasource = db(app)
 //Config Body Parse
 app.use(bodyParser.json())
+app.use( (req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    next();
+});
 // Este metodo diz que o body de um requisa é convertida em json, pela biblioteca body-parser
 app.use(bodyParser.urlencoded({extended : true}))
 //Auto load routes

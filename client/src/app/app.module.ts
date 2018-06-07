@@ -5,16 +5,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
+
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './views/home/home.component';
 import { ApaeTorresComponent } from './views/apae-torres/apae-torres.component';
-import { DoeAmorComponent } from './views/doe-amor/doe-amor.component';
 import { NossosParceirosComponent } from './views/nossos-parceiros/nossos-parceiros.component';
 import { AgendaComponent } from './views/agenda/agenda.component';
 import { EventosComponent } from './views/eventos/eventos.component';
 import { FaleConoscoComponent } from './views/fale-conosco/fale-conosco.component';
 import { ColorTopComponent } from './components/color-top/color-top.component';
+
 import { NossosParceirosService } from './services/nossos-parceiros.service';
 import { ProcurarCategoriaPipe } from './pipes/procurar-categoria.pipe';
 import { ParceirosPorCategoriaComponent } from './views/nossos-parceiros/parceiros-por-categoria/parceiros-por-categoria.component';
@@ -28,7 +29,7 @@ import { AdmDoeAmorComponent } from './views/adm/adm-doe-amor/adm-doe-amor.compo
 import { AdmComponent } from './views/adm/adm.component';
 import { EventoDetalheComponent } from './views/eventos/evento-detalhe/evento-detalhe.component';
 import { EventosService } from './services/eventos.service';
-
+import { DoeAmorModule } from './views/doe-amor/doe-amor.module';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,6 @@ import { EventosService } from './services/eventos.service';
     NavbarComponent,
     HomeComponent,
     ApaeTorresComponent,
-    DoeAmorComponent,
     NossosParceirosComponent,
     AgendaComponent,
     EventosComponent,
@@ -58,8 +58,10 @@ import { EventosService } from './services/eventos.service';
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    routing
+    routing,
+	DoeAmorModule,
   ],
+ 
   providers: [NossosParceirosService, EventosService],
   bootstrap: [AppComponent]
 })

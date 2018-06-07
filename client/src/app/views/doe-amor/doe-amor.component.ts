@@ -1,15 +1,47 @@
 import { Component, OnInit } from '@angular/core';
 
+import { DoeAmorService } from './../../services/doe-amor.service';
+
 @Component({
   selector: 'app-doe-amor',
-  templateUrl: './doe-amor.component.html',
+  templateUrl: './doe-amor.component.html', 
   styleUrls: ['./doe-amor.component.css']
 })
 export class DoeAmorComponent implements OnInit {
 
-  constructor() { }
+  campanha: any; 
+
+  enviarMensagem: boolean = false;
+  serAssociado: boolean = false;
+
+
+
+  constructor(private doeAmorService: DoeAmorService) { }
 
   ngOnInit() {
+    this.getData();
   }
 
+  getData(){
+    this.doeAmorService.getData().subscribe((dados) => {
+      this.campanha = dados;
+    });
+  }
+
+  onEnviarMensagem(){
+    this.enviarMensagem = !this.enviarMensagem;
+  }
+
+  onBackM(){
+    this.enviarMensagem = !this.enviarMensagem;
+  }
+
+  onSerAssociado(){
+    this.serAssociado = !this.serAssociado;
+  }
+
+  onBackA(){
+    this.serAssociado = !this.serAssociado;
+  }
 }
+

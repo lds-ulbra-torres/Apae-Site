@@ -11,5 +11,8 @@ export class FaleConoscoComponent implements OnInit {
 
   ngOnInit() {
   }
-
+ 
+  onSubmit(form){
+    
+  }
 }

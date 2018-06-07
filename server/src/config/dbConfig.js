@@ -1,7 +1,7 @@
 export default {
     username:'root',
     database:'apae_dev',
-    password:'1007', 
+    password:'', 
     params:{
       dialect: 'mysql',
       operatorsAliases: false

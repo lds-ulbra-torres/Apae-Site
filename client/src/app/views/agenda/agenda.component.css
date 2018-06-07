@@ -1,0 +1,14 @@
+
+.container-fluid{
+    background-color: #d5c570;
+}
+h2{
+    color: #333333;
+    padding-top: 4.5vh;
+}
+hr{
+    width: 10%;
+    margin: auto;
+    border: solid 0.1vh  #333333;
+    
+}
