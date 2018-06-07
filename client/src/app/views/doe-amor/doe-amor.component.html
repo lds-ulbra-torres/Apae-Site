@@ -3,27 +3,27 @@
     <div class="row py-5" >
 
         <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
-            <img class="img-fluid pb-3" src="../../../assets/logo.png">
-            <p><a href="{{campanha.facebook_page}}"><img id="fblogo" class="offset-lg-2 pb-3" src="../../../assets/facebook-logotipo.png"></a><span> / {{campanha.hashtag}}</span></p>
-            <img class="img-fluid rounded-circle py-3" src="../../../assets/imagemprincipal.jpg">
+            <img class="img-fluid pb-3" src={{campanha.obj.logotipo}}>
+            <p><a href="{{campanha.obj.facebook_page}}"><img id="fblogo" class="offset-lg-2 pb-3" src="../../../assets/facebook-logotipo.png"></a><span> / {{campanha.obj.hashtag}}</span></p>
+            <img class="img-fluid rounded-circle py-3" src="{{campanha.obj.imagem_promo}}">
         </div>
 
 
         <div class="col-md-9 col-lg-9 col-sm-12 col-xs-12" *ngIf="!enviarMensagem && !serAssociado" >
-          <p>{{campanha.description}}</p>
+          <p>{{campanha.obj.description}}</p>
           <button type="button" data-toggle="collapse" class="btn-block py-2" data-target="#comofunciona">Como funciona<i class="fa fa-caret-down"></i></button>
           <div id="comofunciona" class="collapse">
-            <p class="pt-3">{{campanha.how_works}}</p>
+            <p class="pt-3">{{campanha.obj.how_works}}</p>
           </div>
 
           <button type="button" data-toggle="collapse" class="btn-block py-2" data-target="#socio">Como se tornar um sócio<i class="fa fa-caret-down"></i></button>
           <div id="socio" class="collapse">
-            <p class="pt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt metus vel felis interdum porttitor. Integer interdum lobortis ex vel rhoncus. Donec pharetra metus sit amet tincidunt porttitor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam quam turpis, vulputate at nisi non, elementum aliquet est. Integer rutrum id ipsum nec mattis. Fusce maximus nibh sed vestibulum iaculis. Integer rutrum ullamcorper leo vel accumsan. In non purus fermentum, sollicitudin ante quis, pharetra metus. Duis vestibulum cursus massa, non ultricies nibh lobortis nec. Suspendisse mauris urna, congue eget nunc vitae, posuere rutrum dolor.</p>
+            <p class="pt-3">{{campanha.obj.how_associated}}</p>
           </div>
           
           <button type="button" data-toggle="collapse" class="btn-block py-2" data-target="#comopagar">Como pagar<i class="fa fa-caret-down"></i></button>
           <div id="comopagar" class="collapse">
-            <p class="pt-3">{{campanha.how_pay}}</p>
+            <p class="pt-3">{{campanha.obj.how_pay}}</p>
           </div>
 
           <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 offset-lg-4 offset-md-3 mb-3 mt-5">
