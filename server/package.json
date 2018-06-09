@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "babel-node server.js",
+    "dev": "node_modules/.bin/nodemon --exec npm start",
     "babel-debug": "nodemon --exec babel-node-debug server.js"
   },
   "author": "LDS Ulbra Torres",
@@ -14,8 +15,11 @@
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
     "express": "^4.16.3",
+    "jwt-simple": "^0.5.1",
     "multer": "^1.3.0",
     "mysql2": "^1.5.3",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
     "sequelize": "^4.37.6"
   },
   "devDependencies": {

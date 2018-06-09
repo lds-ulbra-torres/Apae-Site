@@ -22,6 +22,13 @@
         ],
         "parameters": [
           {
+            "in": "header",
+            "name": "Authorization",
+            "type": "string",
+            "description": "Bearer  {token}",
+            "required": true
+          },
+          {
             "in": "formData",
             "name": "description",
             "type": "string",
@@ -240,6 +247,13 @@
         ],
         "parameters": [
           {
+            "in": "header",
+            "name": "Authorization",
+            "type": "string",
+            "description": "Bearer  {token}",
+            "required": true
+          },
+          {
             "in": "path",
             "name": "id",
             "type": "string",
@@ -274,8 +288,7 @@
             "in": "formData",
             "name": "how_associated",
             "type": "string",
-            "description": "How pay",
-            "required": true
+            "description": "How pay"
           },
           {
             "in": "formData",
@@ -354,6 +367,13 @@
         ],
         "parameters": [
           {
+            "in": "header",
+            "name": "Authorization",
+            "type": "string",
+            "description": "Bearer  {token}",
+            "required": true
+          },
+          {
             "name": "id",
             "in": "path",
             "description": "Reference id",
@@ -421,6 +441,13 @@
           "application/json"
         ],
         "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "type": "string",
+            "description": "Bearer  {token}",
+            "required": true
+          },
           {
             "in": "formData",
             "name": "title",
@@ -698,6 +725,13 @@
         ],
         "parameters": [
           {
+            "in": "header",
+            "name": "Authorization",
+            "type": "string",
+            "description": "Bearer  {token}",
+            "required": true
+          },
+          {
             "in": "path",
             "name": "id",
             "type": "string",
@@ -796,6 +830,13 @@
         ],
         "parameters": [
           {
+            "in": "header",
+            "name": "Authorization",
+            "type": "string",
+            "description": "Bearer  {token}",
+            "required": true
+          },
+          {
             "in": "path",
             "name": "id",
             "type": "string",
@@ -859,6 +900,13 @@
           "application/json"
         ],
         "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "type": "string",
+            "description": "Bearer  {token}",
+            "required": true
+          },
           {
             "in": "formData",
             "name": "description",
@@ -1079,6 +1127,13 @@
         ],
         "parameters": [
           {
+            "in": "header",
+            "name": "Authorization",
+            "type": "string",
+            "description": "Bearer  {token}",
+            "required": true
+          },
+          {
             "in": "path",
             "name": "id",
             "type": "integer",
@@ -1158,6 +1213,13 @@
           "multipart/form-data"
         ],
         "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "type": "string",
+            "description": "Bearer  {token}",
+            "required": true
+          },
           {
             "in": "path",
             "name": "id",
@@ -1271,6 +1333,13 @@
         ],
         "parameters": [
           {
+            "in": "header",
+            "name": "Authorization",
+            "type": "string",
+            "description": "Bearer  {token}",
+            "required": true
+          },
+          {
             "in": "formData",
             "name": "description",
             "type": "string",
@@ -1359,7 +1428,13 @@
                   "example": "Login efetuado com sucesso"
                 },
                 "obj": {
-                  "type": "object"
+                  "type": "object",
+                  "properties": {
+                    "token": {
+                      "type": "string",
+                      "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0.t1qr_yqKqAB3Y9EFj2sR0vsvybEhOYPC4iC9eYor_8w"
+                    }
+                  }
                 }
               }
             }

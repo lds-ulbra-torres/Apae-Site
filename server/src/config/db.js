@@ -1,6 +1,6 @@
 import Sequelize from 'sequelize';
 import loadModels from '../helpers/auto-load-model'
-import dbConfig from './dbConfig'
+import dbConfig from './config'
 
 let database = null;
 

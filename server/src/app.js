@@ -1,19 +1,25 @@
 import express from 'express'
 import bodyParser from 'body-parser'
 import db from './config/db'
-import dbConfig from './config/dbConfig'
+import config from './config/config'
 import routes from './routes/index'
+import auth from './auth'
 
 const app = express()
 
-//Config Databse
-app.config = dbConfig
+//Database and token settings
+app.config = config
 app.datasource = db(app)
-//Config Body Parse
+//Body-parse settings
 app.use(bodyParser.json())
-// Este metodo diz que o body de um requisa é convertida em json, pela biblioteca body-parser
+// Converts the body of a request in json format
 app.use(bodyParser.urlencoded({extended : true}))
-//Auto load routes
+// Determines the 'public' directory for static files
+app.use(express.static("public"));
+
+app.auth =  auth(app)
+app.use(app.auth.initialize());
+
 routes(app)
 
 

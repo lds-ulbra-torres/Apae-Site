@@ -22,9 +22,11 @@ export default (sequelize, DataType) => {
       validate: {
         notEmpty: true,
       },
-    },
-
-  })
+    }},
+    {
+      createdAt: false,
+      updatedAt: false
+    })
   Users.isPassword = (encodedPassword, password) => bcrypt.compareSync(password, encodedPassword)
   return Users
 }

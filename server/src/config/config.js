@@ -5,5 +5,8 @@ export default {
     params:{
       dialect: 'mysql',
       operatorsAliases: false
-    }
+    },
+    jwtSecret: "apae-api",
+    jwtSession: {session: false},
+    localStorage : '../../public/uploads'
   }

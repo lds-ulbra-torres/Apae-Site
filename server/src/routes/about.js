@@ -3,14 +3,15 @@ import multer from 'multer'
 import path from 'path'
 import cors from 'cors'
 
-const storage = multer.diskStorage({
-    destination : (req, file, cb) => cb(null, path.join(__dirname, '../../uploads')),
-    filename : (req, file, cb) => cb(null, `${Date.now()}-${file.originalname}`)    
-})
-const upload = multer({storage})
-const filesUp = upload.fields([{name: "main_photo"}])
-
 export default app => {
+    
+    const storage = multer.diskStorage({
+        destination : (req, file, cb) => cb(null, path.join(__dirname, app.config.localStorage)),
+        filename : (req, file, cb) => cb(null, `${Date.now()}-${file.originalname}`)    
+    })
+    const upload = multer({storage})
+    const filesUp = upload.fields([{name: "main_photo"}])
+    
     //Load Model
     let model = app.datasource.models.About
     //Load Controller
@@ -20,5 +21,5 @@ export default app => {
     
     app.route('/about')
     .get( (req, res) => aboutsController.get(req, res) )
-    .put(filesUp,(req, res) => aboutsController.update(req, res) )
+    .put(app.auth.authenticate(), filesUp, (req, res) => aboutsController.update(req, res) )
 }

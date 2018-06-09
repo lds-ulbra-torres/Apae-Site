@@ -10,11 +10,12 @@ export default app => {
     app.use(cors())
 
     app.route('/schedule')
-    .post(formData,(req, res) => schedule.create(req, res) )
+    .post(app.auth.authenticate(), formData, (req, res) => schedule.create(req, res) )
     .get((req, res) => schedule.getAll(req, res) )
 
     app.route('/schedule/:id')
     .get((req, res) => schedule.get(req, res) )
+    .all(app.auth.authenticate())
     .put(formData,(req, res) => schedule.update(req, res) )
     .delete((req,res) => schedule.delete(req, res) )
 }

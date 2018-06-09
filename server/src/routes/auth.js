@@ -12,7 +12,7 @@ export default app => {
     app.route('/auth')
     .post(formData,(req, res) =>{
 
-        return controller.validate(req, res)
+        return controller.validate(req, res, app.config.jwtSecret)
     
     })
 }
