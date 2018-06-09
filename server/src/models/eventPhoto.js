@@ -3,7 +3,7 @@ import path from 'path'
 import { isArray } from 'util';
 
 export default (sequelize, DataType) => {
-    const EventPhotos = sequelize.define('EventPhotos', {
+    const EventPhotos = sequelize.define('eventPhotos', {
         url: {
           type: DataType.STRING,
           allowNull: false,

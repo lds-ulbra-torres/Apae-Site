@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 
 export default (sequelize, DataType) => { 
-  const Campaigns = sequelize.define('Campaigns', {
+  const Campaigns = sequelize.define('campaigns', {
     description: {
       type: DataType.STRING,
       allowNull: false,

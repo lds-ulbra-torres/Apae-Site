@@ -13,7 +13,7 @@ export default app => {
     const filesUp = upload.fields([{name: "main_photo"}])
     
     //Load Model
-    let model = app.datasource.models.About
+    let model = app.datasource.models.about
     //Load Controller
     let aboutsController = new AboutsController(model)
     

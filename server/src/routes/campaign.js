@@ -13,7 +13,7 @@ export default app => {
     const filesUp = upload.fields([{ name: 'logotipo' }, { name: 'imagem_promo'}])
 
     //Load Model
-    let model = app.datasource.models.Campaigns
+    let model = app.datasource.models.campaigns
     //Load Controller
     let campaignsController = new CampaignsController(model)
 

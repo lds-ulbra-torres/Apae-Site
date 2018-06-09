@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 
 export default (sequelize, DataType) => { 
-  const About = sequelize.define('About', {
+  const About = sequelize.define('about', {
     description: {
       type: DataType.TEXT,
       allowNull: false,

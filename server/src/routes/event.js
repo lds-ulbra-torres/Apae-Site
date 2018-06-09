@@ -13,7 +13,7 @@ export default app => {
     const filesUp = upload.fields([{name: "main_photo"}, {name:"photos"}])
     
     //Load Model
-    let model = app.datasource.models.EventPhotos
+    let model = app.datasource.models.eventPhotos
     let model1 = app.datasource.models.Events
     //Load Controller
     let eventsController = new EventsController(model1, model)

@@ -1,8 +1,10 @@
 export default {
-    username:'root',
+    username:'apae_doacoes',
     database:'apae_doacoes',
-    password:'', 
+    password:'azsx123445', 
     params:{
+      host: 'mysql427.umbler.com',
+      port:41890,
       dialect: 'mysql',
       operatorsAliases: false
     },

@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 
 export default (sequelize, DataType) => { 
-  const Events = sequelize.define('Events', {
+  const Events = sequelize.define('events', {
     title: {
       type: DataType.STRING,
       allowNull: false,
@@ -29,7 +29,7 @@ export default (sequelize, DataType) => {
     createdAt: false,
     updatedAt: false
   })
-  Events.hasMany(sequelize.models.EventPhotos)
+  Events.hasMany(sequelize.models.eventPhotos)
   Events.events = () => {
     return Events.findAll({attributes: ['id','title','description','main_photo'], include: [{
       model: sequelize.models.EventPhotos,

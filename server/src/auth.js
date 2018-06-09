@@ -8,7 +8,7 @@ export default  app => {
     opts.secretOrKey = app.config.jwtSecret
     opts.jwtSession = app.config.jwtSession
 
-    const Users = app.datasource.models.Users
+    const Users = app.datasource.models.users
     
     const strategy = new Strategy(opts,
     (jwt_payload, done) => {

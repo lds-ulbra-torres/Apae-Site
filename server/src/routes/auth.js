@@ -5,7 +5,7 @@ const formData = multer().any()
 
 export default app => {
     //Load Model
-    let model = app.datasource.models.Users
+    let model = app.datasource.models.users
     //Load Controller
     let controller = new UsersController(model)
 

@@ -4,7 +4,7 @@ import multer from 'multer'
 
 const formData = multer().any()
 export default app => {
-    let model = app.datasource.models.Schedule
+    let model = app.datasource.models.schedule
     let schedule = new Schedule(model)
 
     app.use(cors())
