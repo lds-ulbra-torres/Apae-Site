@@ -1,5 +1,7 @@
 import fs from 'fs'
+import path from 'path'
 import { isArray } from 'util';
+
 export default (sequelize, DataType) => {
     const EventPhotos = sequelize.define('EventPhotos', {
         url: {
@@ -22,7 +24,7 @@ export default (sequelize, DataType) => {
             
             let objeto = {}
 
-            objeto.url = element.path
+            objeto.url = `${req.headers.origin}/uploads/${element.filename}`
             objeto.EventId = id
             EventPhotos.create(objeto)
             array.push(objeto)
@@ -43,7 +45,7 @@ export default (sequelize, DataType) => {
             
             req.files.photos.forEach((element, index) => {
                 let objeto = {}
-                objeto.url = element.path
+                objeto.url = `${req.headers.origin}/uploads/${element.filename}`
                 objeto.EventId = EventId           
                 EventPhotos.create(objeto)
                 .then(response => array.push(objeto))
@@ -64,7 +66,11 @@ export default (sequelize, DataType) => {
     
             array.forEach( element => {    
                 EventPhotos.findOne({where : {id : element}, attributes: ['url']})
-                .then(response => fs.unlink(response.url, () => console.log(response.url)))
+                .then(response => {
+                    let index = response.url.indexOf("uploads")
+                    let name = path.join(__dirname, `../../public/${response.url.substr(index)}`)
+                    fs.unlink(name, () => console.log(response.url))
+                })
                 .catch(erro => console.log(erro))
             })
             next()    
@@ -78,7 +84,11 @@ export default (sequelize, DataType) => {
         array.forEach( element => {    
             EventPhotos.findOne({where : {id : element}, attributes: ['url']})
             .then(response => {
-                fs.unlink(response.url, res => {
+
+                let index = response.url.indexOf("uploads")
+                let name = path.join(__dirname, `../../public/${response.url.substr(index)}`)
+            
+                fs.unlink(name, res => {
                     EventPhotos.destroy({ where: { id : element}})
                 })
             }).catch(erro => console.log("Foto não Registrada"))

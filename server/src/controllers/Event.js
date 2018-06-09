@@ -38,8 +38,7 @@ class EventController {
         if(isNullOrUndefined(req.files.main_photo))
             return res.status(400).json(({status:400, msg : "É obrigatorio uma Foto de Capa",obj:{}}))      
         
-        data.main_photo = req.files.main_photo[0].path
-
+        data.logotipo = `${req.headers.origin}/uploads/${req.files.main_photo[0].filename}`
         return this.eventModel.create(data)
             .then(response => {
                 let vetor = []
@@ -131,7 +130,7 @@ class EventController {
         this.photoModel.photosArrayDelete(data.photos_deletada)
     
         if(!isNullOrUndefined(req.files.main_photo)){
-            data.main_photo = req.files.main_photo[0].path
+            data.logotipo = `${req.headers.origin}/uploads/${req.files.main_photo[0].filename}`
             this.eventModel.main_photoDelete(id) 
         }
 

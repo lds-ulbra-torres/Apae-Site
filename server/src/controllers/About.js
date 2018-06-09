@@ -18,8 +18,8 @@ class AboutController {
 
         let data = req.body
 
-        if(!isNullOrUndefined(req.files.main_photo)){       
-            data.main_photo = req.files.main_photo[0].path
+        if(!isNullOrUndefined(req.files.main_photo)){     
+            data.logotipo = `${req.headers.origin}/uploads/${req.files.main_photo[0].filename}`  
             this.aboutModel.main_photoDelete()
         }
         return this.aboutModel.update( data, { where: { id : 1 } })

@@ -1,4 +1,5 @@
 import fs from 'fs'
+import path from 'path'
 
 export default (sequelize, DataType) => { 
   const About = sequelize.define('About', {
@@ -56,7 +57,12 @@ export default (sequelize, DataType) => {
   }
   About.main_photoDelete = () => {
     About.findOne({where : {id: 1}, attributes: ['main_photo']})
-    .then(response => fs.unlink(response.main_photo, res => res))
+    .then(response => {
+      let index = response.main_photo.indexOf("uploads")
+      let name = path.join(__dirname, `../../public/${response.imagem_promo.substr(index)}`)
+        
+      fs.unlink(name, res => res)
+    })
     .catch(erro => console.log(erro))
   }
   return About

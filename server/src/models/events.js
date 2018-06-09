@@ -1,4 +1,6 @@
 import fs from 'fs'
+import path from 'path'
+
 export default (sequelize, DataType) => { 
   const Events = sequelize.define('Events', {
     title: {
@@ -43,10 +45,16 @@ export default (sequelize, DataType) => {
   }
   Events.main_photoDelete = (id, next) => {
       Events.findOne({where : {id}, attributes: ['main_photo']})
-      .then(response => fs.unlink(response.main_photo, res => {
-        if(next)
-          next()
-      })
+      .then(response => {
+        
+        let index = response.main_photo.indexOf("uploads")
+        let name = path.join(__dirname, `../../public/${response.imagem_promo.substr(index)}`)
+        
+        fs.unlink(name, res => {
+          if(next)
+            next()
+        })
+      }
     ).catch(erro => console.log(erro))
   }
   

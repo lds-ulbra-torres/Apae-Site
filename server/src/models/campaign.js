@@ -1,4 +1,5 @@
 import fs from 'fs'
+import path from 'path'
 
 export default (sequelize, DataType) => { 
   const Campaigns = sequelize.define('Campaigns', {
@@ -72,17 +73,29 @@ export default (sequelize, DataType) => {
   })
   Campaigns.logotipoDelete = (id, next)  => {  
       Campaigns.findOne({where : {id }, attributes: ['logotipo']})
-      .then(response => fs.unlink(response.logotipo, res =>{
-        if(next)
-          next()
-      }))    
+      .then(response =>{ 
+
+        let index = response.logotipo.indexOf("uploads")
+        let name = path.join(__dirname, `../../public/${response.logotipo.substr(index)}`)
+        
+        fs.unlink(name, res =>{
+          if(next)
+            next()
+          })
+      })    
   }
   Campaigns.imagem_promoDelete = (id, next)  => {  
     Campaigns.findOne({where : {id }, attributes: ['imagem_promo']})
-    .then(response => fs.unlink(response.imagem_promo, res => {
+    .then(response => {
+      
+      let index = response.imagem_promo.indexOf("uploads")
+      let name = path.join(__dirname, `../../public/${response.imagem_promo.substr(index)}`)
+        
+      fs.unlink(name, res => {
       if(next)
           next()
-    }))    
+      })
+    })    
   }
   Campaigns.imagensDelete = (id, next)  => {  
     Campaigns.logotipoDelete(id, ()=> {

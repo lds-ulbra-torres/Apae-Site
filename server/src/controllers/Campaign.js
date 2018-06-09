@@ -1,6 +1,7 @@
 import responseFormat from '../helpers/response-format' 
 import { isNullOrUndefined, isArray } from 'util';
 import fs from 'fs'
+import url from 'url'
 class CampaignController {
     
     constructor (campaignModel) {
@@ -39,9 +40,9 @@ class CampaignController {
             return res.status(400).json(({status:400, msg : "É obrigatorio o Logotipo",obj:{}}))      
         if(isNullOrUndefined(req.files.imagem_promo))
             return res.status(400).json({status:400, msg : "É obrigatorio a Imagem Promocinal",obj:{}})
-        
-        data.logotipo = req.files.logotipo[0].path
-        data.imagem_promo = req.files.imagem_promo[0].path
+
+        data.logotipo = `${req.headers.origin}/uploads/${req.files.logotipo[0].filename}`
+        data.imagem_promo = `${req.headers.origin}/uploads/${req.files.imagem_promo[0].filename}`
         
         return this.campaignModel.create(data)
             .then(response => {
@@ -62,12 +63,12 @@ class CampaignController {
         .then(obj => { 
             if(obj != null){
                 if(!isNullOrUndefined(req.files.logotipo)){
-                    data.logotipo = req.files.logotipo[0].path
                     this.campaignModel.logotipoDelete(id)
+                    data.logotipo = `${req.headers.origin}/uploads/${req.files.logotipo[0].filename}`
                 }      
                 if(!isNullOrUndefined(req.files.imagem_promo)){
-                    data.imagem_promo = req.files.imagem_promo[0].path
                     this.campaignModel.imagem_promoDelete(id)
+                    data.imagem_promo = `${req.headers.origin}/uploads/${req.files.imagem_promo[0].filename}`
                 }
                 this.campaignModel.update( data, { where: { id } })
                 .then(response => {
@@ -78,9 +79,9 @@ class CampaignController {
                 })
             }else{
                 if(!isNullOrUndefined(req.files.logotipo))
-                    fs.unlink(req.files.logotipo[0].path, () => console.log(req.files.logotipo[0].path))
+                    this.campaignModel.logotipo(id)
                 if(!isNullOrUndefined(req.files.imagem_promo))
-                      fs.unlink(req.files.imagem_promo[0].path, () => console.log(req.files.imagem_promo[0].path))
+                      this.campaignModel.imagem_promo(id)
                 res.status(400).json(responseFormat({},"Esta campanha não está registrada").inexistentMsg())
             }
         })
