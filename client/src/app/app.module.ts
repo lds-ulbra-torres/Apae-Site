@@ -30,6 +30,7 @@ import { AdmComponent } from './views/adm/adm.component';
 import { EventoDetalheComponent } from './views/eventos/evento-detalhe/evento-detalhe.component';
 import { EventosService } from './services/eventos.service';
 import { DoeAmorModule } from './views/doe-amor/doe-amor.module';
+import { EventoCadastrarComponent } from './views/adm/adm-eventos/evento-cadastrar/evento-cadastrar.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { DoeAmorModule } from './views/doe-amor/doe-amor.module';
     LoginComponent,
     HomeAdministradorComponent,
     AdmComponent,
-    EventoDetalheComponent
+    EventoDetalheComponent,
+    EventoCadastrarComponent
   ],
   imports: [
     BrowserModule,

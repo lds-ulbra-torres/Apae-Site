@@ -1,0 +1,10 @@
+#mainDiv{
+    margin: auto;
+    width: 70%;
+}
+
+#listEvents{
+    margin-top: 1vh;
+    max-height: 84vh;
+    overflow: auto;
+}

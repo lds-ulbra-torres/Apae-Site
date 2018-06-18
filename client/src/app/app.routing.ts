@@ -18,6 +18,7 @@ import { AdmEventosComponent } from './views/adm/adm-eventos/adm-eventos.compone
 import { AdmAgendaComponent } from './views/adm/adm-agenda/adm-agenda.component';
 import { AdmDoeAmorComponent } from './views/adm/adm-doe-amor/adm-doe-amor.component';
 import { AdmApaeTorresComponent } from './views/adm/adm-apae-torres/adm-apae-torres.component';
+import { EventoCadastrarComponent } from './views/adm/adm-eventos/evento-cadastrar/evento-cadastrar.component';
 
 const APP_ROUTES: Routes = [
     { path: '', component: SiteComponent ,children:[
@@ -39,7 +40,8 @@ const APP_ROUTES: Routes = [
             { path: 'adm-apae-torres', component: AdmApaeTorresComponent },
             { path: 'adm-doe-amor', component: AdmDoeAmorComponent },
             { path: 'adm-agenda', component: AdmAgendaComponent },
-            { path: 'adm-eventos', component: AdmEventosComponent }
+            { path: 'adm-eventos', component: AdmEventosComponent},
+            { path: 'adm-eventos/cadastrar', component: EventoCadastrarComponent}
         ] }
     ] },
     

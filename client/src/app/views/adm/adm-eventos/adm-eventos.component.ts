@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { EventosService } from './../../../services/eventos.service';
+import { IEvents } from './../../../../domain/interfaces/IEvents';
+
 @Component({
   selector: 'app-adm-eventos',
   templateUrl: './adm-eventos.component.html',
@@ -7,7 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdmEventosComponent implements OnInit {
 
-  constructor() { }
+  eventos: IEvents[];
+  first: boolean;
+
+  constructor(_eventosService: EventosService) {
+    this.eventos = _eventosService.getAll()  
+  }
 
   ngOnInit() {
   }
