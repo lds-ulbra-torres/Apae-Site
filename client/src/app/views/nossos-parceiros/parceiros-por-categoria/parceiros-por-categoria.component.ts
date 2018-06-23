@@ -10,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ParceirosPorCategoriaComponent implements OnInit {
 
-  private parceiros = null;
+  parceiros = null;
   private status_lista = false;
 
   constructor(private nossosParceirosService: NossosParceirosService,
