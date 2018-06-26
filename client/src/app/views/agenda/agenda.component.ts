@@ -1,3 +1,4 @@
+import { AgendaService } from './../../services/agenda.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AgendaComponent implements OnInit {
 
-  constructor() { }
+  agenda: any[];
+
+  constructor(private agendaService: AgendaService) { }
 
   ngOnInit() {
+    this.agenda = [];
+    this.getSchedule();
+  }
+
+  getSchedule(){
+    this.agendaService.getSchedule().subscribe((res) => { 
+      // console.warn('agenda', data);
+      this.agenda = res.obj;
+    });
   }
 
 }

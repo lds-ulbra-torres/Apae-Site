@@ -30,6 +30,8 @@ import { AdmComponent } from './views/adm/adm.component';
 import { EventoDetalheComponent } from './views/eventos/evento-detalhe/evento-detalhe.component';
 import { EventosService } from './services/eventos.service';
 import { DoeAmorModule } from './views/doe-amor/doe-amor.module';
+import { AgendaService } from './services/agenda.service';
+import { AdmAgendaService } from './services/adm-agenda.service';
 
 @NgModule({
   declarations: [
@@ -58,11 +60,12 @@ import { DoeAmorModule } from './views/doe-amor/doe-amor.module';
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     routing,
-	DoeAmorModule,
+	  DoeAmorModule,
   ],
  
-  providers: [NossosParceirosService, EventosService],
+  providers: [NossosParceirosService, EventosService, AgendaService, AdmAgendaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

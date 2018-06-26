@@ -1,3 +1,89 @@
-<p>
-  adm-agenda works!
-</p>
+<div class="container">
+  <h3 class="text-center my-3">Agenda</h3>
+  <button type="button" class="btn btn-primary my-3" (click)="toggleNewSchedule()"><span class="fa fa-calendar-plus-o"></span> Nova Agenda</button>
+  
+  <div class="card my-2" *ngIf="criarAgenda">
+    
+    <form method="post" #frm="ngForm" (ngSubmit)="agendar(frm)">
+      <h4 class="text-center">Adicionar nova data</h4>
+      <div class="form-group">
+          <label for="descricao">Descrição</label>
+          <textarea type="text" class="form-control" id="descricao" name="descricao" placeholder="Ex.: " rows="2" cols="103" [(ngModel)]="schedule.description" required></textarea>
+      </div>
+      <div class="form-group">
+          <label for="dataAgenda">Data</label>
+          <input type="date" class="form-control" id="dataAgenda" name="data" placeholder="dd/mm/aaaa" [(ngModel)]="schedule.date" required>
+      </div>
+      <div class="form-group">
+          <label for="horaAgenda">Hora</label>
+          <input type="time" class="form-control" id="hora" name="hora" placeholder="hh:mm" [(ngModel)]="schedule.hour" required>
+      </div>
+
+      <button type="button" class="btn btn-primary" (click)="toggleNewSchedule()">Voltar</button>
+      <button type="submit" class="btn btn-primary mx-2" [disabled]="frm.invalid"><span class="fa fa-save"></span> Salvar</button>
+    </form>
+
+  </div>
+
+  <table class="table" *ngIf="!criarAgenda">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Descrição</th>
+        <th scope="col">Data</th>
+        <th scope="col">Hora</th>
+        <th scope="col">Opções</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let a of agenda">
+        <td scope="row">{{a.id}}</td>
+        <td>{{a.description}}</td>
+        <td>{{a.date}}</td>
+        <td>{{a.hour}}</td>
+        <td>
+          <div class="btn-group">
+            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#form" (click)="selecionaSchedule(a)"><span class="fa fa-edit"></span> Editar</button>
+            <button (click)="confirmaExcluir(a)" type="button" class="btn btn-secondary"><span class="fa fa-calendar-times-o"></span> Excluir</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div id="form" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+  
+      
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Editar Agenda</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>    
+      </div>
+        <div class="modal-body">
+            <form #f="ngForm" >
+                <div class="form-group">
+                    <label for="descricaoedit">Descrição</label>
+                    <textarea type="text" class="form-control" id="descricaoedit" name="descricaoedit" placeholder="Ex.: " rows="2" cols="103" [(ngModel)]="schedule.description" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="dataAgenda">Data</label>
+                    <input type="date" class="form-control" id="dataAgendaedit" name="dataedit" placeholder="dd/mm/aaaa" [(ngModel)]="schedule.date" required>
+                </div>
+                <div class="form-group">
+                    <label for="horaAgenda">Hora</label>
+                    <input type="time" class="form-control" id="horaedit" name="horaedit" placeholder="hh:mm" [(ngModel)]="schedule.hour" required>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button (click)="editaAgenda()" data-dismiss="modal" class="btn btn-primary mx-2" [disabled]="f.invalid"><span class="fa fa-save"></span> Salvar</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+
+
+</div>

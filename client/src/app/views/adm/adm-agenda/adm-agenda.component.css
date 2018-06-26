@@ -1,0 +1,11 @@
+button{
+    float: right;
+}
+table{
+    border-radius: 0.5em;
+    background-color: #ffffff;
+}
+.card{
+    padding: 10pt;
+    width: 100%;
+}

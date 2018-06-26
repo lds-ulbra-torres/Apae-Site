@@ -1,5 +1,22 @@
 <div class="container-fluid">
   <h2 class="text-center">AGENDA</h2>
   <hr>
-  
+  <div class="container">
+    <div class="row">
+      
+      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" *ngFor="let a of agenda">
+        <div class="card">
+          <div class="icon">
+              <strong>{{a.date}}</strong>
+              <span>{{a.hour}}</span>
+          </div>
+          <div class="card-section">
+            <h5>{{a.description}}</h5>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
 </div>
