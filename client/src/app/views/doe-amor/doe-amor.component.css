@@ -63,5 +63,13 @@ textarea{
     width: 100%;
     
 }
+.ng-invalid.ng-touched:not(form){
+    border: 1px solid red;
+}
+.warning{
+    color: red;
+    font-size: 9pt;
+    padding-top: 0;
+}
 
 

@@ -12,34 +12,19 @@ hr{
     border: solid 0.1vh  #333333;
     
 }
-@media only screen and (min-width: 600px) and (max-width: 767px) and (orientation: portrait){
-    .container{
-        height: 100vh;
-    }
-}
-@media(min-width: 768px) and (orientation: portrait){
-    .container{
-        height: 100vh;
-    }
-}
-@media only screen and (min-width: 992px) and (max-width: 1199.98px){
-    .container{
-        height: 100vh;
-    }
-}
-@media only screen and (min-width: 1200px) and (orientation: landscape){
-    .container{
-        height: 90vh;
-    }
-}
 
+.my-4{
+    display: flex;
+	justify-content: center;
+	align-items: center;
+}
 div.icon
-{
-  font-size: 15pt; /* change icon size */
+{ 
+  font-size: 12pt;
   display: block;
   position: relative;
-  width: 40%;
-  height: 9rem;
+  width: 70%;
+  height: 13rem;
   background-color: #fff;
   border-radius: 0.3em;
   box-shadow: 0 1px 0 #bdbdbd, 0 2px 0 #fff, 0 3px 0 #bdbdbd, 0 4px 0 #fff, 0 5px 0 #bdbdbd, 0 0 0 1px #bdbdbd;
@@ -58,7 +43,7 @@ div.icon strong
 {
   position: absolute;
   top: 0;
-  padding: 0.4em 0;
+  padding: 1em 0;
   color: #fff;
   background-color: #f44242;
   border-bottom: 1px dashed #f88787;
@@ -72,12 +57,45 @@ div.icon span
   padding-top: 0.8em;
   color: #2f2f2f;
 }
-.card{
+.block{
     background-color: #f2f2f2;
  
 }
 .card-section{
-    position: relative;
-    float: left;;
+    float: right;
   
+}
+@media only screen and (max-width: 410px){
+    div.icon span{
+        font-size: 2rem;
+        padding-top: 1.5em;
+    }
+}
+@media only screen and (min-width: 600px) and (max-width: 767px) and (orientation: portrait){
+    .container{
+        height: 100vh;
+    }
+}
+@media(min-width: 768px) and (orientation: portrait){
+    .container{
+        height: 100vh;
+    }
+    div.icon span{
+        font-size: 2rem;
+        padding-top: 1.5em;
+    }
+}
+@media only screen and (min-width: 992px) and (max-width: 1199.98px){
+    .container{
+        height: 100vh;
+    }
+    div.icon span{
+        font-size: 2.2rem;
+        padding-top: 1.5em;
+    }
+}
+@media only screen and (min-width: 1200px) and (orientation: landscape){
+    .container{
+        height: 90vh;
+    }
 }

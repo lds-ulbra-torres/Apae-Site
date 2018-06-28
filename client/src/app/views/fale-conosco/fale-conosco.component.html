@@ -24,7 +24,7 @@
               </div>
           </div>
           <div class="form-group">
-              <p class="input"><label for="telefone"><input size="60" type="tel" id="telefone" placeholder="Telefone" name="telefone" class="form-control shadow-sm" required ngModel #phone="ngModel"></label></p>
+              <p class="input"><label for="telefone"><input size="60" type="tel" id="telefone" pattern="^\d{11}$" placeholder="Telefone" name="telefone" class="form-control shadow-sm" required ngModel #phone="ngModel"></label></p>
               <div *ngIf="!phone.valid && phone.touched" class="warning">
                 <span>Telefone inválido</span>
               </div>
@@ -35,7 +35,7 @@
                 <span>Mensagem obrigatória</span>
               </div>
           </div>
-          <button type="submit" class="btn btn-lg shadow-sm offset-4" [disabled]="!f.valid && f.touched">Enviar <span class="fa fa-send-o"></span></button>
+          <button type="submit" class="btn btn-lg shadow-sm offset-4" [disabled]="f.invalid">Enviar <span class="fa fa-send-o"></span></button>
         </form>  
       </div>
 

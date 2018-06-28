@@ -32,15 +32,7 @@ export class DoeAmorComponent implements OnInit {
     this.enviarMensagem = !this.enviarMensagem;
   }
 
-  onBackM(){
-    this.enviarMensagem = !this.enviarMensagem;
-  }
-
   onSerAssociado(){
-    this.serAssociado = !this.serAssociado;
-  }
-
-  onBackA(){
     this.serAssociado = !this.serAssociado;
   }
 }

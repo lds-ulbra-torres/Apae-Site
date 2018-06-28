@@ -1,5 +1,5 @@
-<div class="container-fluid" *ngIf="campanha" style="background-color: #ffffff">
-  <div class="container">
+<div class="container-fluid" style="background-color: #ffffff">
+  <div class="container" *ngIf="campanha">
     <div class="row py-5" >
 
         <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
@@ -34,49 +34,70 @@
 
 
         <div class="col-md-9 col-lg-9 col-sm-12 col-xs-12" *ngIf="enviarMensagem">
-          <form method="post">
+          <form method="post" #m="ngForm" (ngSubmit)="onSubmit(m)">
             <div class="form-group">
-              <p><label for="nome"><input size="100" type="text" id="nome" placeholder="Nome" name="nome" class="form-control shadow-sm" required></label></p>
+              <p><label for="nome"><input size="100" type="text" id="nome" placeholder="Nome" name="nome" class="form-control shadow-sm" required ngModel #nome="ngModel"></label></p>
+              <div *ngIf="!nome.valid && nome.touched" class="warning">
+                <span>Nome é obrigatório</span>
+              </div>
             </div>
             <div class="form-group">
-                <p><label for="email"><input size="100" type="email" id="email" placeholder="Email" name="email" class="form-control shadow-sm" required></label></p>
+                <p><label for="email"><input size="100" type="email" id="email" placeholder="Email" name="email" class="form-control shadow-sm" required email ngModel #email="ngModel"></label></p>
+                <div *ngIf="!email.valid && email.touched" class="warning">
+                  <span>Email inválido</span>
+                </div>
             </div>
             <div class="form-group">
-                <p><label for="telefone"><input size="100" type="tel" id="telefone" placeholder="Telefone" name="telefone" class="form-control shadow-sm" required></label></p>
+                <p><label for="telefone"><input size="100" type="tel" id="telefone" pattern="^\d{11}$" placeholder="Telefone" name="telefone" class="form-control shadow-sm" required ngModel #phone="ngModel"></label></p>
+                <div *ngIf="!phone.valid && phone.touched" class="warning">
+                  <span>Telefone inválido</span>
+                </div>
             </div>
             <div class="form-group">
-                <p><label for="mensagem"><textarea cols="103" id="mensagem" rows="5" placeholder="Mensagem" name="mensagem" class="form-control shadow-sm" required></textarea></label></p>
+                <p><label for="mensagem"><textarea cols="103" id="mensagem" rows="5" placeholder="Mensagem" name="mensagem" class="form-control shadow-sm" required ngModel #message="ngModel"></textarea></label></p>
+                <div *ngIf="!message.valid && message.touched" class="warning">
+                  <span>Mensagem obrigatória</span>
+                </div>
             </div>
             <div class="offset-lg-4 offset-md-4">
-              <button type="submit" class="btn btn-lg shadow-sm">Enviar <span class="fa fa-send-o"></span></button>
-              <button type="button" class="btn btn-lg shadow-sm" (click)="onBackM()">Voltar</button>
+              <button type="submit" class="btn btn-lg shadow-sm" [disabled]="m.invalid">Enviar <span class="fa fa-send-o"></span></button>
+              <button type="button" class="btn btn-lg shadow-sm" (click)="onEnviarMensagem()">Voltar</button>
             </div>
           </form>
         </div>
 
 
         <div class="col-md-9 col-lg-9 col-sm-12 col-xs-12" *ngIf="serAssociado">
-          <form method="post">
+          <form method="post" #p="ngForm" (ngSubmit)="onSubmit(p)">
             <div class="form-group">
-              <p><label for="nome"><input size="100" type="text" id="nome" placeholder="Nome" name="nome" class="form-control shadow-sm" required></label></p>
+              <p><label for="nome"><input size="100" type="text" id="nome" placeholder="Nome" name="nome" class="form-control shadow-sm" required  ngModel #nomeP="ngModel"></label></p>
+              <div *ngIf="!nomeP.valid && nomeP.touched" class="warning">
+                <span>Nome é obrigatório</span>
+              </div>
             </div>
             <div class="form-group">
-                <p><label for="email"><input size="100" type="email" id="email" placeholder="Email" name="email" class="form-control shadow-sm" required></label></p>
+                <p><label for="email"><input size="100" type="email" id="email" placeholder="Email" name="email" class="form-control shadow-sm" required email ngModel #emailP="ngModel"></label></p>
+                <div *ngIf="!emailP.valid && emailP.touched" class="warning">
+                  <span>Email inválido</span>
+                </div>
             </div>
             <div class="form-group">
-                <p><label for="cel"><input size="100" type="tel" id="cel" placeholder="Telefone Celular" name="cel" class="form-control shadow-sm"></label></p>
+                <p><label for="cel"><input size="100" type="tel" id="cel" placeholder="Telefone Celular" pattern="^\d{11}$" name="cel" class="form-control shadow-sm"></label></p>
             </div>
             <div class="form-group">
-                <p><label for="home"><input size="100" type="tel" id="home" placeholder="Telefone Residencial" name="home" class="form-control shadow-sm"></label></p>
+                <p><label for="home"><input size="100" type="tel" id="home" placeholder="Telefone Residencial" pattern="^\d{10}$" name="home" class="form-control shadow-sm"></label></p>
             </div>
             <div class="form-group">
-                <p><label for="comercial"><input size="100" type="tel" id="comercial" placeholder="Telefone Comercial" name="comercial" class="form-control shadow-sm"></label></p>
+                <p><label for="comercial"><input size="100" type="tel" id="comercial" placeholder="Telefone Comercial" pattern="^\d{11}$" name="comercial" class="form-control shadow-sm" required ngModel #phoneP="ngModel"></label></p>
+                <div *ngIf="!phoneP.valid && phoneP.touched" class="warning">
+                  <span>Telefone inválido</span>
+                </div>
             </div>
             <div class="offset-lg-4 offset-md-4">
-              <button type="submit" class="btn btn-lg shadow-sm">Enviar <span class="fa fa-send-o"></span></button>
-              <button type="button" class="btn btn-lg shadow-sm" (click)="onBackA()" >Voltar</button>
+              <button type="submit" class="btn btn-lg shadow-sm" [disabled]="p.invalid">Enviar <span class="fa fa-send-o"></span></button>
+              <button type="button" class="btn btn-lg shadow-sm" (click)="onSerAssociado()" >Voltar</button>
             </div>
-          </form>
+          </form> 
         </div>
       
       <div class="container" *ngIf="!campanha">
