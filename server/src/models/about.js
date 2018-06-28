@@ -10,12 +10,29 @@ export default (sequelize, DataType) => {
         notEmpty: true
       }
     },
+    social_politics: {
+      type: DataType.TEXT,
+      allowNull: false,
+      validate: {
+        notEmpty: true
+      }
+    },
+    health_policies: {
+      type: DataType.TEXT,
+      allowNull: false,
+      validate: {
+        notEmpty: true
+      }
+    },
+    education_policies: {
+      type: DataType.TEXT,
+      allowNull: false,
+      validate: {
+        notEmpty: true
+      }
+    },
     how_work: {
         type: DataType.STRING,
-        allowNull: false,
-        validate: {
-          notEmpty: true
-        }
       },
     main_photo: {
       type: DataType.STRING,
@@ -41,6 +58,9 @@ export default (sequelize, DataType) => {
       if(res === null){
         let data = {}
         data.description = "Description about"
+        data.social_politics = "About social politics"
+        data.health_policies = "About health policies"
+        data.education_policies = "About education policies"
         data.how_work = "How work about"
         data.main_photo = "main photo"
         console.log("Create")
@@ -59,7 +79,7 @@ export default (sequelize, DataType) => {
     About.findOne({where : {id: 1}, attributes: ['main_photo']})
     .then(response => {
       let index = response.main_photo.indexOf("uploads")
-      let name = path.join(__dirname, `../../public/${response.imagem_promo.substr(index)}`)
+      let name = path.join(__dirname, `../../public/${response.imagem_promo.substring(index)}`)
         
       fs.unlink(name, res => res)
     })

@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0.0",
-    "title": "API Site APAE"
+    "title": "API "
   },
   "produces": [
     "application/json"
@@ -21,13 +21,6 @@
           "application/json"
         ],
         "parameters": [
-          {
-            "in": "header",
-            "name": "Authorization",
-            "type": "string",
-            "description": "Bearer  {token}",
-            "required": true
-          },
           {
             "in": "formData",
             "name": "description",
@@ -247,13 +240,6 @@
         ],
         "parameters": [
           {
-            "in": "header",
-            "name": "Authorization",
-            "type": "string",
-            "description": "Bearer  {token}",
-            "required": true
-          },
-          {
             "in": "path",
             "name": "id",
             "type": "string",
@@ -367,13 +353,6 @@
         ],
         "parameters": [
           {
-            "in": "header",
-            "name": "Authorization",
-            "type": "string",
-            "description": "Bearer  {token}",
-            "required": true
-          },
-          {
             "name": "id",
             "in": "path",
             "description": "Reference id",
@@ -441,13 +420,6 @@
           "application/json"
         ],
         "parameters": [
-          {
-            "in": "header",
-            "name": "Authorization",
-            "type": "string",
-            "description": "Bearer  {token}",
-            "required": true
-          },
           {
             "in": "formData",
             "name": "title",
@@ -597,21 +569,6 @@
                       "main_photo": {
                         "type": "string",
                         "example": "/uploads/526389803102-1.jpg"
-                      },
-                      "EventPhotos": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "type": "integer"
-                            },
-                            "url": {
-                              "type": "string",
-                              "example": "/uploads/526389803102-0.jpg"
-                            }
-                          }
-                        }
                       }
                     }
                   }
@@ -725,13 +682,6 @@
         ],
         "parameters": [
           {
-            "in": "header",
-            "name": "Authorization",
-            "type": "string",
-            "description": "Bearer  {token}",
-            "required": true
-          },
-          {
             "in": "path",
             "name": "id",
             "type": "string",
@@ -830,13 +780,6 @@
         ],
         "parameters": [
           {
-            "in": "header",
-            "name": "Authorization",
-            "type": "string",
-            "description": "Bearer  {token}",
-            "required": true
-          },
-          {
             "in": "path",
             "name": "id",
             "type": "string",
@@ -900,13 +843,6 @@
           "application/json"
         ],
         "parameters": [
-          {
-            "in": "header",
-            "name": "Authorization",
-            "type": "string",
-            "description": "Bearer  {token}",
-            "required": true
-          },
           {
             "in": "formData",
             "name": "description",
@@ -1127,13 +1063,6 @@
         ],
         "parameters": [
           {
-            "in": "header",
-            "name": "Authorization",
-            "type": "string",
-            "description": "Bearer  {token}",
-            "required": true
-          },
-          {
             "in": "path",
             "name": "id",
             "type": "integer",
@@ -1213,13 +1142,6 @@
           "multipart/form-data"
         ],
         "parameters": [
-          {
-            "in": "header",
-            "name": "Authorization",
-            "type": "string",
-            "description": "Bearer  {token}",
-            "required": true
-          },
           {
             "in": "path",
             "name": "id",
@@ -1307,6 +1229,18 @@
                         "type": "string",
                         "example": "About descripton"
                       },
+                      "social_politics": {
+                        "type": "string",
+                        "example": "About it social politics"
+                      },
+                      "health_policies": {
+                        "type": "string",
+                        "example": "About it health policies"
+                      },
+                      "education_policies": {
+                        "type": "string",
+                        "example": "About it education policies"
+                      },
                       "how_work": {
                         "type": "string",
                         "example": "How it Works title"
@@ -1333,17 +1267,28 @@
         ],
         "parameters": [
           {
-            "in": "header",
-            "name": "Authorization",
-            "type": "string",
-            "description": "Bearer  {token}",
-            "required": true
-          },
-          {
             "in": "formData",
             "name": "description",
             "type": "string",
             "description": "About description"
+          },
+          {
+            "in": "formData",
+            "name": "social_politics",
+            "type": "string",
+            "description": "About how works"
+          },
+          {
+            "in": "formData",
+            "name": "health_policies",
+            "type": "string",
+            "description": "About how works"
+          },
+          {
+            "in": "formData",
+            "name": "education_policies",
+            "type": "string",
+            "description": "About how works"
           },
           {
             "in": "formData",

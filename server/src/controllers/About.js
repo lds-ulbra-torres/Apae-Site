@@ -3,8 +3,9 @@ import {isNullOrUndefined} from 'util'
 
 class AboutController {
     
-    constructor (aboutModel ) {
+    constructor (aboutModel, storage) {
         this.aboutModel = aboutModel
+        this.storage = storage
     }
 
     get(req, res){    
@@ -19,7 +20,7 @@ class AboutController {
         let data = req.body
 
         if(!isNullOrUndefined(req.files.main_photo)){     
-            data.main_photo = `${req.headers.origin}/uploads/${req.files.main_photo[0].filename}`  
+            data.main_photo = `${this.storage}/uploads/${req.files.main_photo[0].filename}`  
             this.aboutModel.main_photoDelete()
         }
         return this.aboutModel.update( data, { where: { id : 1 } })

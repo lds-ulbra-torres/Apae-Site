@@ -4,8 +4,9 @@ import fs from 'fs'
 import url from 'url'
 class CampaignController {
     
-    constructor (campaignModel) {
+    constructor (campaignModel, storage) {
         this.campaignModel = campaignModel
+        this.storage = storage
     }
 
     get(req, res){
@@ -41,8 +42,8 @@ class CampaignController {
         if(isNullOrUndefined(req.files.imagem_promo))
             return res.status(400).json({status:400, msg : "É obrigatorio a Imagem Promocinal",obj:{}})
 
-        data.logotipo = `${req.headers.origin}/uploads/${req.files.logotipo[0].filename}`
-        data.imagem_promo = `${req.headers.origin}/uploads/${req.files.imagem_promo[0].filename}`
+        data.logotipo = `${this.storage}/uploads/${req.files.logotipo[0].filename}`
+        data.imagem_promo = `${this.storage}/uploads/${req.files.imagem_promo[0].filename}`
         
         return this.campaignModel.create(data)
             .then(response => {
@@ -64,11 +65,11 @@ class CampaignController {
             if(obj != null){
                 if(!isNullOrUndefined(req.files.logotipo)){
                     this.campaignModel.logotipoDelete(id)
-                    data.logotipo = `${req.headers.origin}/uploads/${req.files.logotipo[0].filename}`
+                    data.logotipo = `${this.storage}/uploads/${req.files.logotipo[0].filename}`
                 }      
                 if(!isNullOrUndefined(req.files.imagem_promo)){
                     this.campaignModel.imagem_promoDelete(id)
-                    data.imagem_promo = `${req.headers.origin}/uploads/${req.files.imagem_promo[0].filename}`
+                    data.imagem_promo = `${this.storage}/uploads/${req.files.imagem_promo[0].filename}`
                 }
                 this.campaignModel.update( data, { where: { id } })
                 .then(response => {

@@ -3,9 +3,9 @@ import multer from 'multer'
 
 const formData = multer().any()
 
-export default app => {
+module.exports = app => {
     //Load Model
-    let model = app.datasource.models.users
+    let model = app.config.db.models.users
     //Load Controller
     let controller = new UsersController(model)
 

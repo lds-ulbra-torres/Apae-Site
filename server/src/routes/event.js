@@ -3,29 +3,30 @@ import multer from 'multer'
 import path from 'path'
 import cors from 'cors'
 
-export default app => {
+module.exports = app => {
     
     const storage = multer.diskStorage({
-        destination : (req, file, cb) => cb(null, path.join(__dirname, app.config.localStorage)),
+        destination : (req, file, cb) => cb(null, path.join(__dirname, app.config.config.localStorage)),
         filename : (req, file, cb) => cb(null, `${Date.now()}-${file.originalname}`)    
     })
     const upload = multer({storage})
     const filesUp = upload.fields([{name: "main_photo"}, {name:"photos"}])
+    const hostStorage = app.config.config.hostStorage
     
     //Load Model
-    let model = app.datasource.models.eventPhotos
-    let model1 = app.datasource.models.Events
+    let model = app.config.db.models.eventPhotos
+    let model1 = app.config.db.models.events
     //Load Controller
-    let eventsController = new EventsController(model1, model)
+    let eventsController = new EventsController(model1, model, hostStorage)
     
     app.use(cors())
     
     app.route('/event')
-    .post(app.auth.authenticate(), filesUp, (req, res) => eventsController.create(req, res) )
+    .post(/*app.src.auth.authenticate(), */filesUp, (req, res) => eventsController.create(req, res) )
     
     app.route('/event/:id')
     .get( (req, res) => eventsController.get(req, res) )
-    .all(app.auth.authenticate())
+    //.all(app.src.auth.authenticate())
     .put(filesUp,(req, res) => eventsController.update(req, res) )
     .delete( (req, res) => eventsController.delete(req, res) )
     

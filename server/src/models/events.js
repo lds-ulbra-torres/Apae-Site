@@ -31,14 +31,12 @@ export default (sequelize, DataType) => {
   })
   Events.hasMany(sequelize.models.eventPhotos)
   Events.events = () => {
-    return Events.findAll({attributes: ['id','title','description','main_photo'], include: [{
-      model: sequelize.models.EventPhotos,
-      attributes: ['id','url']
-     }]})
+    return Events.findAll({attributes: ['id','title','description','main_photo']})
   }
   Events.event = id => {
+    console.log(sequelize.models.eventPhotos)
     return Events.findOne({where : { id }, attributes: ['id','title','description','main_photo'], include: [{
-        model: sequelize.models.EventPhotos,
+        model: sequelize.models.eventPhotos,
         attributes: ['id','url']
       }]}
     )
@@ -48,7 +46,7 @@ export default (sequelize, DataType) => {
       .then(response => {
         
         let index = response.main_photo.indexOf("uploads")
-        let name = path.join(__dirname, `../../public/${response.imagem_promo.substr(index)}`)
+        let name = path.join(__dirname, `../../public/${response.main_photo.substr(index)}`)
         
         fs.unlink(name, res => {
           if(next)

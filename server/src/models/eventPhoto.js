@@ -16,23 +16,23 @@ export default (sequelize, DataType) => {
         createdAt: false,
         updatedAt: false
       })
-    EventPhotos.photosCreate = (id, req) => {
+    EventPhotos.photosCreate = (id, req, storage) => {
         
         let array = []
-        
+        console.log(storage)
         req.files.photos.forEach(element => {
             
             let objeto = {}
 
-            objeto.url = `${req.headers.origin}/uploads/${element.filename}`
-            objeto.EventId = id
+            objeto.url = `${storage}/uploads/${element.filename}`
+            objeto.eventId = id
             EventPhotos.create(objeto)
             array.push(objeto)
         })
         
         return array
     }
-    EventPhotos.photosUpdate = (id, req) => {
+    EventPhotos.photosUpdate = (id, req, storage) => {
         
         let array = []
         let array1 = []
@@ -45,7 +45,7 @@ export default (sequelize, DataType) => {
             
             req.files.photos.forEach((element, index) => {
                 let objeto = {}
-                objeto.url = `${req.headers.origin}/uploads/${element.filename}`
+                objeto.url = `${storage}/uploads/${element.filename}`
                 objeto.EventId = EventId           
                 EventPhotos.create(objeto)
                 .then(response => array.push(objeto))

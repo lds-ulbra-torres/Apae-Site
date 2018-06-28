@@ -1,7 +1,8 @@
+
 import fs from 'fs';
 import path from 'path';
 
-export default (sequelize, diretory) => {
+module.exports = sequelize => {
     const dir = path.join(__dirname, '../models')
     const models = []
     fs.readdirSync(dir).forEach(file => {

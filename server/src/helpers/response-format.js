@@ -1,4 +1,4 @@
-export default (obj, msg) => {
+module.exports = (obj, msg) => {
     return {
         defaultMsg : () => ({ status : 200, msg, obj }),
         eventCreateMsg : (response, vetor) => ({ status : 200, msg, 

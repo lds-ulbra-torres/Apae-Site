@@ -1,14 +1,14 @@
 import passport from "passport"
 import {Strategy,ExtractJwt} from "passport-jwt"
 
-export default  app => {
+module.exports = app => {
     
     const opts = {}
     opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken()
-    opts.secretOrKey = app.config.jwtSecret
-    opts.jwtSession = app.config.jwtSession
+    opts.secretOrKey = app.config.config.jwtSecret
+    opts.jwtSession = app.config.config.jwtSession
 
-    const Users = app.datasource.models.users
+    const Users = app.config.db.models.users
     
     const strategy = new Strategy(opts,
     (jwt_payload, done) => {
