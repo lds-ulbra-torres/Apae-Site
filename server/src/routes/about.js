@@ -2,7 +2,7 @@ import AboutsController from '../controllers/About'
 import multer from 'multer'
 import path from 'path'
 import cors from 'cors'
-
+ 
 module.exports = app => {
     
     const storage = multer.diskStorage({
