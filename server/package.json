@@ -5,27 +5,31 @@
   "main": "server.js",
   "scripts": {
     "start": "babel-node server.js",
-    "babel-debug": "nodemon --exec babel-node-debug server.js",
-    "test": "npm run test-integration",
-    "test:integration": "NODE_ENV=test mocha --opts test/integration/mocha.opts test/integration/**/*_spec.js"
+    "clusters": "babel-node clusters.js",
+    "dev": "node_modules/.bin/nodemon --exec npm start",
+    "babel-debug": "nodemon --exec babel-node-debug server.js"
   },
   "author": "LDS Ulbra Torres",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^2.0.1",
-    "body-parser": "^1.18.2",
+    "body-parser": "^1.18.3",
+    "compression": "^1.7.2",
+    "consign": "^0.1.6",
+    "cors": "^2.8.4",
     "express": "^4.16.3",
-    "http-status": "^1.1.0",
+    "helmet": "^3.12.1",
+    "jwt-simple": "^0.5.1",
     "multer": "^1.3.0",
     "mysql2": "^1.5.3",
-    "sequelize": "^4.37.6"
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "sequelize": "^4.37.10"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-node6": "^11.0.0",
-    "chai": "^4.1.2",
-    "mocha": "^5.1.1",
-    "sinon": "^5.0.1",
-    "supertest": "^3.0.0"
+    "nodemon": "^1.17.5",
+    "swagger-ui-express": "^3.0.10"
   }
 }

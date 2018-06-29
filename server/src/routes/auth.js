@@ -1,13 +1,18 @@
 import UsersController from '../controllers/User'
+import multer from 'multer'
 
-export default app => {
+const formData = multer().any()
+
+module.exports = app => {
     //Load Model
-    let model = app.datasource.models.Users
+    let model = app.config.db.models.users
     //Load Controller
     let controller = new UsersController(model)
 
     app.route('/auth')
-    .get((req, res) =>{
-        return controller.validate(req, res)
+    .post(formData,(req, res) =>{
+
+        return controller.validate(req, res, app.config.jwtSecret)
+    
     })
 }

@@ -1,29 +1,32 @@
 import CampaignsController from '../controllers/Campaign'
 import multer from 'multer'
-const storage = multer.diskStorage({
-    destination : (req, file, cb) => cb(null, '/Users/progr/Documents/Apae-Site/server/uploads/'),
-    filename : (req, file, cb) => cb(null, `${Date.now()}-${file.originalname}`)    
-})
-const upload = multer({storage})
-const filesUp = upload.fields([{ name: 'logotipo' }, { name: 'imagem_promo'}])
+import path from 'path'
+import cors from 'cors'
 
-export default app => {
+module.exports = app => {
+
+    const storage = multer.diskStorage({
+        destination : (req, file, cb) => cb(null, path.join(__dirname,  app.config.config.localStorage)),
+        filename : (req, file, cb) => cb(null, `${Date.now()}-${file.originalname}`)    
+    })
+    const upload = multer({storage})
+    const filesUp = upload.fields([{ name: 'logotipo' }, { name: 'imagem_promo'}])
+    const hostStorage = app.config.config.hostStorage
     //Load Model
-    let model = app.datasource.models.Campaigns
+    let model = app.config.db.models.campaigns
     //Load Controller
-    let campaignsController = new CampaignsController(model)
+    let campaignsController = new CampaignsController(model, hostStorage)
+
+    app.use(cors())
     
     app.route('/campaign')
-    .get((req, res) =>{
-        return campaignsController.get(req, res)
-    })
-    .post(filesUp, (req, res) =>{
-        return campaignsController.create(req, res)
-    })
-    .put(filesUp,(req, res) =>{
-        return campaignsController.update(req, res)
-    })
-    .delete((req, res) =>{
-        return campaignsController.delete(req, res)
-    })
+    .get( (req, res) => campaignsController.get(req, res) )
+    .post(/*app.src.auth.authenticate(),*/ filesUp, (req, res) => campaignsController.create(req, res) )
+    
+    app.route('/campaign/:id')
+//    .all(app.src.auth.authenticate())
+    .put(filesUp,(req, res) => campaignsController.update(req, res) )
+    .delete( (req, res) => campaignsController.delete(req, res) )
+    
+    app.get('/campaigns', (req, res)=> campaignsController.getAll(req, res) )
 }
