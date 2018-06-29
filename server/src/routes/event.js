@@ -12,7 +12,7 @@ module.exports = app => {
     const upload = multer({storage})
     const filesUp = upload.fields([{name: "main_photo"}, {name:"photos"}])
     const hostStorage = app.config.config.hostStorage
-    
+     
     //Load Model
     let model = app.config.db.models.eventPhotos
     let model1 = app.config.db.models.events
