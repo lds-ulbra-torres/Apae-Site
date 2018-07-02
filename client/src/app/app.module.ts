@@ -32,6 +32,8 @@ import { EventosService } from './services/eventos.service';
 import { DoeAmorModule } from './views/doe-amor/doe-amor.module';
 import { AgendaService } from './services/agenda.service';
 import { AdmAgendaService } from './services/adm-agenda.service';
+import { ApaeTorresService } from './services/apae-torres.service';
+
 
 @NgModule({
   declarations: [
@@ -54,7 +56,7 @@ import { AdmAgendaService } from './services/adm-agenda.service';
     LoginComponent,
     HomeAdministradorComponent,
     AdmComponent,
-    EventoDetalheComponent
+    EventoDetalheComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,7 +67,7 @@ import { AdmAgendaService } from './services/adm-agenda.service';
 	  DoeAmorModule,
   ],
  
-  providers: [NossosParceirosService, EventosService, AgendaService, AdmAgendaService],
+  providers: [NossosParceirosService, EventosService, AgendaService, AdmAgendaService, ApaeTorresService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

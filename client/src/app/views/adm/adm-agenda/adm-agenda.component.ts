@@ -40,18 +40,29 @@ export class AdmAgendaComponent implements OnInit {
     });
   }
 
-  excluir (id) {
+  /**excluir (id) {
     this.admAgendaService.excluir(id).subscribe((response) => {
       // console.warn('resp', response);
       this.getSchedule();
     });
   }
   
-  confirmaExcluir(schedule) {
+  confirmaExcluir(schedule) { 
     const confirmou = window.confirm(`Tem certeza que deseja excluir o evento ${schedule.description}?`);
     if (confirmou) {
       this.excluir(schedule.id);
     } else {}
+  }**/
+
+  selecionaDelete(a) {
+    this.schedule = Object.assign({}, a);
+    // console.warn('aaa', a);
+  }
+  confirmaExcluir() { 
+    this.admAgendaService.excluir(this.schedule.id).subscribe((response) => { 
+      this.schedule = {};
+      this.getSchedule();
+  });
   }
 
   toggleNewSchedule(){
@@ -72,10 +83,11 @@ export class AdmAgendaComponent implements OnInit {
         this.schedule = {};
         this.getSchedule();
       })
-    }
+    } 
   }
 
 }
+
 export class Schedule {
   id?: number;
   date?: string;

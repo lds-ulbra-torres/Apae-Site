@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+.container-fluid{
+    background-color: #d5c570;
+    text-align: justify;
+    font-family: 'Montserrat', sans-serif;
+}
+h2, h3{
+    color: #574306;
+    font-weight: bold;
+}
+hr{
+    width: 30%;
+    margin: auto;
+    border: solid 0.1vh  #574306;
+    
+}
+p{
+    color: #ffffff;
+}
+button{
+    width: 50%;
+    background-color: #60ac5a;
+    color: #ffffff;
+}
+img{
+    border: 4px dashed #574306;
+    border-radius: 25px;
+}
+@media only screen and (min-width: 300px) and (max-width: 850px){
+    button{
+        font-size: 7pt;
+        width: 60%;
+    }
+    
+} 
+@media only screen and (min-width: 1000px) and (orientation: portrait){
+
+    button{
+        font-size: 10pt;
+        width: 60%;
+    }
+}
+@media only screen and (min-width: 1000px) and (orientation: landscape){
+   
+    button{
+        font-size: 12pt;
+        width: 60%;
+    }
+}

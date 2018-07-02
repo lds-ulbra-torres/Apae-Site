@@ -25,14 +25,14 @@
 
   </div>
 
-  <table class="table" *ngIf="!criarAgenda">
-    <thead>
+  <table class="table table-striped table-light table-bordered table-hover" *ngIf="!criarAgenda">
+    <thead class="thead-dark">
       <tr>
-        <th scope="col">ID</th>
+        <th scope="col">#</th>
         <th scope="col">Descrição</th>
         <th scope="col">Data</th>
         <th scope="col">Hora</th>
-        <th scope="col">Opções</th>
+        <th scope="col">Ações</th>
       </tr>
     </thead>
     <tbody>
@@ -44,7 +44,8 @@
         <td>
           <div class="btn-group">
             <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#form" (click)="selecionaSchedule(a)"><span class="fa fa-edit"></span> Editar</button>
-            <button (click)="confirmaExcluir(a)" type="button" class="btn btn-secondary"><span class="fa fa-calendar-times-o"></span> Excluir</button>
+            <!--button type="button" (click)="confirmaExcluir(a)"data-toggle="modal" data-target="#delete" class="btn btn-secondary" ><span class="fa fa-trash"></span> Excluir</button-->
+            <button type="button" data-toggle="modal" data-target="#delete" class="btn btn-secondary" (click)="selecionaDelete(a)"><span class="fa fa-trash"></span> Excluir</button>
           </div>
         </td>
       </tr>
@@ -77,10 +78,30 @@
         </div>
         <div class="modal-footer">
           <button (click)="editaAgenda()" data-dismiss="modal" class="btn btn-primary mx-2" [disabled]="f.invalid"><span class="fa fa-save"></span> Salvar</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
         </div>
       </div>
   
+    </div>
+  </div>
+  
+  <div class="modal fade" role="dialog" id="delete">
+    <div class="modal-dialog modal-md" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Excluir agendamento</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Tem certeza que deseja excluir este agendamento?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="confirmaExcluir()">Excluir</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
     </div>
   </div>
 
