@@ -32,29 +32,6 @@ export default (sequelize, DataType) => {
         
         return array
     }
-    EventPhotos.photosUpdate = (id, req, storage) => {
-        
-        let array = []
-        let array1 = []
-        let EventId = id
-        
-        EventPhotos.findAll({where : {EventId}})
-        .then(obj => {
-            
-            obj.forEach(element => array1.push(element.id))
-            
-            req.files.photos.forEach((element, index) => {
-                let objeto = {}
-                objeto.url = `${storage}/uploads/${element.filename}`
-                objeto.EventId = EventId           
-                EventPhotos.create(objeto)
-                .then(response => array.push(objeto))
-                .catch(erro => console.log(erro))       
-            })    
-        }).catch(erro => console.log(erro))
-        
-        return array
-      }
       EventPhotos.photosDelete = (EventId, next)  => {
         
         let array = []

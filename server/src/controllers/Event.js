@@ -82,7 +82,7 @@ class EventController {
                     let vetor = []
                 
                     if(!isNullOrUndefined(req.files.photos))
-                        vetor = this.photoModel.photosUpdate(id,req, this.storage)
+                        vetor = this.photoModel.photosCreate(id,req, this.storage)
                     
                     res.json(responseFormat(response,"Evento atualizada com sucesso").defaultMsg())
                 })
