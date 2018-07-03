@@ -7,11 +7,11 @@ class UsersController {
         this.userModel = userModel
     }
 
-    validate(req, res, secretOrKey){
+   validate(req, res, secretOrKey){
         
         const email = req.body.email
         const password = req.body.password
-        
+
         return this.userModel.findOne({
             attributes: ['password', 'email', 'id'],
             where : { email }

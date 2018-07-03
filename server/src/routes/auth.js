@@ -12,7 +12,7 @@ module.exports = app => {
     app.route('/auth')
     .post(formData,(req, res) =>{
 
-        return controller.validate(req, res, app.config.jwtSecret)
+        return controller.validate(req, res, app.config.config.jwtSecret)
     
     })
 }

@@ -1,4 +1,4 @@
-import bcrypt from 'bcrypt'
+import bcrypt from 'bcryptjs'
 
 export default (sequelize, DataType) => {
   const Users = sequelize.define('users', {
@@ -17,7 +17,7 @@ export default (sequelize, DataType) => {
       },
     },
     password: {
-      type: DataType.STRING,
+      type: DataType.TEXT,
       allowNull: false,
       validate: {
         notEmpty: true,
