@@ -17,7 +17,7 @@ export class AdmAgendaComponent implements OnInit {
   constructor(private admAgendaService: AdmAgendaService) {}
 
   ngOnInit() {
-    this.schedule = {};
+    this.schedule = {}; 
     this.getSchedule();
     this.agenda = [];
   }

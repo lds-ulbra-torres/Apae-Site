@@ -8,7 +8,7 @@ div.container{
     }
 }
 
-@media only screen and (min-width: 600px) and (max-width: 767px) and (orientation: portrait){
+/**@media only screen and (min-width: 600px) and (max-width: 767px) and (orientation: portrait){
     .container{
         height: 100vh;
     }
@@ -27,7 +27,7 @@ div.container{
     .container{
         height: 100vh;
     }
-}
+}**/
 
 span{
     color: #ffcc00;

@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+.container-fluid{
+    background-image: url('/assets/garoto-feliz.jpg');
+    background-size: cover;
+    background-position: center center;
+    height: 90vh;
+    display: flex;
+	align-items: center;
+}
+.box{
+    background-color: rgba(255,255,255,0.7);
+    border-radius: 5px;
+    
+	justify-content: center;
+}
+#teste{
+    display: flex;
+    justify-content: center;
+}
+button{
+    background-color: #fab72f;
+    color: #ffffff;
+    width: 50%;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}

@@ -1,3 +1,4 @@
+import { FaleConoscoService } from './views/fale-conosco/fale-conosco.service';
 import { routing } from './app.routing';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -67,7 +68,14 @@ import { ApaeTorresService } from './services/apae-torres.service';
 	  DoeAmorModule,
   ],
  
-  providers: [NossosParceirosService, EventosService, AgendaService, AdmAgendaService, ApaeTorresService],
+  providers: [
+    NossosParceirosService, 
+    EventosService,
+    AgendaService, 
+    AdmAgendaService, 
+    ApaeTorresService,
+    FaleConoscoService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

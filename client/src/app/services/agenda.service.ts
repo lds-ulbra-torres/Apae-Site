@@ -12,5 +12,12 @@ export class AgendaService {
     return this.http.get<any>(`${this.agendaUrl}`);
   }
 
+  convertDateFromServer(date) {
+    if (date) {
+      const splittedDate = date.split('/');
+      return `${splittedDate[2]}-${splittedDate[1]}-${splittedDate[0]}`;
+    }
+    return null;
+  }
 
 }
