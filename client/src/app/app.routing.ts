@@ -1,3 +1,4 @@
+import { EventoEditarComponent } from './views/adm/adm-eventos/evento-editar/evento-editar.component';
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -40,8 +41,9 @@ const APP_ROUTES: Routes = [
             { path: 'adm-apae-torres', component: AdmApaeTorresComponent },
             { path: 'adm-doe-amor', component: AdmDoeAmorComponent },
             { path: 'adm-agenda', component: AdmAgendaComponent },
-            { path: 'adm-eventos', component: AdmEventosComponent},
-            { path: 'adm-eventos/cadastrar', component: EventoCadastrarComponent}
+            { path: 'adm-eventos', component: AdmEventosComponent },
+            { path: 'adm-eventos/cadastrar', component: EventoCadastrarComponent },
+            { path: 'adm-eventos/editar/:id', component: EventoEditarComponent }
         ] }
     ] },
     

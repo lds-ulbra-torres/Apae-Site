@@ -1,22 +1,21 @@
 <a routerLink="/admin/dashboard/adm-eventos" class="btn btn-dark mt-1 mb-2 w-10">Voltar</a>
-
 <div class="container">
   <h2>Foto Principal</h2>
   <form method="POST" enctype="multipart/form-data" #f="ngForm" (ngSubmit)="onSubmit(f)">
-    <div #mainImage class="d-flex align-items-end flex-column" id="divMainPhotoInsert">
-      <input type="file" name="main_photo" class="btn btn-primary mt-auto mb-2 mr-2" id="inputPhoto" (change)="changeImage($event)" ngModel>
+    <div #mainImageEdit class="d-flex align-items-end flex-column" id="divMainPhotoInsert">
+      <input #mf type="file" value="evento.main_photo" name="main_photo" class="btn btn-primary mt-auto mb-2 mr-2" id="inputPhoto" (change)="changeImage($event)" ngModel>
     </div>
     <div class="w-75 m-auto">
       <h3 class="mt-2">Título do evento</h3>
-      <input type="text" name="title" class="form-control w-50" ngModel>
+      <input type="text" value="{{ evento?.title }}" name="title" class="form-control w-50" ngModel>
       <h3 class="mt-2" name="description">Descrição do evento</h3>
-      <textarea class="form-control w-75" name="description" rows="9" cols="60" ngModel></textarea>
+      <textarea class="form-control w-75" value="{{ evento?.description }}" name="description" rows="9" cols="60" ngModel></textarea>
     </div>
 
     <div class="row w-50 mx-auto">
       <div class="col-4 mt-2">
         <label for="inputGalery" class="btn btn-success">Adicionar foto(s)</label>
-        <input type="file" id="inputGalery" multiple (change)="insertGalery($event,f)" name="photos" ngModel>
+        <input type="file" id="inputGalery" multiple (change)="insertGaleryNew($event,f)" name="photos" ngModel>
       </div>
       <div class="col-8">
         <h3 class="mt-2">Galeria de fotos</h3>
@@ -29,27 +28,36 @@
           <th scope="col">Ação</th>
         </tr>
       </thead>
-      <tbody>
-        <tr *ngFor="let foto of novasFotos">
+      <tbody *ngIf="oldPhotos">
+
+        <tr *ngFor="let foto of oldPhotos">
           <td><img src="{{foto.url}}" width="200" alt="" srcset=""></td>
           <td>
-            <button type="button" class="btn-danger" (click)="removeFromGalery(novasFotos.indexOf(foto))">Excluir</button>
+            <button type="button" class="btn-danger" (click)="removeFromGaleryOld(oldPhotos.indexOf(foto))">Excluir</button>
           </td>
         </tr>
+
+        <tr *ngFor="let foto of newPhotos">
+          <td><img src="{{foto.url}}" width="200" alt="" srcset=""> </td>
+          <td>
+            <button type="button" class="btn-danger" (click)="removeFromGaleryNew(newPhotos.indexOf(foto))">Excluir</button>
+          </td>
+        </tr>
+
       </tbody>
     </table>
     <div class="w-25 m-auto">
-      <button type="submit" class="btn btn-primary w-100 mx-auto mb-3">Cadastrar Evento</button>
+      <button type="submit" class="btn btn-primary w-100 mx-auto mb-3">Atualizar Evento</button>
     </div>
   </form>
-  <div *ngIf="novasFotos[0]"  id="carouselExampleIndicators" class="carousel slide mb-3" data-ride="carousel">
+  <div *ngIf="allPhotos[0]" id="carouselExampleIndicators" class="carousel slide mb-3" data-ride="carousel">
     <h2 class="text-center">Pré Vizualização</h2>
       <ol class="carousel-indicators">
-        <li *ngFor="let foto of novasFotos; index as i" data-target="#carouselExampleIndicators" data-slide-to="i" [ngClass]="{'active': foto.id===novasFotos[0].id }" ></li>
+        <li *ngFor="let foto of allPhotos; index as i" data-target="#carouselExampleIndicators" data-slide-to="i" [ngClass]="{'active': foto===allPhotos[0] }" ></li>
       </ol>
       <div class="carousel-inner">
-        <div class="carousel-item" *ngFor="let foto of novasFotos" [ngClass]="{'active': foto.id===novasFotos[0].id }">
-          <img class="d-block m-auto" src="{{foto.url}}" alt="First slide">
+        <div class="carousel-item" *ngFor="let foto of allPhotos" [ngClass]="{'active': foto===allPhotos[0] }">
+          <img class="d-block m-auto" src="{{foto?.url}}" alt="First slide">
         </div>
       </div>
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

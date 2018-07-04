@@ -1,0 +1,18 @@
+#login{
+    color: #fff;
+    height: 50vh;
+    margin-top: 3vh !important;
+    background-color: #3c4a4b;
+}
+#admTitulo{
+    color: #fff;
+    width: 100%;
+    background-color: #eb5757;
+}
+#bottomPage{
+    width: 100%;
+    background-color: #000;
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+}

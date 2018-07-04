@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
+  data = new Date();
+  anoAtual = this.data.getFullYear();
+
+
   constructor() { }
 
   ngOnInit() {

@@ -31,6 +31,8 @@ import { EventoDetalheComponent } from './views/eventos/evento-detalhe/evento-de
 import { EventosService } from './services/eventos.service';
 import { DoeAmorModule } from './views/doe-amor/doe-amor.module';
 import { EventoCadastrarComponent } from './views/adm/adm-eventos/evento-cadastrar/evento-cadastrar.component';
+import { EventoEditarComponent } from './views/adm/adm-eventos/evento-editar/evento-editar.component'
+import { LoginService } from './services/login.service';
 
 @NgModule({
   declarations: [
@@ -54,17 +56,19 @@ import { EventoCadastrarComponent } from './views/adm/adm-eventos/evento-cadastr
     HomeAdministradorComponent,
     AdmComponent,
     EventoDetalheComponent,
-    EventoCadastrarComponent
+    EventoCadastrarComponent,
+    EventoEditarComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     routing,
-	DoeAmorModule,
+	  DoeAmorModule,
   ],
  
-  providers: [NossosParceirosService, EventosService],
+  providers: [NossosParceirosService, EventosService,LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

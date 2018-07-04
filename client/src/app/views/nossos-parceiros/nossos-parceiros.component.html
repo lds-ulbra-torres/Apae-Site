@@ -7,7 +7,7 @@
 <div class="container">
   <div *ngFor="let categoria of categorias | searcher : procuraCategoria" class="responsive" >
     <div class="gallery" (click)="consultarParceiros(categoria.id_category)">
-      <img src="http://apaetorres.org.br/doacoes{{categoria.photo_category}}" alt="{{ categoria.name_category }}">
+      <img src="http://doacoes.apaetorres.org.br/{{categoria.photo_category}}" alt="{{ categoria.name_category }}">
       <div class="titleCard">{{ categoria.name_category }}</div>
       <div class="desc">Ver parceiros</div>
     </div>
