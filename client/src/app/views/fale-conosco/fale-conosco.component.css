@@ -3,7 +3,7 @@
     background-color: #ffffff;
 }
 .container-fluid{
-    height: 90vh;
+    min-height: 90vh;
 }
 h2{
     text-align: center;

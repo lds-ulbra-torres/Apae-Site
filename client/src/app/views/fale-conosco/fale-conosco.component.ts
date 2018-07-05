@@ -25,7 +25,7 @@ export class FaleConoscoComponent implements OnInit {
 
     this.faleConoscoService.faleConosco(contato).subscribe((response) => {
       f.reset();
-      this.mensagem = "Enviado com sucesso!";
+      this.mensagem = "Enviado com sucesso! Logo entraremos em contato";
       console.log(response);
     });
   }

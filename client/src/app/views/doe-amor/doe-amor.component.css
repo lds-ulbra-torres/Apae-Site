@@ -47,6 +47,9 @@ textarea{
     font-size: 9pt;
     padding-top: 0;
 }
+a:hover{
+    text-decoration: none;
+}
 @media only screen and (max-width: 768px){
     [class*="col-"] {
         width: 100%;

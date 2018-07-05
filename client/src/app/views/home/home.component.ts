@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
 
     this.formParceirosService.serParceiro(parceiro).subscribe((response) => {
       p.reset();
-      this.mensagem = "Enviado com sucesso!";
+      this.mensagem = "Enviado com sucesso! Logo entraremos em contato.";
       console.log(response);
     })
   }

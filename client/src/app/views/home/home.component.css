@@ -25,6 +25,8 @@
 }
 h5{
     font-family:'Montserrat', sans-serif;
+    font-weight: bold;
+    color: #4d4d4d;
 }
 .frm{
     background-color: #60ac5a;

@@ -8,8 +8,8 @@
   </div>
 
   <div class="col-lg-6 box" *ngIf="bePartner">
-    <h5 class="text-center py-2">Seja um parceiro</h5>
-    <form method="POST" class="py-3" #p="ngForm" (ngSubmit)="onSubmit(p)">
+    <h5 class="text-center py-4">Seja um parceiro</h5>
+    <form method="POST" class="py-2" #p="ngForm" (ngSubmit)="onSubmit(p)">
       <div class="form-group">
         <label for="name_partner">Nome do Parceiro</label>
         <input type="text" class="form-control" name="name_partner" placeholder="Nome do Parceiro" required ngModel #nome="ngModel">
