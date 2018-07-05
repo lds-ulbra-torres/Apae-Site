@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class DoeAmorService {
 
-  campanhaURL = 'http://localhost:3000/campaign';
+  campanhaURL = 'http://api-test-apaetorres-org-br.umbler.net/campaign';
 
   constructor(private http: HttpClient) { }
 

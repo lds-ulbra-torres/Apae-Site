@@ -2,6 +2,8 @@
 .container-fluid{
     background-color: #d5c570;
 }
+
+
 h2{
     color: #333333;
     padding-top: 4.5vh;
@@ -11,4 +13,78 @@ hr{
     margin: auto;
     border: solid 0.1vh  #333333;
     
+}
+
+.my-4{
+    display: flex;
+	justify-content: center;
+	align-items: center;
+}
+div.icon
+{ 
+  font-size: 12pt;
+  display: block;
+  position: relative;
+  width: 70%;
+  height: 13rem;
+  background-color: #fff;
+  border-radius: 0.3em;
+  box-shadow: 0 1px 0 #bdbdbd, 0 2px 0 #fff, 0 3px 0 #bdbdbd, 0 4px 0 #fff, 0 5px 0 #bdbdbd, 0 0 0 1px #bdbdbd;
+  overflow: hidden;
+}
+div.icon *
+{
+  display: block;
+  width: 100%;
+  font-size: 1em;
+  font-weight: bold;
+  font-style: normal;
+  text-align: center;
+}
+div.icon strong
+{
+  position: absolute;
+  top: 0;
+  padding: 1em 0;
+  color: #fff;
+  background-color: #f44242;
+  border-bottom: 1px dashed #f88787;
+  box-shadow: 0 2px 0 #f44242;
+}
+
+div.icon span
+{
+  font-size: 2.8em;
+  letter-spacing: -0.05em;
+  padding-top: 0.8em;
+  color: #2f2f2f;
+}
+.block{
+    background-color: #f2f2f2;
+ 
+}
+.card-section{
+    float: right;
+  
+}
+@media only screen and (max-width: 410px){
+    div.icon span{
+        font-size: 2rem;
+        padding-top: 1.5em;
+    }
+}
+
+@media(min-width: 768px) and (orientation: portrait){
+    
+    div.icon span{
+        font-size: 2rem;
+        padding-top: 1.5em;
+    }
+}
+@media only screen and (min-width: 992px) and (max-width: 1199.98px){
+    
+    div.icon span{
+        font-size: 2.2rem;
+        padding-top: 1.5em;
+    }
 }
