@@ -1,7 +1,6 @@
 <div class="container-fluid">
   <h2 class="text-center">AGENDA</h2>
   <hr>
-  {{monthFilter}}
   <div class="container">
         <select name="meses" [(ngModel)]="monthFilter" class="btn" #meses (change)="onMonthChange($event)">
             <option selected value="-1">Todos</option>

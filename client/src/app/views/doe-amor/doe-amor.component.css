@@ -2,33 +2,6 @@ div.container{
     background-color: #ffffff;
     text-align: justify;
 }
-@media only screen and (max-width: 768px){
-    [class*="col-"] {
-        width: 100%;
-    }
-}
-
-/**@media only screen and (min-width: 600px) and (max-width: 767px) and (orientation: portrait){
-    .container{
-        height: 100vh;
-    }
-}
-@media(min-width: 768px) and (orientation: portrait){
-    .container{
-        height: 100vh;
-    }
-}
-@media only screen and (min-width: 992px) and (max-width: 1199.98px){
-    .container{
-        height: 100vh;
-    }
-}
-@media only screen and (min-width: 1200px) and (orientation: landscape){
-    .container{
-        height: 100vh;
-    }
-}**/
-
 span{
     color: #ffcc00;
 }
@@ -71,5 +44,28 @@ textarea{
     font-size: 9pt;
     padding-top: 0;
 }
+@media only screen and (max-width: 768px){
+    [class*="col-"] {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 600px) and (orientation: portrait){
+    .container{
+        height: 100vh;
+    }
+}
+@media only screen and (min-width: 992px) and (max-width: 1199.98px){
+    .container{
+        height: 100vh;
+    }
+}
+@media only screen and (min-width: 1200px) and (orientation: landscape){
+    .container{
+        height: 100vh;
+    }
+}
+
+
 
 

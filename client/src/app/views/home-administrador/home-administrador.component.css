@@ -24,6 +24,11 @@
     max-width: 60%;
     text-align: center;
     background-color: white;
+    padding-top: 10pt;
+    padding-bottom: 10pt;
+    padding-left: 15pt;
+    padding-right: 15pt;
+    border-radius: 30px;
 }
 
 #ulMenu{

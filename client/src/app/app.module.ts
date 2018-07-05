@@ -34,6 +34,7 @@ import { DoeAmorModule } from './views/doe-amor/doe-amor.module';
 import { AgendaService } from './services/agenda.service';
 import { AdmAgendaService } from './services/adm-agenda.service';
 import { ApaeTorresService } from './services/apae-torres.service';
+import { FormParceirosService } from './services/form-parceiros.service';
 
 
 @NgModule({
@@ -74,7 +75,8 @@ import { ApaeTorresService } from './services/apae-torres.service';
     AgendaService, 
     AdmAgendaService, 
     ApaeTorresService,
-    FaleConoscoService
+    FaleConoscoService,
+    FormParceirosService
   ],
   bootstrap: [AppComponent]
 })

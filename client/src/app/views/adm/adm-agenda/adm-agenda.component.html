@@ -44,7 +44,6 @@
         <td>
           <div class="btn-group">
             <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#form" (click)="selecionaSchedule(a)"><span class="fa fa-edit"></span> Editar</button>
-            <!--button type="button" (click)="confirmaExcluir(a)"data-toggle="modal" data-target="#delete" class="btn btn-secondary" ><span class="fa fa-trash"></span> Excluir</button-->
             <button type="button" data-toggle="modal" data-target="#delete" class="btn btn-secondary" (click)="selecionaDelete(a)"><span class="fa fa-trash"></span> Excluir</button>
           </div>
         </td>
@@ -98,8 +97,8 @@
           <p>Tem certeza que deseja excluir este agendamento?</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="confirmaExcluir()">Excluir</button>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="confirmaExcluir()">Excluir</button>
         </div>
       </div>
     </div>

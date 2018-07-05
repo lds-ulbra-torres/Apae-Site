@@ -9,20 +9,7 @@ export class FaleConoscoService {
     constructor(private http: HttpClient) {
     }
 
-    faleConosco(contato: ContatoFaleConosco) {
+    faleConosco(contato) {
         return this.http.post(this.resourceUrl, contato);
-    }
-}
-export class ContatoFaleConosco {
-    nome;
-    email;
-    telefone;
-    mensagem;
-
-    constructor(nome, email, telefone, mensagem) {
-        this.nome = nome;
-        this.email = email;
-        this.telefone = telefone;
-        this.mensagem = mensagem;
     }
 }

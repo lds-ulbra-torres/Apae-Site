@@ -1,29 +1,29 @@
 <div class="container-fluid" style="background-color: #ffffff">
-  <div class="container" *ngIf="campanha">
-    <div class="row py-5" >
+  <div class="container" >
+    <div class="row py-5">
 
         <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
-            <img class="img-fluid pb-3" src={{campanha.obj.logotipo}}>
-            <p><a href="{{campanha.obj.facebook_page}}"><img id="fblogo" class="offset-lg-2 pb-3" src="../../../assets/facebook-logotipo.png"></a><span> / {{campanha.obj.hashtag}}</span></p>
-            <img class="img-fluid rounded-circle py-3" src="{{campanha.obj.imagem_promo}}">
+            <img class="img-fluid pb-3" src={{campanha.logotipo}}>
+            <p><a href="{{campanha.facebook_page}}"><img id="fblogo" class="offset-lg-2 pb-3" src="../../../assets/facebook-logotipo.png"></a><span> / {{campanha.hashtag}}</span></p>
+            <img class="img-fluid rounded-circle py-3" src="{{campanha.imagem_promo}}">
         </div>
 
 
         <div class="col-md-9 col-lg-9 col-sm-12 col-xs-12" *ngIf="!enviarMensagem && !serAssociado" >
-          <p>{{campanha.obj.description}}</p>
+          <p>{{campanha.description}}</p>
           <button type="button" data-toggle="collapse" class="btn-block py-2" data-target="#comofunciona">Como funciona<i class="fa fa-caret-down"></i></button>
           <div id="comofunciona" class="collapse">
-            <p class="pt-3">{{campanha.obj.how_works}}</p>
+            <p class="pt-3">{{campanha.how_works}}</p>
           </div>
 
           <button type="button" data-toggle="collapse" class="btn-block py-2" data-target="#socio">Como se tornar um sócio<i class="fa fa-caret-down"></i></button>
           <div id="socio" class="collapse">
-            <p class="pt-3">{{campanha.obj.how_associated}}</p>
+            <p class="pt-3">{{campanha.how_associated}}</p>
           </div>
           
           <button type="button" data-toggle="collapse" class="btn-block py-2" data-target="#comopagar">Como pagar<i class="fa fa-caret-down"></i></button>
           <div id="comopagar" class="collapse">
-            <p class="pt-3">{{campanha.obj.how_pay}}</p>
+            <p class="pt-3">{{campanha.how_pay}}</p>
           </div>
 
           <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 offset-lg-4 offset-md-3 mb-3 mt-5">
@@ -34,9 +34,9 @@
 
 
         <div class="col-md-9 col-lg-9 col-sm-12 col-xs-12" *ngIf="enviarMensagem">
-          <form method="post" #m="ngForm" (ngSubmit)="onSubmit(m)">
+          <form method="post" #f="ngForm" (ngSubmit)="onSubmit1(f)">
             <div class="form-group">
-              <p><label for="nome"><input size="100" type="text" id="nome" placeholder="Nome" name="nome" class="form-control shadow-sm" required ngModel #nome="ngModel"></label></p>
+              <p><label for="nome"><input size="100" type="text" id="nome" placeholder="Nome" name="name" class="form-control shadow-sm" required ngModel #nome="ngModel"></label></p>
               <div *ngIf="!nome.valid && nome.touched" class="warning">
                 <span>Nome é obrigatório</span>
               </div>
@@ -48,19 +48,20 @@
                 </div>
             </div>
             <div class="form-group">
-                <p><label for="telefone"><input size="100" type="tel" id="telefone" pattern="^\d{11}$" placeholder="Telefone" name="telefone" class="form-control shadow-sm" required ngModel #phone="ngModel"></label></p>
+                <p><label for="telefone"><input size="100" type="tel" id="telefone" pattern="^\d{11}$" placeholder="phone" name="telefone" class="form-control shadow-sm" required ngModel #phone="ngModel"></label></p>
                 <div *ngIf="!phone.valid && phone.touched" class="warning">
                   <span>Telefone inválido</span>
                 </div>
             </div>
             <div class="form-group">
-                <p><label for="mensagem"><textarea cols="103" id="mensagem" rows="5" placeholder="Mensagem" name="mensagem" class="form-control shadow-sm" required ngModel #message="ngModel"></textarea></label></p>
+                <p><label for="mensagem"><textarea cols="103" id="mensagem" rows="5" placeholder="Mensagem" name="message" class="form-control shadow-sm" required ngModel #message="ngModel"></textarea></label></p>
                 <div *ngIf="!message.valid && message.touched" class="warning">
                   <span>Mensagem obrigatória</span>
                 </div>
             </div>
+            <p *ngIf="mensagem" class="alert alert-success">{{mensagem}}</p>
             <div class="offset-lg-4 offset-md-4">
-              <button type="submit" class="btn btn-lg shadow-sm" [disabled]="m.invalid">Enviar <span class="fa fa-send-o"></span></button>
+              <button type="submit" class="btn btn-lg shadow-sm" [disabled]="f.invalid">Enviar <span class="fa fa-send-o"></span></button>
               <button type="button" class="btn btn-lg shadow-sm" (click)="onEnviarMensagem()">Voltar</button>
             </div>
           </form>
@@ -68,41 +69,41 @@
 
 
         <div class="col-md-9 col-lg-9 col-sm-12 col-xs-12" *ngIf="serAssociado">
-          <form method="post" #p="ngForm" (ngSubmit)="onSubmit(p)">
+          <form method="post" #p="ngForm" (ngSubmit)="onSubmit2(p)">
             <div class="form-group">
-              <p><label for="nome"><input size="100" type="text" id="nome" placeholder="Nome" name="nome" class="form-control shadow-sm" required  ngModel #nomeP="ngModel"></label></p>
+              <p><input size="100" type="text" id="nome" placeholder="Nome" name="name_associated" class="form-control shadow-sm" required  ngModel #nomeP="ngModel"></p>
               <div *ngIf="!nomeP.valid && nomeP.touched" class="warning">
                 <span>Nome é obrigatório</span>
               </div>
             </div>
             <div class="form-group">
-                <p><label for="email"><input size="100" type="email" id="email" placeholder="Email" name="email" class="form-control shadow-sm" required email ngModel #emailP="ngModel"></label></p>
+                <p><input size="100" type="email" id="email" placeholder="Email" name="email" class="form-control shadow-sm" required email ngModel #emailP="ngModel"></p>
                 <div *ngIf="!emailP.valid && emailP.touched" class="warning">
                   <span>Email inválido</span>
                 </div>
             </div>
             <div class="form-group">
-                <p><label for="cel"><input size="100" type="tel" id="cel" placeholder="Telefone Celular" pattern="^\d{11}$" name="cel" class="form-control shadow-sm"></label></p>
-            </div>
-            <div class="form-group">
-                <p><label for="home"><input size="100" type="tel" id="home" placeholder="Telefone Residencial" pattern="^\d{10}$" name="home" class="form-control shadow-sm"></label></p>
-            </div>
-            <div class="form-group">
-                <p><label for="comercial"><input size="100" type="tel" id="comercial" placeholder="Telefone Comercial" pattern="^\d{11}$" name="comercial" class="form-control shadow-sm" required ngModel #phoneP="ngModel"></label></p>
-                <div *ngIf="!phoneP.valid && phoneP.touched" class="warning">
+                <p><input size="100" type="tel" id="phone" placeholder="Telefone celular" pattern="^\d{11}$" name="phone_cel" class="form-control shadow-sm" required ngModel #phoneCel="ngModel"></p>
+                <div *ngIf="!phoneCel.valid && phoneCel.touched" class="warning">
                   <span>Telefone inválido</span>
                 </div>
             </div>
+            <div class="form-group">
+                <p><input size="100" type="tel" id="phone" placeholder="Telefone residencial" pattern="^\d{10}$" name="phone_home" class="form-control shadow-sm" required ngModel #phoneH="ngModel"></p>
+                <div *ngIf="!phoneH.valid && phoneH.touched" class="warning">
+                    <span>Telefone inválido</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <p><input size="100" type="tel" id="phone" placeholder="Telefone comercial" pattern="^\d{10}$" name="phone_commerce" class="form-control shadow-sm" ngModel #phoneC="ngModel"></p>
+            </div>
+            <p *ngIf="mensagemA" class="alert alert-success">{{mensagemA}}</p>
             <div class="offset-lg-4 offset-md-4">
               <button type="submit" class="btn btn-lg shadow-sm" [disabled]="p.invalid">Enviar <span class="fa fa-send-o"></span></button>
               <button type="button" class="btn btn-lg shadow-sm" (click)="onSerAssociado()" >Voltar</button>
             </div>
           </form> 
         </div>
-      
-      <div class="container" *ngIf="!campanha">
-        <p>Carregando...</p>
-      </div>
 
     </div>
   </div>

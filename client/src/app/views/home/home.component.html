@@ -1,8 +1,54 @@
 <div class="container-fluid">
-  <div class="col-lg-6 box">
+  <div class="col-lg-6 box" *ngIf="!bePartner">
     <div id="teste">
         <img class="img-fluid mb-3 mt-5" src="../../../assets/apae-logo.png">
-    </div>  
-    <p><button type="button" class="btn offset-3 py-4 shadow-sm">SEJA UM SÓCIO <span class="fa fa-heart"></span></button></p>
-    <p><button type="button" class="btn offset-3 py-4 shadow-sm mb-5">SEJA UM PARCEIRO</button></p>   
+    </div>
+    <p><button type="button" class="btn offset-3 py-4 shadow-sm main" routerLink="/doe-amor">SEJA UM SÓCIO <span class="fa fa-heart"></span></button></p>
+    <p><button type="button" class="btn offset-3 py-4 shadow-sm mb-5 main" (click)="togglePartner()">SEJA UM PARCEIRO</button></p>
+  </div>
+
+  <div class="col-lg-6 box" *ngIf="bePartner">
+    <h5 class="text-center py-2">Seja um parceiro</h5>
+    <form method="POST" class="py-3" #p="ngForm" (ngSubmit)="onSubmit(p)">
+      <div class="form-group">
+        <label for="name_partner">Nome do Parceiro</label>
+        <input type="text" class="form-control" name="name_partner" placeholder="Nome do Parceiro" required ngModel #nome="ngModel">
+        <div *ngIf="!nome.valid && nome.touched" class="warning">
+            <span>Nome do Parceiro é obrigatório</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="name_contact">Nome do Contato</label>
+        <input type="text" class="form-control" name="name_contact" placeholder="Nome do Contato" requires ngModel #nomeC="ngModel">
+        <div *ngIf="!nomeC.valid && nomeC.touched" class="warning">
+            <span>Nome do Contato é obrigatório</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="phone">Telefone</label>
+        <input type="tel" class="form-control" name="phone" placeholder="Telefone" required ngModel #phone="ngModel">
+        <div *ngIf="!phone.valid && phone.touched" class="warning">
+            <span>Telefone é obrigatório</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" name="email" placeholder="Email" required email ngModel #email="ngModel" required ngModel #message="ngModel">
+        <div *ngIf="!email.valid && email.touched" class="warning">
+            <span>Email é obrigatório</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="message">Mensagem</label>
+        <textarea class="form-control" name="message" placeholder="Mensagem" required ngModel #message="ngModel"></textarea>
+        <div *ngIf="!message.valid && message.touched" class="warning">
+            <span>Mensagem é obrigatório</span>
+        </div>
+      </div>
+      <p *ngIf="mensagem" class="alert alert-success">{{mensagem}}</p>
+      <button type="submit" class="btn frm" [disabled]="p.invalid">Enviar <span class="fa fa-send-o"></span></button>
+      <button type="button" class="btn frm" (click)="togglePartner()">Voltar</button>
+    </form>
+  </div>
+
 </div> 
