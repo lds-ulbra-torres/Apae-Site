@@ -1,0 +1,14 @@
+#mainDiv{
+    margin: auto;
+    width: 97%;
+}
+
+#listEvents{
+    margin-top: 1vh;
+    max-height: 73.2vh;
+    overflow: auto;
+}
+
+.purple{
+    color: #600060;
+}

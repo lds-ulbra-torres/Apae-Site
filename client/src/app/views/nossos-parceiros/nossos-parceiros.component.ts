@@ -5,6 +5,7 @@ import { ICategory } from './../../../domain/interfaces/ICategory';
 import 'rxjs/add/operator/map';
 import { IPartners } from '../../../domain/interfaces/IPartners';
 import { Router } from '@angular/router';
+import { ProcurarCategoriaPipe } from '../../pipes/procurar-categoria.pipe';
 @Component({
   selector: 'app-nossos-parceiros',
   templateUrl: './nossos-parceiros.component.html',
@@ -12,8 +13,9 @@ import { Router } from '@angular/router';
 })
 export class NossosParceirosComponent implements OnInit {
 
-  private categorias = null;
-  private status_lista = false;
+  categorias: ICategory[] = null;
+  status_lista = false;
+  procuraCategoria: ProcurarCategoriaPipe;
 
   constructor(private nossosParceirosService: NossosParceirosService, private router: Router) {
     this.atualizarLista();

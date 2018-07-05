@@ -1,0 +1,39 @@
+#divMainPhotoInsert{
+    width: 100%;
+    background-color: #212121;
+    height: 25vw;
+    background-size: 100%;
+}
+
+.carousel-item img{
+    max-height: 30vw;
+}
+
+.carousel-control-prev-icon{
+    background-image: url("../../../../../assets/images/back.png");
+    width: 5vw;
+    height: 5vw;
+}
+.carousel-control-next-icon{
+    background-image: url("../../../../../assets/images/right-arrow.png");
+    width: 5vw;
+    height: 5vw;
+}
+.arrowCarousel{
+    background-color: #000;
+    width: 6.5vw;
+    height: 10.5vw;
+    padding-top: 2.75vw;
+}
+
+#inputGalery{
+    display: none;
+}
+
+.btn{
+    display: block;
+}
+
+.w-10{
+    width: 10% !important;
+}

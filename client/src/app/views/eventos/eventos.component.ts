@@ -10,11 +10,21 @@ import { EventosService } from './../../services/eventos.service';
 })
 export class EventosComponent implements OnInit {
 
-  eventos: IEvents[];
+  eventosHome: IEvents[];
   first: boolean;
+  status_lista: boolean = false;
 
-  constructor(_eventosService: EventosService) {
-    this.eventos = _eventosService.getAll()  
+  constructor(private _eventosService: EventosService) {
+    this.atualizarListaEventos();
+  }
+
+  atualizarListaEventos(){
+    this._eventosService.getAllApi()
+      .map((objetoEvento:any) => objetoEvento.obj)
+      .subscribe((allEvents: IEvents[]) => {
+        this.eventosHome = allEvents;
+        this.status_lista = true;
+      }, () => this.status_lista = false);
   }
 
   ngOnInit() {

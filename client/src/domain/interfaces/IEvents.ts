@@ -2,9 +2,8 @@ import { SafeStyle } from "@angular/platform-browser";
 
 export interface IEvents{
     id: number,
-    titulo: string,
-    subtitulo: string,
-    descricao: string,
-    fotoPrincipal: SafeStyle,
-    outrasFotos: any
+    title: string,
+    description: string,
+    main_photo: any,
+    eventPhotos: any
 }

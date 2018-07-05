@@ -31,11 +31,16 @@ import { AdmComponent } from './views/adm/adm.component';
 import { EventoDetalheComponent } from './views/eventos/evento-detalhe/evento-detalhe.component';
 import { EventosService } from './services/eventos.service';
 import { DoeAmorModule } from './views/doe-amor/doe-amor.module';
+
 import { AgendaService } from './services/agenda.service';
 import { AdmAgendaService } from './services/adm-agenda.service';
 import { ApaeTorresService } from './services/apae-torres.service';
 import { FormParceirosService } from './services/form-parceiros.service';
 
+import { EventoCadastrarComponent } from './views/adm/adm-eventos/evento-cadastrar/evento-cadastrar.component';
+import { EventoEditarComponent } from './views/adm/adm-eventos/evento-editar/evento-editar.component'
+import { LoginService } from './services/login.service';
+import { AuthGuardService } from './guards/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -59,6 +64,8 @@ import { FormParceirosService } from './services/form-parceiros.service';
     HomeAdministradorComponent,
     AdmComponent,
     EventoDetalheComponent,
+    EventoCadastrarComponent,
+    EventoEditarComponent
   ],
   imports: [
     BrowserModule,
@@ -67,8 +74,7 @@ import { FormParceirosService } from './services/form-parceiros.service';
     ReactiveFormsModule,
     routing,
 	  DoeAmorModule,
-  ],
- 
+  ], 
   providers: [
     NossosParceirosService, 
     EventosService,
@@ -76,8 +82,11 @@ import { FormParceirosService } from './services/form-parceiros.service';
     AdmAgendaService, 
     ApaeTorresService,
     FaleConoscoService,
-    FormParceirosService
+    FormParceirosService,
+	LoginService,
+	AuthGuardService
   ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

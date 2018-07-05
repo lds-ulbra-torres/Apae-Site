@@ -9,7 +9,7 @@
 <div class="container">
   <div *ngFor="let parceiro of parceiros" class="responsive"  >
     <div class="partner">
-      <img src="http://apaetorres.org.br/doacoes//{{parceiro.photo_partner}}">
+      <img src="http://doacoes.apaetorres.org.br/{{parceiro.photo_partner}}" onError="this.src='../../../../../assets/images/no-image.png'">
       <div class="row desc">
         <div class="col-9 elipsesText">{{parceiro.fantasy_name_partner}}</div>
         <div class="col-1"><img src="../../../../assets/images/price-tag.png" alt="" srcset=""></div>

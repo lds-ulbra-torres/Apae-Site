@@ -48,7 +48,10 @@
 }
 
 #aMenu:hover{
-    
     background-color: #d1d1d1;
     color: #212121;
+}
+
+.active{
+    background-color: #6c7a7b;
 }

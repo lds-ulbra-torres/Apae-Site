@@ -1,3 +1,5 @@
+import { AuthGuardService } from './guards/auth-guard.service';
+import { EventoEditarComponent } from './views/adm/adm-eventos/evento-editar/evento-editar.component';
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -18,6 +20,7 @@ import { AdmEventosComponent } from './views/adm/adm-eventos/adm-eventos.compone
 import { AdmAgendaComponent } from './views/adm/adm-agenda/adm-agenda.component';
 import { AdmDoeAmorComponent } from './views/adm/adm-doe-amor/adm-doe-amor.component';
 import { AdmApaeTorresComponent } from './views/adm/adm-apae-torres/adm-apae-torres.component';
+import { EventoCadastrarComponent } from './views/adm/adm-eventos/evento-cadastrar/evento-cadastrar.component';
 
 const APP_ROUTES: Routes = [
     { path: '', component: SiteComponent ,children:[
@@ -33,13 +36,16 @@ const APP_ROUTES: Routes = [
         { path: '', component: HomeComponent}
     ] },
     { path: 'admin', component: AdmComponent,children:[
-        { path: '', redirectTo:'login' ,pathMatch:'full'},
+        { 
+            path: '', redirectTo:'login' ,pathMatch:'full'},
         { path: 'login', component: LoginComponent },
-        { path: 'dashboard', component: HomeAdministradorComponent, children:[
+        { path: 'dashboard', component: HomeAdministradorComponent, canActivate:[AuthGuardService], children:[
             { path: 'adm-apae-torres', component: AdmApaeTorresComponent },
             { path: 'adm-doe-amor', component: AdmDoeAmorComponent },
             { path: 'adm-agenda', component: AdmAgendaComponent },
-            { path: 'adm-eventos', component: AdmEventosComponent }
+            { path: 'adm-eventos', component: AdmEventosComponent },
+            { path: 'adm-eventos/cadastrar', component: EventoCadastrarComponent },
+            { path: 'adm-eventos/editar/:id', component: EventoEditarComponent }
         ] }
     ] },
     

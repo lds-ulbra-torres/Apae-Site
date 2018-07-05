@@ -9,7 +9,10 @@ export class HomeAdministradorComponent implements OnInit {
 
   constructor() { }
 
+  userName: string;
+
   ngOnInit() {
+    this.userName = window.sessionStorage.getItem('user_name');
   }
 
 }

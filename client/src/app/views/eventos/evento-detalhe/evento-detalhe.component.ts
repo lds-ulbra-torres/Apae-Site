@@ -14,23 +14,28 @@ import { EventosService } from './../../../services/eventos.service';
 export class EventoDetalheComponent implements OnInit {
   
   evento: IEvents;
+  status_evento: boolean = false;
 
   constructor(private eventosService: EventosService, 
-              private active: ActivatedRoute,
-              private sanitizer: DomSanitizer) {
-                 
+              private active: ActivatedRoute) {
+                this.active.params.subscribe(param => {
+                  if(param['id']){
+                    this.consultarEvento(param['id']);
+                  }
+                })
                }
 
   consultarEvento(id:number){
-    this.evento = this.eventosService.getById(id);
+    this.eventosService.getById(id)
+      .map((objetoEvento:any) => objetoEvento.obj)
+      .subscribe((event: IEvents) => {
+        this.evento = event;
+        this.status_evento = true;
+      }, () => this.status_evento = false);
   }
 
   ngOnInit() {
-    this.active.params.subscribe(param => {
-      if(param['id']){
-        this.consultarEvento(param['id']);
-      }
-    })
+    
   }
 
 }
