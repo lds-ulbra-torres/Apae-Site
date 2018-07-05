@@ -22,5 +22,5 @@
     font-weight: bold;
 }
 .navbar{
-    height: 8.5vh;
+    min-height: 8.5vh;
 }

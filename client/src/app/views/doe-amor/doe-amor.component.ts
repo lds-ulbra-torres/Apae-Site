@@ -38,7 +38,7 @@ export class DoeAmorComponent implements OnInit {
     console.log(p);
     let associado = new FormData();
     associado.append('name_associated', p.value.name_associated)
-    associado.append('email', p.value.email)
+    associado.append('email_associated', p.value.email)
     associado.append('phone_cel', p.value.phone_cel)
     associado.append('phone_home', p.value.phone_home)
     associado.append('phone_commerce', p.value.phone_commerce)
