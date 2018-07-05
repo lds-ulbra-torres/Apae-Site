@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { IEvents } from './../../../../../domain/interfaces/IEvents';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import * as Guid from 'guid';
+
 @Component({
   selector: 'app-evento-cadastrar',
   templateUrl: './evento-cadastrar.component.html',

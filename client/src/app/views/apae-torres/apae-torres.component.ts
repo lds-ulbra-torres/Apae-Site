@@ -1,3 +1,4 @@
+import { IApaeTorres } from './../../../domain/interfaces/IApaeTorres';
 import { Component, OnInit } from '@angular/core';
 
 import { ApaeTorresService } from './../../services/apae-torres.service';
@@ -9,7 +10,7 @@ import { ApaeTorresService } from './../../services/apae-torres.service';
 })
 export class ApaeTorresComponent implements OnInit {
 
-  apaeTorres: any[];
+  apaeTorres: IApaeTorres;
 
   assist: boolean = false;
   edu: boolean = false;

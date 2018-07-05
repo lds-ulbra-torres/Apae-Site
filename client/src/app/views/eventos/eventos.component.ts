@@ -13,6 +13,7 @@ export class EventosComponent implements OnInit {
   eventosHome: IEvents[];
   first: boolean;
   status_lista: boolean = false;
+  lengthList: number;
 
   constructor(private _eventosService: EventosService) {
     this.atualizarListaEventos();
@@ -23,6 +24,7 @@ export class EventosComponent implements OnInit {
       .map((objetoEvento:any) => objetoEvento.obj)
       .subscribe((allEvents: IEvents[]) => {
         this.eventosHome = allEvents;
+        this.lengthList = this.eventosHome.length;
         this.status_lista = true;
       }, () => this.status_lista = false);
   }

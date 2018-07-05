@@ -8,7 +8,7 @@ export class LoginService {
   constructor(private http: HttpClient) { }
 
   consultarLogin(usuarioLogado){
-    return this.http.post('http://api-test-apaetorres-org-br.umbler.net/auth',usuarioLogado);
+    return this.http.post('http://api.apaetorres.org.br/auth',usuarioLogado);
   }
 
   userIsLogged(){

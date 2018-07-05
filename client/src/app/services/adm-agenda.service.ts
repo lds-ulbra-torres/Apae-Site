@@ -4,7 +4,8 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class AdmAgendaService {
 
-  admAgendaURL = 'http://api-test-apaetorres-org-br.umbler.net/schedule';
+  //admAgendaURL = 'http://api-test-apaetorres-org-br.umbler.net/schedule';
+  admAgendaURL = 'http://api.apaetorres.org.br/schedule';
 
   constructor(private http: HttpClient) { }
 

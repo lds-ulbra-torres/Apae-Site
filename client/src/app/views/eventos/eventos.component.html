@@ -1,9 +1,9 @@
 <router-outlet></router-outlet>
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+<div  *ngIf="lengthList>0; else essaDiv" id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li *ngFor="let evento of eventosHome; index as i" data-target="#carouselExampleIndicators" data-slide-to="i" [ngClass]="{'active': evento.id===eventosHome[0].id }" ></li>
   </ol>
-  <div *ngIf="eventosHome; else essaDiv"  class="carousel-inner">
+  <div  class="carousel-inner">
     <div class="carousel-item" *ngFor="let evento of eventosHome" [ngClass]="{'active': evento.id===eventosHome[0].id }">
       <a routerLink="/eventos/evento-detalhe/{{evento.id}}">  
       <img class="d-block m-auto" src="{{evento.main_photo}}" alt="First slide">

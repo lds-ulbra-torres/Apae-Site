@@ -3,6 +3,7 @@
     background-color: #d5c570;
     text-align: justify;
     font-family: 'Montserrat', sans-serif;
+    min-height: 90vh;
 }
 h2, h3{
     color: #574306;

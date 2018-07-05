@@ -7,7 +7,8 @@ import {Observable} from 'rxjs';
 @Injectable()
 export class EventosService {
 
-  private API_URL = "http://api-test-apaetorres-org-br.umbler.net/";
+  //private API_URL = "http://api-test-apaetorres-org-br.umbler.net/";
+  private API_URL = "http://api.apaetorres.org.br/";
 
   constructor(private sanitization: DomSanitizer,
     private http: HttpClient) { }

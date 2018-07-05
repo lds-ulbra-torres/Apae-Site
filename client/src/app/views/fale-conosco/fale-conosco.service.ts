@@ -4,7 +4,7 @@ import { Injectable } from "@angular/core";
 @Injectable()
 export class FaleConoscoService {
 
-    resourceUrl = "http://api-test-apaetorres-org-br.umbler.net/contact";
+    resourceUrl = "http://api.apaetorres.org.br/contact";
 
     constructor(private http: HttpClient) {
     }

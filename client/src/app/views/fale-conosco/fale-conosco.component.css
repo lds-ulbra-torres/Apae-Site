@@ -1,27 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 .container{
     background-color: #ffffff;
-
 }
-@media only screen and (min-width: 600px) and (max-width: 767px) and (orientation: portrait){
-    .container{
-        height: 100vh;
-    }
-}
-@media(min-width: 768px) and (orientation: portrait){
-    .container{
-        height: 100vh;
-    }
-}
-@media only screen and (min-width: 992px) and (max-width: 1199.98px){
-    .container{
-        height: 100vh;
-    }
-}
-@media only screen and (min-width: 1200px) and (orientation: landscape){
-    .container{
-        height: 100vh;
-    }
+.container-fluid{
+    height: 90vh;
 }
 h2{
     text-align: center;

@@ -90,11 +90,13 @@ export class AdmAgendaComponent implements OnInit {
 
 export class Schedule {
   id?: number;
+  description?: string;
   date?: string;
   hour?: string;
 
-  constructor(id?, date?, hour?) {
+  constructor(id?, description?, date?, hour?) {
     this.id = id || null;
+    this.description = description || null;
     this.date = date || null;
     this.hour = hour || null;
   }
