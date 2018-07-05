@@ -1,10 +1,10 @@
-<div class="row justify-content-center">
-  <div class="input-group mb-3 col-5">
+<div class="row justify-content-center m-0">
+  <div class="input-group mb-3 col-10 col-sm-4">
     <input type="text" class="form-control" [(ngModel)]="procuraCategoria" placeholder="Procurar categoria">
     
   </div>
 </div>
-<div class="container">
+<div *ngIf="status_lista; else loader"  class="container">
   <div *ngFor="let categoria of categorias | searcher : procuraCategoria" class="responsive" >
     <div class="gallery" (click)="consultarParceiros(categoria.id_category)">
       <img src="http://doacoes.apaetorres.org.br/{{categoria.photo_category}}" alt="{{ categoria.name_category }}">
@@ -13,3 +13,10 @@
     </div>
   </div>
 </div>
+<ng-template #loader >
+  <div class="row justify-content-center">
+    <div class="col-3 col-lg-1">
+      <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+    </div>
+  </div>
+</ng-template>

@@ -33,6 +33,7 @@ import { DoeAmorModule } from './views/doe-amor/doe-amor.module';
 import { EventoCadastrarComponent } from './views/adm/adm-eventos/evento-cadastrar/evento-cadastrar.component';
 import { EventoEditarComponent } from './views/adm/adm-eventos/evento-editar/evento-editar.component'
 import { LoginService } from './services/login.service';
+import { AuthGuardService } from './guards/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,7 @@ import { LoginService } from './services/login.service';
 	  DoeAmorModule,
   ],
  
-  providers: [NossosParceirosService, EventosService,LoginService],
+  providers: [NossosParceirosService, EventosService,LoginService,AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

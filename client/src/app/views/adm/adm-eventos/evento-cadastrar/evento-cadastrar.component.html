@@ -1,15 +1,25 @@
 <a routerLink="/admin/dashboard/adm-eventos" class="btn btn-dark mt-1 mb-2 w-10">Voltar</a>
 
 <div class="container">
-  <h2>Foto Principal</h2>
+  <div class="m-0 row">
+    <h2>Foto Principal</h2>
+    <p class="text-danger ml-1">*Obrigatório</p>
+  </div>
   <form method="POST" enctype="multipart/form-data" #f="ngForm" (ngSubmit)="onSubmit(f)">
     <div #mainImage class="d-flex align-items-end flex-column" id="divMainPhotoInsert">
-      <input type="file" name="main_photo" class="btn btn-primary mt-auto mb-2 mr-2" id="inputPhoto" (change)="changeImage($event)" ngModel>
+      <input type="file" name="main_photo" class="btn btn-primary mt-auto mb-2 mr-2" id="inputPhoto" (change)="changeImage($event)"
+        ngModel>
     </div>
     <div class="w-75 m-auto">
-      <h3 class="mt-2">Título do evento</h3>
+      <div class="m-0 row mt-2">
+        <h3>Título do evento</h3>
+        <p class="text-danger ml-1">*Obrigatório</p>
+      </div>
       <input type="text" name="title" class="form-control w-50" ngModel>
-      <h3 class="mt-2" name="description">Descrição do evento</h3>
+      <div class="m-0 row mt-2">
+        <h3>Descrição do evento</h3>
+        <p class="text-danger ml-1">*Obrigatório</p>
+      </div>
       <textarea class="form-control w-75" name="description" rows="9" cols="60" ngModel></textarea>
     </div>
 
@@ -31,38 +41,50 @@
       </thead>
       <tbody>
         <tr *ngFor="let foto of novasFotos">
-          <td><img src="{{foto.url}}" width="200" alt="" srcset=""></td>
+          <td>
+            <img src="{{foto.url}}" width="200" alt="" srcset="">
+          </td>
           <td>
             <button type="button" class="btn-danger" (click)="removeFromGalery(novasFotos.indexOf(foto))">Excluir</button>
           </td>
         </tr>
       </tbody>
     </table>
-    <div class="w-25 m-auto">
-      <button type="submit" class="btn btn-primary w-100 mx-auto mb-3">Cadastrar Evento</button>
+    <div *ngIf="error" class="row justify-content-center">
+      <div class="col-3 bg-danger mb-2">
+        <p class="text-center text-danger text-light">Preencha os campos obrigatórios.</p>
+      </div>
     </div>
-  </form>
-  <div *ngIf="novasFotos[0]"  id="carouselExampleIndicators" class="carousel slide mb-3" data-ride="carousel">
-    <h2 class="text-center">Pré Vizualização</h2>
-      <ol class="carousel-indicators">
-        <li *ngFor="let foto of novasFotos; index as i" data-target="#carouselExampleIndicators" data-slide-to="i" [ngClass]="{'active': foto.id===novasFotos[0].id }" ></li>
-      </ol>
-      <div class="carousel-inner">
-        <div class="carousel-item" *ngFor="let foto of novasFotos" [ngClass]="{'active': foto.id===novasFotos[0].id }">
-          <img class="d-block m-auto" src="{{foto.url}}" alt="First slide">
+    <div class="w-50 m-auto">
+      <button type="submit" class="btn btn-primary w-100 mx-auto mb-3">Cadastrar Evento</button>
+      <div *ngIf="loader" class="row justify-content-center">
+        <div class="col-3">
+          <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
         </div>
       </div>
-      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <div class="arrowCarousel">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </div>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <div class="arrowCarousel">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </div>
-      </a>
     </div>
+  </form>
+  <div *ngIf="novasFotos[0]" id="carouselExampleIndicators" class="carousel slide mb-3" data-ride="carousel">
+    <h2 class="text-center">Pré Vizualização</h2>
+    <ol class="carousel-indicators">
+      <li *ngFor="let foto of novasFotos; index as i" data-target="#carouselExampleIndicators" data-slide-to="i" [ngClass]="{'active': foto.id===novasFotos[0].id }"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item" *ngFor="let foto of novasFotos" [ngClass]="{'active': foto.id===novasFotos[0].id }">
+        <img class="d-block m-auto" src="{{foto.url}}" alt="First slide">
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <div class="arrowCarousel">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </div>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <div class="arrowCarousel">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </div>
+    </a>
+  </div>
 </div>

@@ -23,7 +23,6 @@ export class EventosComponent implements OnInit {
       .map((objetoEvento:any) => objetoEvento.obj)
       .subscribe((allEvents: IEvents[]) => {
         this.eventosHome = allEvents;
-        console.log(this.eventosHome);
         this.status_lista = true;
       }, () => this.status_lista = false);
   }

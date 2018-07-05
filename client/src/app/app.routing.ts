@@ -1,3 +1,4 @@
+import { AuthGuardService } from './guards/auth-guard.service';
 import { EventoEditarComponent } from './views/adm/adm-eventos/evento-editar/evento-editar.component';
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -35,9 +36,10 @@ const APP_ROUTES: Routes = [
         { path: '', component: HomeComponent}
     ] },
     { path: 'admin', component: AdmComponent,children:[
-        { path: '', redirectTo:'login' ,pathMatch:'full'},
+        { 
+            path: '', redirectTo:'login' ,pathMatch:'full'},
         { path: 'login', component: LoginComponent },
-        { path: 'dashboard', component: HomeAdministradorComponent, children:[
+        { path: 'dashboard', component: HomeAdministradorComponent, canActivate:[AuthGuardService], children:[
             { path: 'adm-apae-torres', component: AdmApaeTorresComponent },
             { path: 'adm-doe-amor', component: AdmDoeAmorComponent },
             { path: 'adm-agenda', component: AdmAgendaComponent },

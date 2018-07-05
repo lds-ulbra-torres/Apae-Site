@@ -1,18 +1,20 @@
 <div class="p-2" id="admTitulo">
-  <h3 class="text-center">Área Administrativa do Site Apae Torres</h3>
+  <h2 class="text-center">Área Administrativa do Site Apae Torres</h2>
 </div>
-<div class="w-25 m-auto p-4" id="login">
+<div class="w-25 m-auto p-3" id="login">
   <h2 class="text-center">Login</h2>
-  <form>
+  <form method="POST" enctype="multipart/form-data" #f="ngForm" (ngSubmit)="onSubmit(f)">
     <div class="form-group mt-4">
         <h5>Usuario</h5>
-        <input type="text" class="form-control" placeholder="Digite seu usuário">
+        <input type="text" name="emailUser" class="form-control" id="emailUser" placeholder="Digite seu usuário" ngModel>
     </div>
     <div class="form-group">
       <h5>Senha</h5>
-      <input type="password" class="form-control" id="password" placeholder="Digite sua senha">
+      <input type="password" autocomplete="new-password" name="passwordUser" class="form-control" id="passwordUser" placeholder="Digite sua senha" ngModel>
     </div>
-    <button type="submit" class="btn btn-primary float-right">Entrar</button>
+    <button type="submit" class="btn btn-primary float-right w-25">Entrar</button>
+    
+    <p class="text-warning m-0 text-center" *ngIf="falhaLogin">Usuário ou senha incorreto(s).</p>
   </form>
 </div>
 

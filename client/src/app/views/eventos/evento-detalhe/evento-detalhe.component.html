@@ -1,6 +1,7 @@
 <div *ngIf="evento">
 <div id="mainPhoto" [style.background-image]="'url('+evento.main_photo+')'">
 </div>
+<a routerLink="/eventos" class="btn btn-dark m-1">Voltar aos eventos</a>
 <div class="container">
     <div id="eventDescription">
         <h2 id="titleEvent">{{evento.title}}</h2>
@@ -9,7 +10,7 @@
         <p class="text-justify">{{evento.description}}</p>
     </div>
 </div>
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+<div *ngIf="evento.eventPhotos.length>0" id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li *ngFor="let foto of evento.eventPhotos; index as i" data-target="#carouselExampleIndicators" data-slide-to="i" [ngClass]="{'active': foto.id===evento.eventPhotos[0].id }" ></li>
   </ol>

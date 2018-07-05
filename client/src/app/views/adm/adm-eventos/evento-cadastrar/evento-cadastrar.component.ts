@@ -19,6 +19,9 @@ export class EventoCadastrarComponent implements OnInit {
   filesAtual = new Array(); //arquivos das fotos
 
   evento = new FormData();
+
+  loader: boolean = false;
+  error: boolean = false;
   
   constructor(private _http: HttpClient,
               private router: Router,
@@ -62,14 +65,22 @@ export class EventoCadastrarComponent implements OnInit {
   }
 
   onSubmit(form){
-    this.evento.append('title',form.value.title)
-    this.evento.append('description',form.value.description)
+    this.error = false;
+    this.loader = true;
+    let eventoCadastro = new FormData();
+    eventoCadastro.append('main_photo',this.evento.get('main_photo'));
+    eventoCadastro.append('title',form.value.title)
+    eventoCadastro.append('description',form.value.description)
     for(let i=0; i<this.filesAtual.length; i++) {
-      this.evento.append("photos",this.filesAtual[i]);
+      eventoCadastro.append("photos",this.filesAtual[i]);
     }
 
-    this._eventoService.addEvent(this.evento).subscribe((obJ:any) => {
+    this._eventoService.addEvent(eventoCadastro).subscribe(
+      (obJ:any) => {
       this.router.navigate(['/admin/dashboard/adm-eventos']);
+    }, response => {
+      this.loader = false;
+      this.error = true;
     });
   }
   
