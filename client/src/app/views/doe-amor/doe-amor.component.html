@@ -48,7 +48,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <p><label for="telefone"><input size="100" type="tel" id="telefone" pattern="^\d{11}$" placeholder="phone" name="telefone" class="form-control shadow-sm" required ngModel #phone="ngModel"></label></p>
+                <p><label for="telefone"><input size="100" type="tel" id="telefone" pattern="^\d{11}$" placeholder="Telefone" name="phone" class="form-control shadow-sm" required ngModel #phone="ngModel"></label></p>
                 <div *ngIf="!phone.valid && phone.touched" class="warning">
                   <span>Telefone inválido</span>
                 </div>
