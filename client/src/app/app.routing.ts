@@ -1,26 +1,28 @@
 import { AuthGuardService } from './guards/auth-guard.service';
-import { EventoEditarComponent } from './views/adm/adm-eventos/evento-editar/evento-editar.component';
+import { EventoEditarComponent } from './components/adm/adm-eventos/evento-editar/evento-editar.component';
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { NossosParceirosComponent } from './views/nossos-parceiros/nossos-parceiros.component';
-import { FaleConoscoComponent } from './views/fale-conosco/fale-conosco.component';
-import { EventosComponent } from './views/eventos/eventos.component';
-import { AgendaComponent } from './views/agenda/agenda.component';
-import { DoeAmorComponent } from './views/doe-amor/doe-amor.component';
-import { ApaeTorresComponent } from './views/apae-torres/apae-torres.component';
-import { HomeComponent } from './views/home/home.component';
-import { ParceirosPorCategoriaComponent } from './views/nossos-parceiros/parceiros-por-categoria/parceiros-por-categoria.component';
-import { SiteComponent } from './views/site/site.component';
-import { LoginComponent } from './views/login/login.component';
-import { HomeAdministradorComponent } from './views/home-administrador/home-administrador.component';
-import { AdmComponent } from './views/adm/adm.component';
-import { EventoDetalheComponent } from './views/eventos/evento-detalhe/evento-detalhe.component';
-import { AdmEventosComponent } from './views/adm/adm-eventos/adm-eventos.component';
-import { AdmAgendaComponent } from './views/adm/adm-agenda/adm-agenda.component';
-import { AdmDoeAmorComponent } from './views/adm/adm-doe-amor/adm-doe-amor.component';
-import { AdmApaeTorresComponent } from './views/adm/adm-apae-torres/adm-apae-torres.component';
-import { EventoCadastrarComponent } from './views/adm/adm-eventos/evento-cadastrar/evento-cadastrar.component';
+import { NossosParceirosComponent } from './components/visitor/nossos-parceiros/nossos-parceiros.component';
+import { FaleConoscoComponent } from './components/visitor/fale-conosco/fale-conosco.component';
+import { EventosComponent } from './components/visitor/eventos/eventos.component';
+import { AgendaComponent } from './components/visitor/agenda/agenda.component';
+import { DoeAmorComponent } from './components/visitor/doe-amor/doe-amor.component';
+import { ApaeTorresComponent } from './components/visitor/apae-torres/apae-torres.component';
+import { HomeComponent } from './components/visitor/home/home.component';
+import { ParceirosPorCategoriaComponent } from './components/visitor/nossos-parceiros/parceiros-por-categoria/parceiros-por-categoria.component';
+import { SiteComponent } from './components/visitor//site/site.component';
+import { EventoDetalheComponent } from './components/visitor/eventos/evento-detalhe/evento-detalhe.component';
+
+
+import { LoginComponent } from './components/adm/login/login.component';
+import { HomeAdministradorComponent } from './components/adm/home-administrador/home-administrador.component';
+import { AdmComponent } from './components/adm/adm.component';
+import { AdmEventosComponent } from './components/adm/adm-eventos/adm-eventos.component';
+import { AdmAgendaComponent } from './components/adm/adm-agenda/adm-agenda.component';
+import { AdmDoeAmorComponent } from './components/adm/adm-doe-amor/adm-doe-amor.component';
+import { AdmApaeTorresComponent } from './components/adm/adm-apae-torres/adm-apae-torres.component';
+import { EventoCadastrarComponent } from './components/adm/adm-eventos/evento-cadastrar/evento-cadastrar.component';
 
 const APP_ROUTES: Routes = [
     { path: '', component: SiteComponent ,children:[
@@ -36,10 +38,9 @@ const APP_ROUTES: Routes = [
         { path: '', component: HomeComponent}
     ] },
     { path: 'admin', component: AdmComponent,children:[
-        { 
-            path: '', redirectTo:'login' ,pathMatch:'full'},
+        { path: '', redirectTo:'login' ,pathMatch:'full'},
         { path: 'login', component: LoginComponent },
-        { path: 'dashboard', component: HomeAdministradorComponent, canActivate:[AuthGuardService], children:[
+        { path: 'dashboard', component: HomeAdministradorComponent, /*canActivate:[AuthGuardService],*/ children:[
             { path: 'adm-apae-torres', component: AdmApaeTorresComponent },
             { path: 'adm-doe-amor', component: AdmDoeAmorComponent },
             { path: 'adm-agenda', component: AdmAgendaComponent },
