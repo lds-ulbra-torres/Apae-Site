@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { IEvents } from './../../domain/interfaces/IEvents';
+import { IEvents } from './../../../../domain/interfaces/IEvents';
 import { Injectable, ViewChild, ElementRef, EventEmitter } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import {Observable} from 'rxjs';

@@ -3,7 +3,7 @@ import { IEvents } from './../../../../../domain/interfaces/IEvents';
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 
 import { ActivatedRoute, Router } from '@angular/router';
-import { EventosService } from './../../../../services/eventos.service';
+import { EventosService } from './../../../visitor/eventos/eventos.service';
 
 @Component({
   selector: 'app-evento-editar',

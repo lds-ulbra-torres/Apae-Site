@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
 import { DoeAmorComponent } from './doe-amor.component';
-import { FormAssociadosService } from './../../../services/form-associados.service';
+import { FormAssociadosService } from './form-associados.service';
 import { FaleConoscoService } from './../../../components/visitor/fale-conosco/fale-conosco.service';
 import { DoeAmorService } from './doe-amor.service';
 
@@ -18,10 +18,10 @@ import { DoeAmorService } from './doe-amor.service';
     providers: [ 
         DoeAmorService, 
         FormAssociadosService,
-        FaleConoscoService],
+        FaleConoscoService
+    ],
     exports: [
         DoeAmorComponent
-
     ]
 })
 export class DoeAmorModule{

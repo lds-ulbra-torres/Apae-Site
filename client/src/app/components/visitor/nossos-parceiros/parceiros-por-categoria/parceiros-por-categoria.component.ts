@@ -1,7 +1,8 @@
-import { IPartners } from './../../../../../domain/interfaces/IPartners';
-import { NossosParceirosService } from './../../../../services/nossos-parceiros.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+
+import { IPartners } from './../../../../../domain/interfaces/IPartners';
+import { NossosParceirosService } from './../nossos-parceiros.service';
 
 @Component({
   selector: 'app-parceiros-por-categoria',

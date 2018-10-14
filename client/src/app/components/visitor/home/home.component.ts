@@ -1,4 +1,4 @@
-import { FormParceirosService } from './../../../services/form-parceiros.service';
+import { FormParceirosService } from './form-parceiros.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

@@ -1,7 +1,7 @@
 import { IEvents } from './../../../../domain/interfaces/IEvents';
 import { Component, OnInit } from '@angular/core';
 
-import { EventosService } from './../../../services/eventos.service';
+import { EventosService } from './eventos.service';
 
 @Component({
   selector: 'app-eventos',

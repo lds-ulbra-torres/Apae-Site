@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-
-import { NossosParceirosService } from './../../../services/nossos-parceiros.service';
-import { ICategory } from './../../../../domain/interfaces/ICategory';
-import 'rxjs/add/operator/map';
-import { IPartners } from '../../../../domain/interfaces/IPartners';
 import { Router } from '@angular/router';
+import 'rxjs/add/operator/map';
+
+import { NossosParceirosService } from './nossos-parceiros.service';
+import { ICategory } from './../../../../domain/interfaces/ICategory';
+import { IPartners } from '../../../../domain/interfaces/IPartners';
 import { ProcurarCategoriaPipe } from '../../../pipes/procurar-categoria.pipe';
 @Component({
   selector: 'app-nossos-parceiros',

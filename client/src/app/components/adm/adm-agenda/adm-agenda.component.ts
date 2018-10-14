@@ -1,4 +1,4 @@
-import { AdmAgendaService } from './../../../services/adm-agenda.service';
+import { AdmAgendaService } from './adm-agenda.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 

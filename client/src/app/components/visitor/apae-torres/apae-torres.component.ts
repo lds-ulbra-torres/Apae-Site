@@ -1,7 +1,7 @@
 import { IApaeTorres } from './../../../../domain/interfaces/IApaeTorres';
 import { Component, OnInit } from '@angular/core';
 
-import { ApaeTorresService } from './../../../services/apae-torres.service';
+import { ApaeTorresService } from './apae-torres.service';
 
 @Component({
   selector: 'app-apae-torres',

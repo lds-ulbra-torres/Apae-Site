@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
-import { EventosService } from './../../../services/eventos.service';
+import { EventosService } from './../../visitor/eventos/eventos.service';
 import { IEvents } from './../../../../domain/interfaces/IEvents';
 import 'rxjs/add/operator/map';
 

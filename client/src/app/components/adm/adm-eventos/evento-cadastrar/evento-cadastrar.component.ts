@@ -1,8 +1,9 @@
-import { EventosService } from './../../../../services/eventos.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { IEvents } from './../../../../../domain/interfaces/IEvents';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+
+import { EventosService } from './../../../visitor/eventos/eventos.service';
 
 @Component({
   selector: 'app-evento-cadastrar',

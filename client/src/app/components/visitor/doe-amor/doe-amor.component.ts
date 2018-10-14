@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { FormAssociadosService } from './../../../services/form-associados.service';
+import { FormAssociadosService } from './form-associados.service';
 import { FaleConoscoService } from './../../../components/visitor/fale-conosco/fale-conosco.service';
 import { DoeAmorService } from './doe-amor.service';
 

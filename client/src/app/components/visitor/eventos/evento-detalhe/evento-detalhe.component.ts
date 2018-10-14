@@ -4,7 +4,7 @@ import { IEvents } from './../../../../../domain/interfaces/IEvents';
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 
 import { ActivatedRoute } from '@angular/router';
-import { EventosService } from './../../../../services/eventos.service';
+import { EventosService } from './../eventos.service';
 
 @Component({
   selector: 'app-evento-detalhe',
