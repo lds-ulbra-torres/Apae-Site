@@ -1,5 +1,4 @@
-import { AuthGuardService } from './guards/auth-guard.service';
-import { EventoEditarComponent } from './components/adm/adm-eventos/evento-editar/evento-editar.component';
+
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -23,6 +22,10 @@ import { AdmAgendaComponent } from './components/adm/adm-agenda/adm-agenda.compo
 import { AdmDoeAmorComponent } from './components/adm/adm-doe-amor/adm-doe-amor.component';
 import { AdmApaeTorresComponent } from './components/adm/adm-apae-torres/adm-apae-torres.component';
 import { EventoCadastrarComponent } from './components/adm/adm-eventos/evento-cadastrar/evento-cadastrar.component';
+import { EventoEditarComponent } from './components/adm/adm-eventos/evento-editar/evento-editar.component';
+
+
+import { AuthGuardService } from './guards/auth-guard.service';
 
 const APP_ROUTES: Routes = [
     { path: '', component: SiteComponent ,children:[
@@ -49,8 +52,6 @@ const APP_ROUTES: Routes = [
             { path: 'adm-eventos/editar/:id', component: EventoEditarComponent }
         ] }
     ] },
-    
-    
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(APP_ROUTES, {useHash: true});

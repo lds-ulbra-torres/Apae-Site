@@ -7,7 +7,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 
 import { AuthGuardService } from './guards/auth-guard.service';
-import { CommonComponentsModule } from './common/common-components.module';
 import { ComponentsModule } from './components/components.module';
 
 @NgModule({
@@ -15,7 +14,6 @@ import { ComponentsModule } from './components/components.module';
     AppComponent
   ],
   imports: [
-    CommonComponentsModule,
     ComponentsModule,
     BrowserModule,
     HttpClientModule,
@@ -25,7 +23,6 @@ import { ComponentsModule } from './components/components.module';
   providers: [
 	  AuthGuardService
   ],
-
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -6,7 +6,7 @@
   </div>
 </div>
 
-<div class="container">
+<div *ngIf="status_lista; else loader"  class="container">
   <div *ngFor="let parceiro of parceiros" class="responsive"  >
     <div class="partner">
       <img src="http://doacoes.apaetorres.org.br/{{parceiro.photo_partner}}" onError="this.src='../../../../../assets/images/no-image.png'">
@@ -18,3 +18,7 @@
     </div>
   </div>
 </div>
+
+<ng-template #loader >
+  <app-waiting-loader></app-waiting-loader>
+</ng-template>

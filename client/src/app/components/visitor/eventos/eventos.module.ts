@@ -5,11 +5,13 @@ import { RouterModule } from '@angular/router';
 import { EventosComponent } from './eventos.component';
 import { EventoDetalheComponent } from './evento-detalhe/evento-detalhe.component';
 import { EventosService } from './eventos.service';
+import { WaitingLoaderModule } from '../../../common/waiting-loader/waiting-loader.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    WaitingLoaderModule
   ],
   declarations: [
     EventosComponent,

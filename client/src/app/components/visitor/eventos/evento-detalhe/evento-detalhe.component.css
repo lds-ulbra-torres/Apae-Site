@@ -1,7 +1,13 @@
 #mainPhoto {
-    background-size: 100vw;
-    height: 30vw;
+    background-color: #212121;
+    height: 40vw;
     background-repeat: no-repeat;
+    text-align: center;
+}
+
+#mainPhoto img {
+    height: 100%;
+    width: auto;
 }
 /*------------------Carousel---------------*/
 .carousel{
@@ -44,4 +50,90 @@
     width: 22%;
     margin-left: 0;
     margin-top: 0;
+}
+
+/* The grid: Four equal columns that floats next to each other */
+.column {
+    width: 25%;
+    padding: 1.2vw;
+    display: inline-block;
+    text-align: center;
+}
+
+/* Style the images inside the grid */
+.column img {
+    width: auto;
+    height: 12.4vw;
+    cursor: pointer; 
+}
+
+
+/* Clear floats after the columns */
+.tabSlider:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.tabSlider {
+    background-color: #212121;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    height: 14.8vw;
+}
+.tabSlider::-webkit-scrollbar {
+    display: none;
+}
+
+/* The expanding image container (positioning is needed to position the close button and the text) */
+#imageSelected {
+    background-color: #333;
+    position: relative;
+    display: none;
+    padding-bottom: 2vh;
+    padding-top: 2vh;
+    text-align: center;
+}
+
+/* Closable button inside the image */
+.closebtn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: white;
+    font-size: 35px;
+    cursor: pointer;
+}
+
+#expanded {
+    width: 96%;
+    height: auto;
+}
+
+.arrow{
+    position: absolute;
+    background-color: #000000;
+    opacity: 0.75;
+    width: 7vw;
+    height: 14.8vw;
+    cursor: pointer;
+}
+#rightArrow{
+    right: 0;
+}
+.arrow img{
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.arrow:hover{
+    transition: 0.5s;
+    opacity: 1;
+}
+
+.darkGrey{
+    background-color: #212121;
 }

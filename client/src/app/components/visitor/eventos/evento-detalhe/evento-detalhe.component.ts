@@ -12,9 +12,15 @@ import { EventosService } from './../eventos.service';
   styleUrls: ['./evento-detalhe.component.css']
 })
 export class EventoDetalheComponent implements OnInit {
+  @ViewChild('widgetsContent', { read: ElementRef })
+  public widgetsContent: ElementRef;
   
   evento: IEvents;
   status_evento: boolean = false;
+  fotoExpandida = {
+    'url' :  "./../../../../../assets/images/no-image.png"
+  }
+  fotoClicada: boolean = false;
 
   constructor(private eventosService: EventosService, 
               private active: ActivatedRoute) {
@@ -38,4 +44,24 @@ export class EventoDetalheComponent implements OnInit {
     
   }
 
+
+  expander(imgPosition) {
+    this.fotoExpandida = this.evento.eventPhotos[imgPosition];
+    this.fotoClicada = true;
+    var dhasu = document.getElementById("expanded");
+    dhasu.parentElement.style.display = "block";
+    window.scrollBy({ 
+      top: 1000, // could be negative value
+      left: 0, 
+      behavior: 'smooth' 
+    });
+  }
+
+  public scrollRight(): void {
+    this.widgetsContent.nativeElement.scrollTo({ left: (this.widgetsContent.nativeElement.scrollLeft + 340), behavior: 'smooth' });
+  }
+
+  public scrollLeft(): void {
+    this.widgetsContent.nativeElement.scrollTo({ left: (this.widgetsContent.nativeElement.scrollLeft - 340), behavior: 'smooth' });
+  }
 }

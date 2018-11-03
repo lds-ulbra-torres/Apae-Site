@@ -1,35 +1,64 @@
-<div *ngIf="evento">
-<div id="mainPhoto" [style.background-image]="'url('+evento.main_photo+')'">
-</div>
-<a routerLink="/eventos" class="btn btn-dark m-1">Voltar aos eventos</a>
-<div class="container">
+<div *ngIf="status_evento; else loader">
+  <h2 class="text-center" id="titleEvent">{{evento.title}}</h2>
+  <div id="mainPhoto">
+    <img src="{{evento.main_photo}}" alt="">
+  </div>
+  <a routerLink="/eventos" class="btn btn-dark m-1">Voltar aos eventos</a>
+  <div class="container">
     <div id="eventDescription">
-        <h2 id="titleEvent">{{evento.title}}</h2>
-        <hr id="hrTitleEvent">
-
-        <p class="text-justify">{{evento.description}}</p>
-    </div>
-</div>
-<div *ngIf="evento.eventPhotos.length>0" id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li *ngFor="let foto of evento.eventPhotos; index as i" data-target="#carouselExampleIndicators" data-slide-to="i" [ngClass]="{'active': foto.id===evento.eventPhotos[0].id }" ></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item" *ngFor="let foto of evento.eventPhotos" [ngClass]="{'active': foto.id===evento.eventPhotos[0].id }">
-      <img class="d-block m-auto" src="{{foto.url}}" alt="First slide">
+      <hr id="hrTitleEvent">
+      <p class="text-justify">{{evento.description}}</p>
     </div>
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <div class="arrowCarousel">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </div>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-      <div class="arrowCarousel">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
+  <h2 class="text-center" id="titleEvent">Fotos do Evento</h2>
+  <h6 class="text-center" id="titleEvent">(Selecione uma foto para aumentar)</h6>
+  <div class="darkGrey">
+    <!-- correção de espaços brancos entre as divs -->
+    <div #widgetsContent *ngIf="status_evento" class="tabSlider">
+      <div class="arrow" (click)="scrollLeft()">
+        <img src="../../../../../assets/images/back.png" alt="">
       </div>
-  </a>
+      <div class="arrow" id="rightArrow" (click)="scrollRight()">
+        <img src="../../../../../assets/images/right-arrow.png" alt="">
+      </div>
+      <div class="column">
+        <img src="{{ evento.eventPhotos[0].url }}" alt="Nature" (click)="expander(0);">
+      </div>
+      <div class="column">
+        <img src="{{ evento.eventPhotos[1].url }}" alt="Snow" (click)="expander(1);">
+      </div>
+      <div class="column">
+        <img src="{{ evento.eventPhotos[2].url }}" alt="Mountains" (click)="expander(2);">
+      </div>
+      <div class="column">
+        <img src="{{ evento.eventPhotos[3].url }}" alt="Lights" (click)="expander(3);">
+      </div>
+      <div class="column">
+        <img src="{{ evento.eventPhotos[4].url }}" alt="Lights" (click)="expander(4);">
+      </div>
+      <div class="column">
+        <img src="{{ evento.eventPhotos[5].url }}" alt="Lights" (click)="expander(5);">
+      </div>
+      <div class="column">
+        <img src="{{ evento.eventPhotos[6].url }}" alt="Lights" (click)="expander(6);">
+      </div>
+      <div class="column">
+        <img src="{{ evento.eventPhotos[7].url }}" alt="Lights" (click)="expander(7);">
+      </div>
+      <div class="column">
+        <img src="{{ evento.eventPhotos[8].url }}" alt="Lights" (click)="expander(8);">
+      </div>
+    </div>
+
+    <!-- The expanding image container -->
+    <div id="imageSelected">
+      <!-- Close the image -->
+      <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+      <!-- Expanded image -->
+      <img id="expanded" style="width:96%" src="{{ fotoExpandida.url }}">
+    </div>
+  </div>
 </div>
-</div>
+  <ng-template #loader>
+    <app-waiting-loader></app-waiting-loader>
+  </ng-template>

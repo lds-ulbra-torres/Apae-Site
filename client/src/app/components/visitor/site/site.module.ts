@@ -3,13 +3,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SiteComponent } from './site.component';
-import { CommonComponentsModule } from './../../../common/common-components.module';
+import { NavbarModule } from '../../../common/navbar/navbar.module';
+import { ColorTopModule } from '../../../common/color-top/color-top.module';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
-    CommonComponentsModule
+    NavbarModule,
+    ColorTopModule
   ],
   declarations: [
     SiteComponent

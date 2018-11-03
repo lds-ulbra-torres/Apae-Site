@@ -7,12 +7,14 @@ import { NossosParceirosComponent } from './nossos-parceiros.component';
 import { ParceirosPorCategoriaComponent } from './parceiros-por-categoria/parceiros-por-categoria.component';
 import { NossosParceirosService } from './nossos-parceiros.service';
 import { ProcurarCategoriaPipe } from '../../../pipes/procurar-categoria.pipe';
+import { WaitingLoaderModule } from '../../../common/waiting-loader/waiting-loader.module';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    WaitingLoaderModule
   ],
   declarations: [
     NossosParceirosComponent,

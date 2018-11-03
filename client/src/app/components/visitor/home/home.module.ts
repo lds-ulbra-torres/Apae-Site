@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 
 import { HomeComponent } from './home.component';
 import { FormParceirosService } from './form-parceiros.service';
+import { WaitingLoaderModule } from '../../../common/waiting-loader/waiting-loader.module';
 
 @NgModule({
   imports: [
