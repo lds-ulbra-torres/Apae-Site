@@ -1,7 +1,7 @@
 import { SafeStyle } from '@angular/platform-browser';
 import { DomSanitizer } from '@angular/platform-browser';
 import { IEvents } from './../../../../../domain/interfaces/IEvents';
-import { Component, OnInit, ElementRef, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 
 import { ActivatedRoute } from '@angular/router';
 import { EventosService } from './../eventos.service';
@@ -9,8 +9,7 @@ import { EventosService } from './../eventos.service';
 @Component({
   selector: 'app-evento-detalhe',
   templateUrl: './evento-detalhe.component.html',
-  styleUrls: ['./evento-detalhe.component.css'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./evento-detalhe.component.css']
 })
 export class EventoDetalheComponent implements OnInit {
   @ViewChild('widgetsContent', { read: ElementRef })
@@ -46,15 +45,13 @@ export class EventoDetalheComponent implements OnInit {
   }
 
 
-  expander(imgPosition) {
+  expander(imgPosition,target) {
     this.fotoExpandida = this.evento.eventPhotos[imgPosition];
     this.fotoClicada = true;
-    var dhasu = document.getElementById("expanded");
-    dhasu.parentElement.style.display = "block";
-    window.scrollBy({ 
-      top: 1000, // could be negative value
-      left: 0, 
-      behavior: 'smooth' 
+    var photo = document.getElementById("expanded");
+    photo.parentElement.style.display = "block";
+    target.scrollIntoView({
+      behavior: 'smooth'
     });
   }
 

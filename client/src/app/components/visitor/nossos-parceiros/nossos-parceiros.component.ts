@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import 'rxjs/add/operator/map';
 
@@ -9,7 +9,8 @@ import { ProcurarCategoriaPipe } from '../../../pipes/procurar-categoria.pipe';
 @Component({
   selector: 'app-nossos-parceiros',
   templateUrl: './nossos-parceiros.component.html',
-  styleUrls: ['./nossos-parceiros.component.css']
+  styleUrls: ['./nossos-parceiros.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class NossosParceirosComponent implements OnInit {
 
