@@ -1,7 +1,7 @@
 import { SafeStyle } from '@angular/platform-browser';
 import { DomSanitizer } from '@angular/platform-browser';
 import { IEvents } from './../../../../../domain/interfaces/IEvents';
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, ViewEncapsulation } from '@angular/core';
 
 import { ActivatedRoute } from '@angular/router';
 import { EventosService } from './../eventos.service';
@@ -9,7 +9,8 @@ import { EventosService } from './../eventos.service';
 @Component({
   selector: 'app-evento-detalhe',
   templateUrl: './evento-detalhe.component.html',
-  styleUrls: ['./evento-detalhe.component.css']
+  styleUrls: ['./evento-detalhe.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class EventoDetalheComponent implements OnInit {
   @ViewChild('widgetsContent', { read: ElementRef })

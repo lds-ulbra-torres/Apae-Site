@@ -1,110 +1,30 @@
-<div *ngIf="status_lista; else loader"  class="row pt-2">
-  <div class="col-lg-4 col-md-6 col-sm-12">
+<div *ngIf="status_lista; else loader" class="row pt-2" id="cream">
+  <div *ngFor="let event of eventos"  class="col-lg-4 col-md-12 col-sm-12">
     <div class="card">
-        <a routerLink="/eventos/evento-detalhe/{{eventosHome[2].id}}">
-          <div class="divTeste">
-            <img src="{{eventosHome[2].main_photo}}" alt="">
-          </div>
-          <h5 class="mx-1">{{eventosHome[1].title}}</h5>
-          <p class="mx-3 textEllipsis2">{{eventosHome[1].description}}</p>
-          <div id="lineEvent">
-            <div id="thurnbail">
-              <img src="{{eventosHome[2].main_photo}}" alt="">
-            </div>
-            
-            <div id="thurnbail">
-              <img src="{{eventosHome[2].main_photo}}" alt="">
-            </div>
-              
-            <div id="thurnbail">
-              <img src="{{eventosHome[2].main_photo}}" alt="">
-            </div>
-  
-          </div>
-          <h6 class="text-center mt-2">(Clique para ver detalhes)</h6>
-        </a>
-    </div>
-  </div>
-  <div class="col-lg-4 col-md-6 col-sm-12">
-    <div class="card">
-      <a routerLink="/eventos/evento-detalhe/{{eventosHome[2].id}}">
-        <div class="divTeste">
-          <img src="../../../../assets/images/quadrada.jpg" alt="">
+      <a routerLink="/eventos/evento-detalhe/{{event.id}}">
+        <div class="absoluter">
+          <h4 class="mb-0 textEllipsis2 px-1">{{ event.title }}</h4>
+          <p class="m-0 textEllipsis2 px-1">{{ event.description }}</p>
         </div>
-        <h5 class="mx-1">{{eventosHome[0].title}}</h5>
-        <p class="mx-3 textEllipsis2">{{eventosHome[0].description}}</p>
+        <div class="gradientTransparente"></div>
+        <div class="mainPhoto" id="cover" [style.background]="'url(' + event.main_photo + ')'">
+        </div>
         <div id="lineEvent">
-          <div id="thurnbail">
-            <img src="../../../../assets/images/no-image.png" alt="">
+          <div class="thurnbail" id="cover" [style.background]="'url(' + eventos[1].main_photo + ')'">
           </div>
-          
-          <div id="thurnbail">
-            <img src="../../../../assets/images/quadrada.jpg" alt="">
+          <div class="thurnbail" id="cover" [style.background]="'url(' + eventos[0].main_photo + ')'">
           </div>
-            
-          <div id="thurnbail">
-            <img src="../../../../assets/images/no-image.png" alt="">
+          <div class="thurnbail" id="cover" [style.background]="'url(' + eventos[4].main_photo + ')'">
           </div>
-
         </div>
-        <h6 class="text-center mt-2">(Clique para ver detalhes)</h6>
-      </a>
-    </div>
-  </div>
-  <div class="col-lg-4 col-md-6 col-sm-12">
-    <div class="card">
-      <a routerLink="/eventos/evento-detalhe/{{eventosHome[2].id}}">
-        <div class="divTeste">
-          <img src="{{eventosHome[0].main_photo}}" alt="">
+        <div>
+          <p class="w-100 text-right pr-3">(Clique para ver detalhes)</p>
         </div>
-        <h5 class="mx-1">{{eventosHome[0].title}}</h5>
-        <p class="mx-3 textEllipsis2">{{eventosHome[0].description}}</p>
-        <div id="lineEvent">
-          <div id="thurnbail">
-            <img src="{{eventosHome[2].main_photo}}" alt="">
-          </div>
-          
-          <div id="thurnbail">
-            <img src="{{eventosHome[2].main_photo}}" alt="">
-          </div>
-            
-          <div id="thurnbail">
-            <img src="{{eventosHome[2].main_photo}}" alt="">
-          </div>
-
-        </div>
-        <h6 class="text-center mt-2">(Clique para ver detalhes)</h6>
-      </a>
-    </div>
-  </div>
-  <div class="col-lg-4 col-md-6 col-sm-12">
-    <div class="card">
-      <a routerLink="/eventos/evento-detalhe/{{eventosHome[2].id}}">
-        <div class="divTeste">
-          <img src="{{eventosHome[4].main_photo}}" alt="">
-        </div>
-        <h5 class="mx-1">{{eventosHome[4].title}}</h5>
-        <p class="mx-3 textEllipsis2">{{eventosHome[4].description}}</p>
-        <div id="lineEvent">
-          <div id="thurnbail">
-            <img src="{{eventosHome[2].main_photo}}" alt="">
-          </div>
-          
-          <div id="thurnbail">
-            <img src="{{eventosHome[2].main_photo}}" alt="">
-          </div>
-            
-          <div id="thurnbail">
-            <img src="{{eventosHome[2].main_photo}}" alt="">
-          </div>
-
-        </div>
-        <h6 class="text-center mt-2">(Clique para ver detalhes)</h6>
       </a>
     </div>
   </div>
 </div>
 
-<ng-template #loader >
+<ng-template #loader>
   <app-waiting-loader></app-waiting-loader>
 </ng-template>

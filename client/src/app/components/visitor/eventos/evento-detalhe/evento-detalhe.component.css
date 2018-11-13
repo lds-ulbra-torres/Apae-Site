@@ -1,39 +1,23 @@
-#mainPhoto {
-    background-color: #212121;
-    height: 40vw;
-    background-repeat: no-repeat;
-    text-align: center;
+body {
+    background-color: #ffecc1;
 }
 
-#mainPhoto img {
-    height: 100%;
-    width: auto;
+.cover {
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    position: relative !important;
 }
-/*------------------Carousel---------------*/
-.carousel{
-    margin-bottom: 1vw;
-    margin-top: 5vw;
+
+.row{
+    margin: 0;
 }
-.carousel-item img{
-    max-height: 30vw;
+
+#mainPhoto {
+    height: 40vw;
+    width: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
 }
-.carousel-control-prev-icon{
-    background-image: url("../../../../../assets/images/back.png");
-    width: 5vw;
-    height: 5vw;
-}
-.carousel-control-next-icon{
-    background-image: url("../../../../../assets/images/right-arrow.png");
-    width: 5vw;
-    height: 5vw;
-}
-.arrowCarousel{
-    background-color: #000;
-    width: 6.5vw;
-    height: 10.5vw;
-    padding-top: 2.75vw;
-}
-/*-----------------------------------------------*/
 
 #eventDescription{
     width: 80%;
@@ -41,33 +25,22 @@
 }
 
 #titleEvent{
-    color: #54b456;
-}
-
-#hrTitleEvent{
-    background-color: #54b456;
-    height: 0.4vh;
-    width: 22%;
-    margin-left: 0;
-    margin-top: 0;
+    color: #212121;
 }
 
 /* The grid: Four equal columns that floats next to each other */
 .column {
-    width: 25%;
+    width: auto;
     padding: 1.2vw;
     display: inline-block;
     text-align: center;
 }
-
 /* Style the images inside the grid */
 .column img {
     width: auto;
     height: 12.4vw;
     cursor: pointer; 
 }
-
-
 /* Clear floats after the columns */
 .tabSlider:after {
     content: "";
@@ -94,7 +67,6 @@
     padding-top: 2vh;
     text-align: center;
 }
-
 /* Closable button inside the image */
 .closebtn {
     position: absolute;
@@ -109,7 +81,6 @@
     width: 96%;
     height: auto;
 }
-
 .arrow{
     position: absolute;
     background-color: #000000;

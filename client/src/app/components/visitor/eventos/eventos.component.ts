@@ -10,7 +10,7 @@ import { EventosService } from './eventos.service';
 })
 export class EventosComponent implements OnInit {
 
-  eventosHome: IEvents[];
+  eventos: IEvents[];
   first: boolean;
   status_lista: boolean = false;
   lengthList: number;
@@ -23,8 +23,8 @@ export class EventosComponent implements OnInit {
     this._eventosService.getAllApi()
       .map((objetoEvento:any) => objetoEvento.obj)
       .subscribe((allEvents: IEvents[]) => {
-        this.eventosHome = allEvents;
-        this.lengthList = this.eventosHome.length;
+        this.eventos = allEvents;
+        this.lengthList = this.eventos.length;
         this.status_lista = true;
       }, () => this.status_lista = false);
   }

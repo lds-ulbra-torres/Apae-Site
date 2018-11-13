@@ -1,13 +1,16 @@
-<div *ngIf="status_evento; else loader">
+<!-- a routerLink="/eventos" class="btn btn-dark m-1">Voltar aos eventos</a-->
+<div *ngIf="status_evento; else loader" id="content">
   <h2 class="text-center" id="titleEvent">{{evento.title}}</h2>
-  <div id="mainPhoto">
-    <img src="{{evento.main_photo}}" alt="">
-  </div>
-  <a routerLink="/eventos" class="btn btn-dark m-1">Voltar aos eventos</a>
-  <div class="container">
-    <div id="eventDescription">
-      <hr id="hrTitleEvent">
-      <p class="text-justify">{{evento.description}}</p>
+
+  <div class="row justify-content-center mb-4">
+    <div class="col-lg-7 col-md-12 col-sm-12">
+      <div class="cover" id="mainPhoto" [style.background]="'url(' + evento.main_photo + ')'">
+      </div>
+    </div>
+    <div class="col-lg-5">
+      <div id="eventDescription">
+        <p class="text-justify">{{evento.description}}</p>
+      </div>
     </div>
   </div>
   <h2 class="text-center" id="titleEvent">Fotos do Evento</h2>
@@ -21,32 +24,8 @@
       <div class="arrow" id="rightArrow" (click)="scrollRight()">
         <img src="../../../../../assets/images/right-arrow.png" alt="">
       </div>
-      <div class="column">
-        <img src="{{ evento.eventPhotos[0].url }}" alt="Nature" (click)="expander(0);">
-      </div>
-      <div class="column">
-        <img src="{{ evento.eventPhotos[1].url }}" alt="Snow" (click)="expander(1);">
-      </div>
-      <div class="column">
-        <img src="{{ evento.eventPhotos[2].url }}" alt="Mountains" (click)="expander(2);">
-      </div>
-      <div class="column">
-        <img src="{{ evento.eventPhotos[3].url }}" alt="Lights" (click)="expander(3);">
-      </div>
-      <div class="column">
-        <img src="{{ evento.eventPhotos[4].url }}" alt="Lights" (click)="expander(4);">
-      </div>
-      <div class="column">
-        <img src="{{ evento.eventPhotos[5].url }}" alt="Lights" (click)="expander(5);">
-      </div>
-      <div class="column">
-        <img src="{{ evento.eventPhotos[6].url }}" alt="Lights" (click)="expander(6);">
-      </div>
-      <div class="column">
-        <img src="{{ evento.eventPhotos[7].url }}" alt="Lights" (click)="expander(7);">
-      </div>
-      <div class="column">
-        <img src="{{ evento.eventPhotos[8].url }}" alt="Lights" (click)="expander(8);">
+      <div *ngFor="let photo of evento.eventPhotos; let i = index" class="column">
+        <img src="{{ photo.url }}" alt="Nature" (click)="expander(i);">
       </div>
     </div>
 
