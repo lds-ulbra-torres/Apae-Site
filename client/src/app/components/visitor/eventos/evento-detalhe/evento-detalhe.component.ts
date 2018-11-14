@@ -43,7 +43,10 @@ export class EventoDetalheComponent implements OnInit {
   ngOnInit() {
     
   }
-
+  
+  encoder(uri){
+    return encodeURI(uri);
+  }
 
   expander(imgPosition,target) {
     this.fotoExpandida = this.evento.eventPhotos[imgPosition];

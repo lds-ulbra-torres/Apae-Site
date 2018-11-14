@@ -7,7 +7,7 @@
           <p class="m-0 textEllipsis2 px-1">{{ event.description }}</p>
         </div>
         <div class="gradientTransparente"></div>
-        <div class="mainPhoto" id="cover" [style.background]="'url(' + event.main_photo + ')'">
+        <div class="mainPhoto" id="cover" [style.background]="'url(' + encoder(event.main_photo) + ')'">
         </div>
         <div id="lineEvent">
           <div class="thurnbail" id="cover" [style.background]="'url(' + eventos[1].main_photo + ')'">

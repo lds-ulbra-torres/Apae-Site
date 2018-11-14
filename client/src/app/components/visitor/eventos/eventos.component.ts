@@ -19,6 +19,11 @@ export class EventosComponent implements OnInit {
     this.atualizarListaEventos();
   }
 
+  encoder(uri){
+    return encodeURI(uri);
+  }
+
+
   atualizarListaEventos(){
     this._eventosService.getAllApi()
       .map((objetoEvento:any) => objetoEvento.obj)

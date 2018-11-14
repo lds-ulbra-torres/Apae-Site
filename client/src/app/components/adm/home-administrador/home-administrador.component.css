@@ -7,7 +7,8 @@
 #divControlDashbord{
     background-color: #3c4a4b;
     color: #000;
-    height: 93vh;
+    height: -moz-available;
+    min-height: 93vh;
 }
 
 .row{
@@ -54,4 +55,8 @@
 
 .active{
     background-color: #6c7a7b;
+}
+
+#content {
+    background-color: #eee;
 }

@@ -21,6 +21,8 @@ export class EventoCadastrarComponent implements OnInit {
 
   evento = new FormData();
 
+  choosedImage: any;
+
   loader: boolean = false;
   error: boolean = false;
   
@@ -37,8 +39,9 @@ export class EventoCadastrarComponent implements OnInit {
   changeImage(event){
     this.getBase64(event.target.files[0],(res)=>{
       this.image.nativeElement.style.backgroundImage = `url(${res})`
+      this.choosedImage = encodeURI(res);
     })
-    this.evento.append('main_photo',event.target.files[0]);
+    this.evento.append('main_photo',(event.target.files[0]));
   }
 
   getBase64(file,cb){

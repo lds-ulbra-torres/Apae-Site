@@ -24,7 +24,9 @@ export class EventoEditarComponent implements OnInit {
   newFiles = new Array();
   cont: number;
   eventoEditado = new FormData();
-  
+
+  choosedImageEdit: any;
+  loader: boolean = false;
 
   constructor(private _eventosService: EventosService,
               private router: Router, 
@@ -40,7 +42,9 @@ export class EventoEditarComponent implements OnInit {
   }
 
   initialImage(){
-      this.imageEdit.nativeElement.style.backgroundImage = `url(${this.evento.main_photo})`;
+    let encoded = encodeURI(this.evento.main_photo);
+    this.imageEdit.nativeElement.style.backgroundImage = `url(${encoded})`;
+    this.choosedImageEdit = this.evento.main_photo;
   }
   consultarEvento(id:number){
   this._eventosService.getById(id)
@@ -60,6 +64,7 @@ export class EventoEditarComponent implements OnInit {
   changeImage(event){
     this.getBase64(event.target.files[0],(res)=>{
       this.imageEdit.nativeElement.style.backgroundImage = `url(${res})`
+      this.choosedImageEdit = res;
     })
     this.eventoEditado.append('main_photo',event.target.files[0]);
   }
@@ -108,6 +113,7 @@ export class EventoEditarComponent implements OnInit {
 
   onSubmit(form){
     this.eventoEditado.append("id", this.evento.id.toString());
+    this.loader = true;
 
     if (this.evento.title != form.value.title && form.value.title != "") {
       this.eventoEditado.append("title",form.value.title);

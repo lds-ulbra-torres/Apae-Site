@@ -1,10 +1,43 @@
 <a routerLink="/admin/dashboard/adm-eventos" class="btn btn-dark mt-1 mb-2 w-10">Voltar</a>
+
 <div class="container">
-  <h2>Foto Principal</h2>
+  <div class="m-0 row">
+    <h2>Foto Principal </h2>
+  </div>
+  <div class="row">
+    <input #mf type="file" value="evento.main_photo" name="main_photo" class="btn btn-primary mt-auto mb-2 mr-2" id="inputPhoto" (change)="changeImage($event)" ngModel>
+  </div>
   <form method="POST" enctype="multipart/form-data" #f="ngForm" (ngSubmit)="onSubmit(f)">
-    <div #mainImageEdit class="d-flex align-items-end flex-column" id="divMainPhotoInsert">
-      <input #mf type="file" value="evento.main_photo" name="main_photo" class="btn btn-primary mt-auto mb-2 mr-2" id="inputPhoto" (change)="changeImage($event)" ngModel>
+
+    <div class="row pt-2 justify-content-center">
+      <div class="col-5">
+        <h3>Pré Visualização</h3>
+        <div class="card">
+            <div class="absoluter">
+              <h4 class="mb-0 textEllipsis2 px-1">Titulo</h4>
+              <p class="m-0 textEllipsis2 px-1">descricao</p>
+            </div>
+            <div class="gradientTransparente"></div>
+            <div #mainImageEdit class="mainPhoto" id="cover">
+            </div>
+            <div id="lineEvent">
+              <div class="thurnbail" id="cover">
+              </div>
+              <div class="thurnbail" id="cover">
+              </div>
+              <div class="thurnbail" id="cover">
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="col-5">
+        <h3>Foto escolhida</h3>
+        <div>
+          <img src="{{choosedImageEdit}}" style="height: 35vh; width: auto">
+        </div>
+      </div>
     </div>
+
     <div class="w-75 m-auto">
       <h3 class="mt-2">Título do evento</h3>
       <input type="text" value="{{ evento?.title }}" name="title" class="form-control w-50" ngModel>
@@ -48,29 +81,9 @@
     </table>
     <div class="w-25 m-auto">
       <button type="submit" class="btn btn-primary w-100 mx-auto mb-3">Atualizar Evento</button>
+      <div *ngIf="loader" class="row justify-content-center">
+        <app-waiting-loader></app-waiting-loader>
+      </div>
     </div>
   </form>
-  <div *ngIf="allPhotos[0]" id="carouselExampleIndicators" class="carousel slide mb-3" data-ride="carousel">
-    <h2 class="text-center">Pré Vizualização</h2>
-      <ol class="carousel-indicators">
-        <li *ngFor="let foto of allPhotos; index as i" data-target="#carouselExampleIndicators" data-slide-to="i" [ngClass]="{'active': foto===allPhotos[0] }" ></li>
-      </ol>
-      <div class="carousel-inner">
-        <div class="carousel-item" *ngFor="let foto of allPhotos" [ngClass]="{'active': foto===allPhotos[0] }">
-          <img class="d-block m-auto" src="{{foto?.url}}" alt="First slide">
-        </div>
-      </div>
-      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <div class="arrowCarousel">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </div>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <div class="arrowCarousel">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </div>
-      </a>
-    </div>
 </div>
