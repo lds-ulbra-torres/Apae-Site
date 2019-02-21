@@ -30,8 +30,14 @@ export default (sequelize, DataType) => {
     updatedAt: false
   })
   Events.hasMany(sequelize.models.eventPhotos)
-  Events.events = () => {
-    return Events.findAll({attributes: ['id','title','description','main_photo']})
+  Events.events = async () => {
+    let eventos = await Events.findAll({attributes: ['id','title','description','main_photo'], include: [{
+        model: sequelize.models.eventPhotos,
+        attributes: ['id','url']
+      }]})
+    return eventos.filter( evento => {
+      return evento.dataValues.eventPhotos = evento.dataValues.eventPhotos.filter( (photo, i)=> i < 3 ? photo : null)
+    })
   }
   Events.event = id => {
     console.log(sequelize.models.eventPhotos)
