@@ -1,0 +1,32 @@
+body{
+    margin: 0;
+    background-color: #e6e9ef;
+}
+header{
+    background-color: #79a4d2;
+    padding-bottom: 5%;
+    padding-top: 5%;
+    color: white;
+}
+h1{
+    font-family: Georgia;
+    text-align: center;
+}
+nav{
+    list-style: none;
+	background-color: #b3cce6;
+    text-align: center;
+    width: 100%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+li{
+    display: inline;
+    padding-left: 5%;
+	padding-right: 5%;
+	text-decoration: none;
+	color: white;
+	font-family: arial;
+	text-transform: uppercase;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
